@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy & Power - Pakistan Insights 2025</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Pakistan Insights 2025</h1>
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="index.html#home">Home</a>
+    </nav>
+</header>
+
+<!-- Energy & Power Section -->
+<section class="topic-section">
+    <h2>Energy & Power</h2>
+
+    <!-- Charts -->
+    <div class="chart-container">
+        <canvas id="energyBarChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="energyPieChart"></canvas>
+    </div>
+
+    <!-- Optional Map Placeholder -->
+    <div class="map-placeholder">
+        <h3>Power Plants Distribution by Province</h3>
+        <p>Map placeholder showing thermal, hydro, and renewable power plants</p>
+    </div>
+
+    <!-- Detailed Explanation -->
+    <div class="topic-details">
+        <h3>Overview</h3>
+        <p>Pakistan’s energy sector includes thermal, hydro, nuclear, and renewable sources. Energy production and consumption are crucial for industry, agriculture, and households.</p>
+        
+        <h4>Energy Production by Source (Approx. 2025):</h4>
+        <ul>
+            <li>Thermal: 55%</li>
+            <li>Hydropower: 30%</li>
+            <li>Renewable (Solar/Wind): 10%</li>
+            <li>Nuclear: 5%</li>
+        </ul>
+
+        <h4>Energy Consumption by Sector:</h4>
+        <ul>
+            <li>Industry: 40%</li>
+            <li>Residential: 35%</li>
+            <li>Transport: 15%</li>
+            <li>Other: 10%</li>
+        </ul>
+
+        <h4>Key Insights:</h4>
+        <ul>
+            <li>Punjab and Sindh have the largest share of power plants.</li>
+            <li>Government encourages renewable energy projects to reduce dependence on fossil fuels.</li>
+            <li>Energy distribution challenges remain in rural and remote areas.</li>
+        </ul>
+    </div>
+
+    <!-- Back Button -->
+    <button onclick="goBack()" class="back-btn">← Back</button>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-topics">
+        <!-- 15 Topics x 3 Links each -->
+        <div class="footer-topic">
+            <h4>Exports</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
+                <li><a href="#" target="_blank">Trade Data 1</a></li>
+                <li><a href="#" target="_blank">Trade Data 2</a></li>
+                <li><a href="#defense">Defense & Security</a></li>
+                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
+    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
+            </ul>
+        </div>
+        <div class="footer-topic">
+            <h4>Education</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#" target="_blank">Education Report 1</a></li>
+                <li><a href="#" target="_blank">Education Report 2</a></li>
+                <li><a href="#mapSection">Pakistan Map</a></li>
+                 <li><a href="#imports">Imports & Exports Details</a></li>
+    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
+
+   
+            </ul>
+        </div>
+        <!-- Add remaining 13 topics similarly -->
+         <div class="footer-topic">
+            <h4>military</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#education">Education Statistics</a></li>
+    <li><a href="#employment">Employment Data</a></li>
+    <li><a href="#gender">Gender Stats</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
+            </ul>
+   
+    </div>
+    <div class="footer-topic">
+            <h4>exports</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#youth">Youth Information</a></li>
+    <li><a href="#health">Healthcare & Diseases</a></li>
+    <li><a href="#agriculture">Agriculture</a></li>
+    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
+
+            </ul>
+    </div>
+    
+    <div class="footer-topic">
+            <h4>industries</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#industries">Industries & Exports</a></li>
+    <li><a href="#onlineBusiness">Online Business & Work</a></li>
+    <li><a href="#energy">Energy & Power Overview</a></li>
+    <li><a href="#technology">Technology & Innovation</a></li>
+    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
+    </ul>
+    </div>
+    
+    <div class="footer-topic">
+            <h4>energy_power</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#energy">Energy & Power Overview</a></li>
+    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
+    <li><a href="#infrastructure">Infrastructure Projects</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
+</ul>
+    </div>
+    <div class="footer-topic">
+            <h4>more</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
+    <li><a href="#demographics">Population & Demographics</a></li>
+    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
+    <li><a href="#economy">Economy & Trade</a></li>
+    </ul>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Bar Chart - Energy Production by Source
+const ctxBar = document.getElementById('energyBarChart').getContext('2d');
+const energyBarChart = new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+        labels: ['Thermal', 'Hydropower', 'Renewable', 'Nuclear'],
+        datasets: [{
+            label: 'Energy Production (%)',
+            data: [55, 30, 10, 5],
+            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0']
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false },
+            title: { display: true, text: 'Energy Production by Source' }
+        }
+    }
+});
+
+// Pie Chart - Energy Consumption by Sector
+const ctxPie = document.getElementById('energyPieChart').getContext('2d');
+const energyPieChart = new Chart(ctxPie, {
+    type: 'pie',
+    data: {
+        labels: ['Industry', 'Residential', 'Transport', 'Other'],
+        datasets: [{
+            label: 'Energy Consumption (%)',
+            data: [40, 35, 15, 10],
+            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0']
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'bottom' },
+            title: { display: true, text: 'Energy Consumption by Sector' }
+        }
+    }
+});
+
+// Back Button Function
+function goBack() {
+    window.history.back();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pakistan Data Entry Dashboard</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Pakistan Data Entry</div>
+    <ul>
+      <li><a href="#intro">Home</a></li>
+      <li><a href="#provinceForm">Province</a></li>
+      <li><a href="#districtForm">District</a></li>
+      <li><a href="#tehsilForm">Tehsil</a></li>
+      <li><a href="#pakistanForm">Pakistan</a></li>
+    </ul>
+  </nav>
+
+  <!-- Intro Section -->
+  <section id="intro" class="intro">
+    <h1>Why This Data Collection is Important</h1>
+    <p>
+      Collecting structured data from provinces, districts, tehsils, and national level 
+      helps in population planning, education growth, employment opportunities, 
+      and infrastructure development. 
+      <br><br>
+      This system ensures better decision-making for government, researchers, NGOs, 
+      and the people of Pakistan.
+    </p>
+  </section>
+
+  <!-- Province Form -->
+  <section id="provinceForm" class="form-section">
+    <h2>Province Data Entry</h2>
+    <div class="form-card">
+      <form>
+        <label>Select Province</label>
+        <select>
+          <option>Punjab</option>
+          <option>Sindh</option>
+          <option>KPK</option>
+          <option>Balochistan</option>
+        </select>
+
+        <label>Districts Data</label>
+        <select>
+          <option>All Districts in Province</option>
+        </select>
+
+        <label>Population</label>
+        <input type="number" placeholder="Enter population">
+
+        <label>Education</label>
+        <input type="text" placeholder="Enter education details">
+
+        <label>Employment</label>
+        <input type="text" placeholder="Enter employment details">
+
+        <button type="submit" class="btn">Upload Data</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- District Form -->
+  <section id="districtForm" class="form-section">
+    <h2>District Data Entry</h2>
+    <div class="form-card">
+      <form>
+        <label>Select Province</label>
+        <select>
+          <option>Punjab</option>
+          <option>Sindh</option>
+          <option>KPK</option>
+          <option>Balochistan</option>
+        </select>
+
+        <label>District</label>
+        <input type="text" placeholder="Enter District">
+
+        <label>Tehsils Data</label>
+        <select>
+          <option>All Tehsils in District</option>
+        </select>
+
+        <label>Population</label>
+        <input type="number">
+
+        <label>Education</label>
+        <input type="text">
+
+        <label>Employment</label>
+        <input type="text">
+
+        <button type="submit" class="btn">Upload Data</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Tehsil Form -->
+  <section id="tehsilForm" class="form-section">
+    <h2>Tehsil Data Entry</h2>
+    <div class="form-card">
+      <form>
+        <label>Select Province</label>
+        <select>
+          <option>Punjab</option>
+          <option>Sindh</option>
+          <option>KPK</option>
+          <option>Balochistan</option>
+        </select>
+
+        <label>Select District</label>
+        <input type="text" placeholder="Enter District">
+
+        <label>Select Tehsil</label>
+        <input type="text" placeholder="Enter Tehsil">
+
+        <label>Population</label>
+        <input type="number">
+
+        <label>Education</label>
+        <input type="text">
+
+        <label>Employment</label>
+        <input type="text">
+
+        <button type="submit" class="btn">Upload Data</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Pakistan Form -->
+  <section id="pakistanForm" class="form-section">
+    <h2>Pakistan Main Data Entry</h2>
+    <div class="form-card">
+      <form>
+        <label>Select Option</label>
+        <select>
+          <option>All Provinces</option>
+        </select>
+
+        <label>Population</label>
+        <input type="number">
+
+        <label>Education</label>
+        <input type="text">
+
+        <label>Employment</label>
+        <input type="text">
+
+        <button type="submit" class="btn">Upload Main Data</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="script2.js"></script>
+</body>
+</html>

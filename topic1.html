@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exports - Pakistan Insights 2025</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Pakistan Insights 2025</h1>
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="index.html#home">Home</a>
+    </nav>
+</header>
+
+<!-- Exports Section -->
+<section class="topic-section">
+    <h2>Exports</h2>
+
+    <!-- Chart -->
+    <div class="chart-container">
+        <canvas id="exportsChart"></canvas>
+    </div>
+
+    <!-- Optional Map Placeholder -->
+    <div class="map-placeholder">
+        <h3>Export Destinations</h3>
+        <p>Map placeholder for top export countries</p>
+    </div>
+<!-- Detailed Explanation -->
+    <div class="topic-details">
+        <h3>Overview</h3>
+        <p>Pakistan exports a variety of goods to different countries. Major exports include textiles, rice, leather goods, sports equipment, and chemicals.</p>
+        <h4>Top Export Countries:</h4>
+        <ul>
+            <li>United States: 25%</li>
+            <li>China: 20%</li>
+            <li>United Kingdom: 15%</li>
+            <li>Germany: 10%</li>
+            <li>UAE: 8%</li>
+            <li>Other Countries: 22%</li>
+        </ul>
+        <h4>Top Export Products:</h4>
+        <ul>
+            <li>Textiles & Garments: 35%</li>
+            <li>Rice: 20%</li>
+            <li>Leather: 10%</li>
+            <li>Sports Goods: 8%</li>
+            <li>Chemicals: 5%</li>
+            <li>Others: 22%</li>
+        </ul>
+    </div>
+    
+
+    <!-- Back Button -->
+    <button onclick="goBack()" class="back-btn">← Back</button>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-topics">
+        <!-- 15 Topics x 3 Links each -->
+        <div class="footer-topic">
+            <h4>Exports</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
+                <li><a href="#" target="_blank">Trade Data 1</a></li>
+                <li><a href="#" target="_blank">Trade Data 2</a></li>
+                <li><a href="#defense">Defense & Security</a></li>
+                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
+    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
+            </ul>
+        </div>
+        <div class="footer-topic">
+            <h4>Education</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#" target="_blank">Education Report 1</a></li>
+                <li><a href="#" target="_blank">Education Report 2</a></li>
+                <li><a href="#mapSection">Pakistan Map</a></li>
+                 <li><a href="#imports">Imports & Exports Details</a></li>
+    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
+
+   
+            </ul>
+        </div>
+        <!-- Add remaining 13 topics similarly -->
+         <div class="footer-topic">
+            <h4>military</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#education">Education Statistics</a></li>
+    <li><a href="#employment">Employment Data</a></li>
+    <li><a href="#gender">Gender Stats</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
+            </ul>
+   
+    </div>
+    <div class="footer-topic">
+            <h4>exports</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#youth">Youth Information</a></li>
+    <li><a href="#health">Healthcare & Diseases</a></li>
+    <li><a href="#agriculture">Agriculture</a></li>
+    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
+
+            </ul>
+    </div>
+    
+    <div class="footer-topic">
+            <h4>industries</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#industries">Industries & Exports</a></li>
+    <li><a href="#onlineBusiness">Online Business & Work</a></li>
+    <li><a href="#energy">Energy & Power Overview</a></li>
+    <li><a href="#technology">Technology & Innovation</a></li>
+    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
+    </ul>
+    </div>
+    
+    <div class="footer-topic">
+            <h4>energy_power</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#energy">Energy & Power Overview</a></li>
+    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
+    <li><a href="#infrastructure">Infrastructure Projects</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
+</ul>
+    </div>
+    <div class="footer-topic">
+            <h4>more</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
+    <li><a href="#demographics">Population & Demographics</a></li>
+    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
+    <li><a href="#economy">Economy & Trade</a></li>
+    </ul>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Chart.js Exports Pie Chart
+const ctx = document.getElementById('exportsChart').getContext('2d');
+const exportsChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['United States', 'China', 'UK', 'Germany', 'UAE', 'Other Countries'],
+        datasets: [{
+            label: 'Exports by Country (%)',
+            data: [25, 20, 15, 10, 8, 22],
+            backgroundColor: [
+                '#ff6384',
+                '#36a2eb',
+                '#ffcd56',
+                '#4bc0c0',
+                '#9966ff',
+                '#c9cbcf'
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'bottom' },
+            title: { display: true, text: 'Pakistan Exports by Country' }
+        }
+    }
+});
+
+// Back Button Function
+function goBack() {
+    window.history.back();
+}
+</script>
+</body>
+</html>

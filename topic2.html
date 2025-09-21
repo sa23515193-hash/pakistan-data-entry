@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education - Pakistan Insights 2025</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Pakistan Insights 2025</h1>
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="index.html#home">Home</a>
+    </nav>
+</header>
+
+<!-- Education Section -->
+<section class="topic-section">
+    <h2>Education</h2>
+
+    <!-- Charts -->
+    <div class="chart-container">
+        <canvas id="educationBarChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="educationPieChart"></canvas>
+    </div>
+
+    <!-- Optional Map Placeholder -->
+    <div class="map-placeholder">
+        <h3>Educational Institutes Distribution</h3>
+        <p>Map placeholder showing schools, colleges, and universities</p>
+    </div>
+
+    <!-- Detailed Explanation -->
+    <div class="topic-details">
+        <h3>Overview</h3>
+        <p>Pakistan's education system includes public and private schools, colleges, universities, and technical institutes. The literacy rate is gradually improving, and there are multiple programs to enhance teacher quality and student learning.</p>
+        
+        <h4>Institutions:</h4>
+        <ul>
+            <li>Schools: 200,000+</li>
+            <li>Colleges: 6,000+</li>
+            <li>Universities: 200+</li>
+            <li>Technical Colleges: 150+</li>
+        </ul>
+
+        <h4>Study Methods & Scope:</h4>
+        <ul>
+            <li>Curriculum: National + provincial boards, international curriculum in private schools</li>
+            <li>Teaching Methods: Traditional, online blended learning</li>
+            <li>Career Scope: Engineering, Medicine, IT, Education, Business</li>
+        </ul>
+    </div>
+
+    <!-- Back Button -->
+    <button onclick="goBack()" class="back-btn">← Back</button>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-topics">
+        <!-- 15 Topics x 3 Links each -->
+        <div class="footer-topic">
+            <h4>Exports</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
+                <li><a href="#" target="_blank">Trade Data 1</a></li>
+                <li><a href="#" target="_blank">Trade Data 2</a></li>
+                <li><a href="#defense">Defense & Security</a></li>
+                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
+    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
+            </ul>
+        </div>
+        <div class="footer-topic">
+            <h4>Education</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#" target="_blank">Education Report 1</a></li>
+                <li><a href="#" target="_blank">Education Report 2</a></li>
+                <li><a href="#mapSection">Pakistan Map</a></li>
+                 <li><a href="#imports">Imports & Exports Details</a></li>
+    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
+
+   
+            </ul>
+        </div>
+        <!-- Add remaining 13 topics similarly -->
+         <div class="footer-topic">
+            <h4>military</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#education">Education Statistics</a></li>
+    <li><a href="#employment">Employment Data</a></li>
+    <li><a href="#gender">Gender Stats</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
+            </ul>
+   
+    </div>
+    <div class="footer-topic">
+            <h4>exports</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#youth">Youth Information</a></li>
+    <li><a href="#health">Healthcare & Diseases</a></li>
+    <li><a href="#agriculture">Agriculture</a></li>
+    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
+
+            </ul>
+    </div>
+    
+    <div class="footer-topic">
+            <h4>industries</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#industries">Industries & Exports</a></li>
+    <li><a href="#onlineBusiness">Online Business & Work</a></li>
+    <li><a href="#energy">Energy & Power Overview</a></li>
+    <li><a href="#technology">Technology & Innovation</a></li>
+    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
+    </ul>
+    </div>
+    
+    <div class="footer-topic">
+            <h4>energy_power</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#energy">Energy & Power Overview</a></li>
+    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
+    <li><a href="#infrastructure">Infrastructure Projects</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
+</ul>
+    </div>
+    <div class="footer-topic">
+            <h4>more</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
+    <li><a href="#demographics">Population & Demographics</a></li>
+    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
+    <li><a href="#economy">Economy & Trade</a></li>
+    </ul>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Bar Chart - Number of Institutions by Type
+const ctxBar = document.getElementById('educationBarChart').getContext('2d');
+const educationBarChart = new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+        labels: ['Schools', 'Colleges', 'Universities', 'Technical Colleges'],
+        datasets: [{
+            label: 'Number of Institutions',
+            data: [200000, 6000, 200, 150],
+            backgroundColor: ['#ff6384','#36a2eb','#ffcd56','#4bc0c0']
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false },
+            title: { display: true, text: 'Institutions in Pakistan' }
+        }
+    }
+});
+
+// Pie Chart - Approximate Literacy Rates
+const ctxPie = document.getElementById('educationPieChart').getContext('2d');
+const educationPieChart = new Chart(ctxPie, {
+    type: 'pie',
+    data: {
+        labels: ['Literate', 'Illiterate'],
+        datasets: [{
+            label: 'Literacy Rate (%)',
+            data: [62, 38],
+            backgroundColor: ['#54a0ff', '#ff6b6b']
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'bottom' },
+            title: { display: true, text: 'Literacy Rate in Pakistan' }
+        }
+    }
+});
+
+// Back Button Function
+function goBack() {
+    window.history.back();
+}
+</script>
+</body>
+</html>

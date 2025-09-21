@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agriculture - Pakistan Insights 2025</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Pakistan Insights 2025</h1>
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="index.html#home">Home</a>
+    </nav>
+</header>
+
+<!-- Agriculture Section -->
+<section class="topic-section">
+    <h2>Agriculture</h2>
+
+    <!-- Charts -->
+    <div class="chart-container">
+        <canvas id="cropsBarChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="cropPieChart"></canvas>
+    </div>
+
+    <!-- Optional Map Placeholder -->
+    <div class="map-placeholder">
+        <h3>Agriculture Distribution by Province</h3>
+        <p>Map placeholder showing crop production and farmland distribution</p>
+    </div>
+
+    <!-- Detailed Explanation -->
+    <div class="topic-details">
+        <h3>Overview</h3>
+        <p>Agriculture is a major sector in Pakistan's economy, providing employment and contributing significantly to GDP. Key crops include wheat, rice, sugarcane, cotton, and maize.</p>
+        
+        <h4>Major Crops Production by Province (Approx. 2025):</h4>
+        <ul>
+            <li>Punjab: Wheat, Sugarcane, Cotton</li>
+            <li>Sindh: Rice, Cotton, Sugarcane</li>
+            <li>Khyber Pakhtunkhwa: Wheat, Maize, Fruits</li>
+            <li>Balochistan: Wheat, Fruits, Vegetables</li>
+        </ul>
+
+        <h4>Crop Type Share:</h4>
+        <ul>
+            <li>Wheat: 40%</li>
+            <li>Rice: 20%</li>
+            <li>Sugarcane: 15%</li>
+            <li>Cotton: 15%</li>
+            <li>Other: 10%</li>
+        </ul>
+
+        <h4>Key Insights:</h4>
+        <ul>
+            <li>Punjab is the leading province in wheat and sugarcane production.</li>
+            <li>Sindh specializes in rice cultivation and cotton.</li>
+            <li>Government supports agriculture through subsidies, modern irrigation, and crop insurance programs.</li>
+        </ul>
+    </div>
+
+    <!-- Back Button -->
+    <button onclick="goBack()" class="back-btn">← Back</button>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-topics">
+        <!-- 15 Topics x 3 Links each -->
+        <div class="footer-topic">
+            <h4>Exports</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
+                <li><a href="#" target="_blank">Trade Data 1</a></li>
+                <li><a href="#" target="_blank">Trade Data 2</a></li>
+                <li><a href="#defense">Defense & Security</a></li>
+                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
+    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
+            </ul>
+        </div>
+        <div class="footer-topic">
+            <h4>Education</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#" target="_blank">Education Report 1</a></li>
+                <li><a href="#" target="_blank">Education Report 2</a></li>
+                <li><a href="#mapSection">Pakistan Map</a></li>
+                 <li><a href="#imports">Imports & Exports Details</a></li>
+    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
+
+   
+            </ul>
+        </div>
+        <!-- Add remaining 13 topics similarly -->
+         <div class="footer-topic">
+            <h4>military</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#education">Education Statistics</a></li>
+    <li><a href="#employment">Employment Data</a></li>
+    <li><a href="#gender">Gender Stats</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
+            </ul>
+   
+    </div>
+    <div class="footer-topic">
+            <h4>exports</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#youth">Youth Information</a></li>
+    <li><a href="#health">Healthcare & Diseases</a></li>
+    <li><a href="#agriculture">Agriculture</a></li>
+    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
+
+            </ul>
+    </div>
+    
+    <div class="footer-topic">
+            <h4>industries</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#industries">Industries & Exports</a></li>
+    <li><a href="#onlineBusiness">Online Business & Work</a></li>
+    <li><a href="#energy">Energy & Power Overview</a></li>
+    <li><a href="#technology">Technology & Innovation</a></li>
+    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
+    </ul>
+    </div>
+    
+    <div class="footer-topic">
+            <h4>energy_power</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="#energy">Energy & Power Overview</a></li>
+    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
+    <li><a href="#infrastructure">Infrastructure Projects</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
+</ul>
+    </div>
+    <div class="footer-topic">
+            <h4>more</h4>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
+                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
+    <li><a href="#demographics">Population & Demographics</a></li>
+    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
+    <li><a href="#economy">Economy & Trade</a></li>
+    </ul>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Bar Chart - Major Crops Production by Province
+const ctxBar = document.getElementById('cropsBarChart').getContext('2d');
+const cropsBarChart = new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+        labels: ['Punjab', 'Sindh', 'KPK', 'Balochistan'],
+        datasets: [{
+            label: 'Crop Production (Index)',
+            data: [100, 80, 50, 30],
+            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0']
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false },
+            title: { display: true, text: 'Major Crops Production by Province' }
+        }
+    }
+});
+
+// Pie Chart - Crop Type Share
+const ctxPie = document.getElementById('cropPieChart').getContext('2d');
+const cropPieChart = new Chart(ctxPie, {
+    type: 'pie',
+    data: {
+        labels: ['Wheat', 'Rice', 'Sugarcane', 'Cotton', 'Other'],
+        datasets: [{
+            label: 'Crop Type Share (%)',
+            data: [40, 20, 15, 15, 10],
+            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0','#9966ff']
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'bottom' },
+            title: { display: true, text: 'Crop Type Share in Pakistan' }
+        }
+    }
+});
+
+// Back Button Function
+function goBack() {
+    window.history.back();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f5f7; /* Soft light gray for attractiveness */
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #1a73e8; 
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h1 { margin: 0; font-size: 1.8rem; }
+header nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: 500;
+}
+header nav a:hover { text-decoration: underline; }
+
+/* Dashboard */
+#dashboard { padding: 30px 20px; text-align: center; }
+#dashboard h2 { margin-bottom: 20px; }
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+.topic-btn {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.topic-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Pakistan Map */
+#home { padding: 30px 20px; text-align: center; }
+#pakistan-map {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+
+.province {
+    flex: 1 1 120px;
+    min-width: 120px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+#punjab { background-color: #ff6b6b; }
+#sindh { background-color: #feca57; color: #333; }
+#kpk { background-color: #1dd1a1; }
+#balochistan { background-color: #5f27cd; }
+#gilgit { background-color: #54a0ff; }
+.province:hover { transform: translateY(-3px); }
+
+/* Province Info */
+#province-info { margin-top: 20px; padding: 15px; background: #fff; border-radius: 10px; }
+
+/* Footer */
+footer {
+    background-color: #1a1a2e;
+    color: white;
+    padding: 25px 20px;
+}
+.footer-topics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+.footer-topic h4 { margin-bottom: 10px; font-size: 1.1rem; }
+.footer-topic ul { list-style: none; padding: 0; }
+.footer-topic ul li { margin-bottom: 6px; }
+.footer-topic ul li a { color: #feca57; text-decoration: none; }
+.footer-topic ul li a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .topics-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    #pakistan-map { flex-direction: column; align-items: center; }
+}
+.user-management {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.user-management h2, .user-management h3 {
+  color: #2c3e50;
+}
+
+.owner, .province-managers, .job-form {
+  background-color: #ecf0f1;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.province-managers ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.province-managers li {
+  margin-bottom: 10px;
+}
+
+.city-managers {
+  padding-left: 15px;
+  color: #34495e;
+}
+
+.hidden {
+  display: none;
+}
+
+.toggle-province {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.toggle-province:hover {
+  background-color: #1c5980;
+}
+
+.job-form input, .job-form select, .job-form button {
+  padding: 8px;
+  margin: 5px 0;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: 1px solid #bdc3c7;
+}
+
+.job-form button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.job-form button:hover {
+  background-color: #1c5980;
+}
