@@ -1,0 +1,32 @@
+{
+  "provinces": [
+    {
+      "name": "Punjab",
+      "code": "punjab"
+    },
+    {
+      "name": "Sindh",
+      "code": "sindh"
+    },
+    {
+      "name": "Khyber Pakhtunkhwa",
+      "code": "kpk"
+    },
+    {
+      "name": "Balochistan",
+      "code": "balochistan"
+    },
+    {
+      "name": "Gilgit-Baltistan",
+      "code": "gilgit-baltistan"
+    },
+    {
+      "name": "Islamabad Capital Territory",
+      "code": "islamabad"
+    },
+    {
+      "name": "Azad Jammu and Kashmir",
+      "code": "ajk"
+    }
+  ]
+}
