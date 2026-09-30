@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "name": "Pakistan Bureau of Statistics",
+      "url": "https://www.pbs.gov.pk/"
+    },
+    {
+      "name": "Pakistan Census",
+      "url": "https://www.pbs.gov.pk/census/"
+    },
+    {
+      "name": "Labour Force Statistics",
+      "url": "https://www.pbs.gov.pk/labour-force-statistics/"
+    },
+    {
+      "name": "Household Integrated Economic Survey",
+      "url": "https://www.pbs.gov.pk/hies/"
+    }
+  ]
+}
