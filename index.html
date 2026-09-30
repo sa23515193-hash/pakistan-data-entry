@@ -1,187 +1,1456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pakistan Insights 2025</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pakistan Insights | Data Explorer</title>
+    <meta name="description" content="Pakistan Insights - Explore Pakistan's population, education, employment, economy, agriculture, technology and regional data.">
+    <meta name="keywords" content="Pakistan data, Pakistan statistics, population, education, employment, provinces, districts, data visualization">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Leaflet Map -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
 </head>
+
 <body>
 
-<!-- Header -->
-<header>
-    <h1>Pakistan Insights 2025</h1>
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="#home">Home</a>
-        <a href="management.html">Management</a>
-    </nav>
+<!-- =========================================================
+     HEADER / NAVIGATION
+========================================================= -->
+
+<header class="main-header">
+
+    <div class="header-container">
+
+        <div class="brand">
+            <div class="brand-icon">🇵🇰</div>
+
+            <div>
+                <h1>Pakistan Insights</h1>
+                <p>Data • People • Regions • Development</p>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+
+            <a href="index.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="#topics">
+                Topics
+            </a>
+
+            <a href="#map-section">
+                Map
+            </a>
+
+            <a href="#statistics">
+                Statistics
+            </a>
+
+            <a href="management.html">
+                Management
+            </a>
+
+            <a href="#sources">
+                Sources
+            </a>
+
+        </nav>
+
+    </div>
+
 </header>
 
-<!-- Dashboard Section -->
-<section id="dashboard">
-    <h2>Dashboard</h2>
+
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
+
+<section class="hero-section" id="home">
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+            🇵🇰 PAKISTAN DATA EXPLORER
+        </span>
+
+        <h2>
+            Explore Pakistan Through
+            <span>Data & Insights</span>
+        </h2>
+
+        <p>
+            Explore information about Pakistan's population, education,
+            employment, economy, agriculture, technology, infrastructure
+            and regional development.
+        </p>
+
+        <!-- SEARCH -->
+
+        <div class="search-container">
+
+            <label for="searchInput" class="sr-only">
+                Search Pakistan data
+            </label>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="🔎 Search province, district, topic or indicator..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="searchBtn">
+                Search
+            </button>
+
+        </div>
+
+        <div
+            id="searchResults"
+            class="search-results">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DASHBOARD / FILTERS
+========================================================= -->
+
+<main>
+
+<section
+    id="dashboard"
+    class="dashboard-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            DATA DASHBOARD
+        </span>
+
+        <h2>
+            Pakistan at a Glance
+        </h2>
+
+        <p>
+            Explore key indicators and filter information by
+            province, category and year.
+        </p>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filters-panel">
+
+        <div class="filter-group">
+
+            <label for="provinceFilter">
+                Province
+            </label>
+
+            <select id="provinceFilter">
+
+                <option value="all">
+                    All Provinces
+                </option>
+
+                <option value="Punjab">
+                    Punjab
+                </option>
+
+                <option value="Sindh">
+                    Sindh
+                </option>
+
+                <option value="Khyber Pakhtunkhwa">
+                    Khyber Pakhtunkhwa
+                </option>
+
+                <option value="Balochistan">
+                    Balochistan
+                </option>
+
+                <option value="Islamabad">
+                    Islamabad Capital Territory
+                </option>
+
+                <option value="Gilgit-Baltistan">
+                    Gilgit-Baltistan
+                </option>
+
+                <option value="Azad Jammu and Kashmir">
+                    Azad Jammu & Kashmir
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+            <label for="districtFilter">
+                District
+            </label>
+
+            <select id="districtFilter">
+
+                <option value="all">
+                    All Districts
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+            <label for="categoryFilter">
+                Category
+            </label>
+
+            <select id="categoryFilter">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="population">
+                    Population
+                </option>
+
+                <option value="education">
+                    Education
+                </option>
+
+                <option value="employment">
+                    Employment
+                </option>
+
+                <option value="economy">
+                    Economy
+                </option>
+
+                <option value="agriculture">
+                    Agriculture
+                </option>
+
+                <option value="healthcare">
+                    Healthcare
+                </option>
+
+                <option value="technology">
+                    Technology
+                </option>
+
+                <option value="infrastructure">
+                    Infrastructure
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+            <label for="yearFilter">
+                Year
+            </label>
+
+            <select id="yearFilter">
+
+                <option value="all">
+                    All Years
+                </option>
+
+                <option value="2025">
+                    2025
+                </option>
+
+                <option value="2024">
+                    2024
+                </option>
+
+                <option value="2023">
+                    2023
+                </option>
+
+                <option value="2022">
+                    2022
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="resetFilters"
+            class="reset-filter-btn">
+
+            Reset Filters
+
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         STATISTICS CARDS
+    ====================================================== -->
+
+    <div
+        id="statistics"
+        class="statistics-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👥
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Population
+                </span>
+
+                <strong
+                    id="populationValue">
+                    241.49M
+                </strong>
+
+                <small>
+                    Census 2023
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎓
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Education
+                </span>
+
+                <strong
+                    id="educationValue">
+                    —
+                </strong>
+
+                <small>
+                    Education indicators
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                💼
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Employment
+                </span>
+
+                <strong
+                    id="employmentValue">
+                    —
+                </strong>
+
+                <small>
+                    Labour indicators
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🗺️
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Provinces / Regions
+                </span>
+
+                <strong>
+                    7
+                </strong>
+
+                <small>
+                    Administrative regions
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SEARCH / FILTER RESULT AREA
+========================================================= -->
+
+<section
+    id="dataResultsSection"
+    class="data-results-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            FILTERED DATA
+        </span>
+
+        <h2>
+            Explore Results
+        </h2>
+
+        <p id="resultsSummary">
+            Select filters or search to explore Pakistan data.
+        </p>
+
+    </div>
+
+
+    <div
+        id="dataResults"
+        class="data-results-grid">
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                📊
+            </div>
+
+            <h3>
+                Ready to Explore
+            </h3>
+
+            <p>
+                Use the search box or filters above to explore
+                available information.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CHARTS SECTION
+========================================================= -->
+
+<section
+    id="charts"
+    class="charts-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            DATA VISUALIZATION
+        </span>
+
+        <h2>
+            Pakistan Statistics
+        </h2>
+
+        <p>
+            Visual representation of important Pakistan-related
+            indicators.
+        </p>
+
+    </div>
+
+
+    <div class="charts-grid">
+
+
+        <!-- Population Chart -->
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <span class="chart-category">
+                        POPULATION
+                    </span>
+
+                    <h3>
+                        Population by Province
+                    </h3>
+
+                </div>
+
+            </div>
+
+            <div class="chart-wrapper">
+
+                <canvas
+                    id="populationChart">
+                </canvas>
+
+            </div>
+
+            <div class="chart-source">
+
+                Source:
+                <a
+                    href="https://www.pbs.gov.pk/census/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Pakistan Bureau of Statistics
+
+                </a>
+
+                — Census 2023
+
+            </div>
+
+        </div>
+
+
+        <!-- Education Chart -->
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <span class="chart-category">
+                        EDUCATION
+                    </span>
+
+                    <h3>
+                        Education Indicators
+                    </h3>
+
+                </div>
+
+            </div>
+
+            <div class="chart-wrapper">
+
+                <canvas
+                    id="educationChart">
+                </canvas>
+
+            </div>
+
+            <div class="chart-source">
+
+                Source:
+                <a
+                    href="https://www.pbs.gov.pk/hies/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Pakistan Bureau of Statistics
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Employment Chart -->
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <span class="chart-category">
+                        EMPLOYMENT
+                    </span>
+
+                    <h3>
+                        Labour & Employment
+                    </h3>
+
+                </div>
+
+            </div>
+
+            <div class="chart-wrapper">
+
+                <canvas
+                    id="employmentChart">
+                </canvas>
+
+            </div>
+
+            <div class="chart-source">
+
+                Source:
+                <a
+                    href="https://www.pbs.gov.pk/labour-force-statistics/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Pakistan Bureau of Statistics
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Regional Chart -->
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <span class="chart-category">
+                        REGIONAL DATA
+                    </span>
+
+                    <h3>
+                        Regional Comparison
+                    </h3>
+
+                </div>
+
+            </div>
+
+            <div class="chart-wrapper">
+
+                <canvas
+                    id="regionalChart">
+                </canvas>
+
+            </div>
+
+            <div class="chart-source">
+
+                Data source and year will be displayed
+                with the selected dataset.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     15 TOPICS
+========================================================= -->
+
+<section
+    id="topics"
+    class="topics-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            EXPLORE TOPICS
+        </span>
+
+        <h2>
+            Pakistan Data Categories
+        </h2>
+
+        <p>
+            Explore detailed information across major areas
+            of Pakistan's economy, society and development.
+        </p>
+
+    </div>
+
+
     <div class="topics-grid">
-        <!-- 15 Topic Buttons -->
-        <button class="topic-btn" data-page="topic1.html">Exports</button>
-        <button class="topic-btn" data-page="topic2.html">Education</button>
-        <button class="topic-btn" data-page="topic3.html">Employment</button>
-        <button class="topic-btn" data-page="topic4.html">Online Work</button>
-        <button class="topic-btn" data-page="topic5.html">Population</button>
-        <button class="topic-btn" data-page="topic6.html">Healthcare</button>
-        <button class="topic-btn" data-page="topic7.html">Industries</button>
-        <button class="topic-btn" data-page="topic8.html">Agriculture</button>
-        <button class="topic-btn" data-page="topic9.html">Technology</button>
-        <button class="topic-btn" data-page="topic10.html">Infrastructure</button>
-        <button class="topic-btn" data-page="topic11.html">Youth</button>
-        <button class="topic-btn" data-page="topic12.html">economy</button>
-        <button class="topic-btn" data-page="topic13.html">Defense&Security</button>
-        <button class="topic-btn" data-page="topic14.html">Energy&Power</button>
-        <button class="topic-btn" data-page="topic15.html">Demographics</button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic1.html">
+            📦 Exports
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic2.html">
+            🎓 Education
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic3.html">
+            💼 Employment
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic4.html">
+            💻 Online Work
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic5.html">
+            👥 Population
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic6.html">
+            🏥 Healthcare
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic7.html">
+            🏭 Industries
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic8.html">
+            🌾 Agriculture
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic9.html">
+            💡 Technology
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic10.html">
+            🏗️ Infrastructure
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic11.html">
+            👨‍🎓 Youth
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic12.html">
+            💰 Economy
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic13.html">
+            🛡️ Defense & Security
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic14.html">
+            ⚡ Energy & Power
+        </button>
+
+
+        <button
+            class="topic-btn"
+            data-page="topic15.html">
+            📈 Demographics
+        </button>
+
     </div>
+
 </section>
 
-<!-- Home / Pakistan Map Section -->
-<section id="home">
-    <h2>Pakistan Map</h2>
-<!-- Map Container -->
-<div id="pakistanMap" style="width: 100%; height: 600px;"></div>
 
-<!-- Leaflet CSS & JS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <div id="pakistan-map">
-        
-        <div class="province" id="punjab">Punjab</div>
-        <div class="province" id="sindh">Sindh</div>
-        <div class="province" id="kpk">Khyber Pakhtunkhwa</div>
-        <div class="province" id="balochistan">Balochistan</div>
-        <div class="province" id="gilgit">Gilgit-Baltistan</div>
+<!-- =========================================================
+     PAKISTAN MAP
+========================================================= -->
+
+<section
+    id="map-section"
+    class="map-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            GEOGRAPHIC EXPLORER
+        </span>
+
+        <h2>
+            Explore Pakistan by Region
+        </h2>
+
+        <p>
+            Select a region to explore available information.
+        </p>
+
     </div>
-    <div id="province-info">
-        <h3>Click on a province to view details</h3>
+
+
+    <!-- Real Leaflet Map -->
+
+    <div
+        id="pakistanMap"
+        class="pakistan-map">
     </div>
+
+
+    <!-- Province Quick Selection -->
+
+    <div
+        id="pakistan-map"
+        class="province-selector">
+
+        <button
+            class="province"
+            id="punjab"
+            data-province="Punjab">
+
+            Punjab
+
+        </button>
+
+
+        <button
+            class="province"
+            id="sindh"
+            data-province="Sindh">
+
+            Sindh
+
+        </button>
+
+
+        <button
+            class="province"
+            id="kpk"
+            data-province="Khyber Pakhtunkhwa">
+
+            Khyber Pakhtunkhwa
+
+        </button>
+
+
+        <button
+            class="province"
+            id="balochistan"
+            data-province="Balochistan">
+
+            Balochistan
+
+        </button>
+
+
+        <button
+            class="province"
+            id="gilgit"
+            data-province="Gilgit-Baltistan">
+
+            Gilgit-Baltistan
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="province-info"
+        class="province-info">
+
+        <h3>
+            Select a province
+        </h3>
+
+        <p>
+            Province information will appear here.
+        </p>
+
+    </div>
+
 </section>
 
-<!-- Job Contact Form -->
-  <div class="job-form">
-    <h3>Apply for Data Entry Job</h3>
-    <form id="jobForm">
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" name="name" required><br><br>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required><br><br>
+<!-- =========================================================
+     DATA SOURCES
+========================================================= -->
 
-      <label for="province">Province:</label>
-      <select id="province" name="province" required>
-        <option value="">Select Province</option>
-        <option value="Punjab">Punjab</option>
-        <option value="Sindh">Sindh</option>
-        <option value="KPK">Khyber Pakhtunkhwa</option>
-        <option value="Balochistan">Balochistan</option>
-        <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
-      </select><br><br>
+<section
+    id="sources"
+    class="sources-section">
 
-      <label for="city">City:</label>
-      <input type="text" id="city" name="city" required><br><br>
+    <div class="section-heading">
 
-      <button type="submit">Apply</button>
-    </form>
-    <p id="formMessage"></p>
-  </div>
-<!-- Footer -->
-<footer>
-    <div class="footer-topics">
-        <!-- 15 Topics x 3 Links each -->
-        <div class="footer-topic">
-            <h4>Exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Trade Data 1</a></li>
-                <li><a href="#" target="_blank">Trade Data 2</a></li>
-                <li><a href="#defense">Defense & Security</a></li>
-                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
-            </ul>
+        <span class="section-label">
+            DATA TRANSPARENCY
+        </span>
+
+        <h2>
+            Data Sources & References
+        </h2>
+
+        <p>
+            Data should be interpreted together with its
+            source, dataset and publication year.
+        </p>
+
+    </div>
+
+
+    <div class="sources-grid">
+
+
+        <article class="source-card">
+
+            <span class="source-icon">
+                📊
+            </span>
+
+            <h3>
+                Pakistan Bureau of Statistics
+            </h3>
+
+            <p>
+                Official statistical information including
+                population, census, labour force and
+                socioeconomic indicators.
+            </p>
+
+            <a
+                href="https://www.pbs.gov.pk/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                Visit PBS →
+
+            </a>
+
+        </article>
+
+
+        <article class="source-card">
+
+            <span class="source-icon">
+                👥
+            </span>
+
+            <h3>
+                Population & Housing Census
+            </h3>
+
+            <p>
+                Population and demographic information
+                published through Pakistan's national
+                census programme.
+            </p>
+
+            <a
+                href="https://www.pbs.gov.pk/census/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                View Census Data →
+
+            </a>
+
+        </article>
+
+
+        <article class="source-card">
+
+            <span class="source-icon">
+                💼
+            </span>
+
+            <h3>
+                Labour Force Statistics
+            </h3>
+
+            <p>
+                Labour force, employment, unemployment
+                and related indicators published by PBS.
+            </p>
+
+            <a
+                href="https://www.pbs.gov.pk/labour-force-statistics/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                View Labour Data →
+
+            </a>
+
+        </article>
+
+
+        <article class="source-card">
+
+            <span class="source-icon">
+                🎓
+            </span>
+
+            <h3>
+                Household & Education Statistics
+            </h3>
+
+            <p>
+                Household, education and socioeconomic
+                indicators available through official
+                statistical publications.
+            </p>
+
+            <a
+                href="https://www.pbs.gov.pk/hies/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                View HIES →
+
+            </a>
+
+        </article>
+
+    </div>
+
+
+    <div class="source-note">
+
+        <strong>Data verification notice:</strong>
+
+        <p>
+            This website is an educational and portfolio
+            project. Statistics should be verified against
+            the original official publication before being
+            used for academic, professional or official
+            reporting.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DATA ENTRY / JOB FORM
+========================================================= -->
+
+<section
+    id="job-application"
+    class="job-section">
+
+    <div class="job-form">
+
+        <span class="section-label">
+            DATA ENTRY
+        </span>
+
+        <h2>
+            Apply for Data Entry Job
+        </h2>
+
+        <p>
+            Submit your basic information through the form
+            below.
+        </p>
+
+
+        <form id="jobForm">
+
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="province">
+                    Province
+                </label>
+
+                <select
+                    id="province"
+                    name="province"
+                    required>
+
+                    <option value="">
+                        Select Province
+                    </option>
+
+                    <option value="Punjab">
+                        Punjab
+                    </option>
+
+                    <option value="Sindh">
+                        Sindh
+                    </option>
+
+                    <option value="KPK">
+                        Khyber Pakhtunkhwa
+                    </option>
+
+                    <option value="Balochistan">
+                        Balochistan
+                    </option>
+
+                    <option value="Gilgit-Baltistan">
+                        Gilgit-Baltistan
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="city">
+                    City
+                </label>
+
+                <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    placeholder="Enter your city"
+                    required>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn">
+
+                Apply Now
+
+            </button>
+
+        </form>
+
+
+        <p
+            id="formMessage"
+            class="form-message">
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <div class="brand-icon">
+                🇵🇰
+            </div>
+
+            <h2>
+                Pakistan Insights
+            </h2>
+
+            <p>
+                Exploring Pakistan through structured
+                information, statistics and data
+                visualization.
+            </p>
+
         </div>
+
+
         <div class="footer-topic">
-            <h4>Education</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Education Report 1</a></li>
-                <li><a href="#" target="_blank">Education Report 2</a></li>
-                <li><a href="#mapSection">Pakistan Map</a></li>
-                 <li><a href="#imports">Imports & Exports Details</a></li>
-    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
 
-   
+            <h4>
+                Explore
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#dashboard">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#topics">
+                        Topics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#charts">
+                        Statistics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#map-section">
+                        Pakistan Map
+                    </a>
+                </li>
+
             </ul>
+
         </div>
-        <!-- Add remaining 13 topics similarly -->
-         <div class="footer-topic">
-            <h4>military</h4>
+
+
+        <div class="footer-topic">
+
+            <h4>
+                Popular Topics
+            </h4>
+
             <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#education">Education Statistics</a></li>
-    <li><a href="#employment">Employment Data</a></li>
-    <li><a href="#gender">Gender Stats</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
-            </ul>
-   
-    </div>
-    <div class="footer-topic">
-            <h4>exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#youth">Youth Information</a></li>
-    <li><a href="#health">Healthcare & Diseases</a></li>
-    <li><a href="#agriculture">Agriculture</a></li>
-    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
+
+                <li>
+                    <a href="topic2.html">
+                        Education
+                    </a>
+                </li>
+
+                <li>
+                    <a href="topic3.html">
+                        Employment
+                    </a>
+                </li>
+
+                <li>
+                    <a href="topic5.html">
+                        Population
+                    </a>
+                </li>
+
+                <li>
+                    <a href="topic12.html">
+                        Economy
+                    </a>
+                </li>
 
             </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>industries</h4>
+
+        </div>
+
+
+        <div class="footer-topic">
+
+            <h4>
+                Development
+            </h4>
+
             <ul>
-                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#industries">Industries & Exports</a></li>
-    <li><a href="#onlineBusiness">Online Business & Work</a></li>
-    <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="#technology">Technology & Innovation</a></li>
-    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>energy_power</h4>
+
+                <li>
+                    <a href="topic8.html">
+                        Agriculture
+                    </a>
+                </li>
+
+                <li>
+                    <a href="topic9.html">
+                        Technology
+                    </a>
+                </li>
+
+                <li>
+                    <a href="topic10.html">
+                        Infrastructure
+                    </a>
+                </li>
+
+                <li>
+                    <a href="topic14.html">
+                        Energy & Power
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-topic">
+
+            <h4>
+                Official Sources
+            </h4>
+
             <ul>
-                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
-    <li><a href="#infrastructure">Infrastructure Projects</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
-</ul>
-    </div>
-    <div class="footer-topic">
-            <h4>more</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
-    <li><a href="#demographics">Population & Demographics</a></li>
-    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
-    <li><a href="#economy">Economy & Trade</a></li>
-    </ul>
+
+                <li>
+                    <a
+                        href="https://www.pbs.gov.pk/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        Pakistan Bureau of Statistics
+
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://www.sbp.org.pk/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        State Bank of Pakistan
+
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://www.fbr.gov.pk/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        Federal Board of Revenue
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#sources">
+                        All Data Sources
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
     </div>
 
-</div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Pakistan Insights.
+            Educational & Portfolio Project.
+        </p>
+
+        <p>
+            Built with HTML, CSS & JavaScript.
+        </p>
+
+    </div>
 
 </footer>
 
+
+<!-- =========================================================
+     MAIN JAVASCRIPT
+========================================================= -->
+
 <script src="script.js"></script>
+
 </body>
 </html>
