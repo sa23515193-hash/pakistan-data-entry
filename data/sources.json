@@ -1,20 +1,46 @@
 {
   "sources": [
     {
+      "id": "pbs",
       "name": "Pakistan Bureau of Statistics",
-      "url": "https://www.pbs.gov.pk/"
+      "organization": "Pakistan Bureau of Statistics (PBS)",
+      "url": "https://www.pbs.gov.pk/",
+      "description": "Official national statistical authority of Pakistan."
     },
     {
-      "name": "Pakistan Census",
-      "url": "https://www.pbs.gov.pk/census/"
+      "id": "census-2023",
+      "name": "7th Population and Housing Census 2023",
+      "organization": "Pakistan Bureau of Statistics",
+      "url": "https://www.pbs.gov.pk/census/",
+      "description": "Official population and housing census data for Pakistan."
     },
     {
-      "name": "Labour Force Statistics",
-      "url": "https://www.pbs.gov.pk/labour-force-statistics/"
+      "id": "census-district",
+      "name": "Pakistan Census 2023 District Tables",
+      "organization": "Pakistan Bureau of Statistics",
+      "url": "https://www.pbs.gov.pk/result-excel/",
+      "description": "District-level census tables and downloadable Excel data."
     },
     {
+      "id": "labour-force",
+      "name": "Labour Force Survey 2024-25",
+      "organization": "Pakistan Bureau of Statistics",
+      "url": "https://www.pbs.gov.pk/labour-force-statistics/",
+      "description": "Official employment, unemployment and labour-force statistics."
+    },
+    {
+      "id": "hies",
       "name": "Household Integrated Economic Survey",
-      "url": "https://www.pbs.gov.pk/hies/"
+      "organization": "Pakistan Bureau of Statistics",
+      "url": "https://www.pbs.gov.pk/hies/",
+      "description": "Official household economic and social indicators."
+    },
+    {
+      "id": "census-archive",
+      "name": "PBS Census Archive",
+      "organization": "Pakistan Bureau of Statistics",
+      "url": "https://www.pbs.gov.pk/censusarchive/",
+      "description": "Historical census tables and downloadable datasets."
     }
   ]
 }
