@@ -1,3 +1,14 @@
 {
-  "data": []
+  "data": [
+    {
+      "province": "Punjab",
+      "district": "Lahore",
+      "category": "Population",
+      "indicator": "Population",
+      "year": 2023,
+      "value": null,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics"
+    }
+  ]
 }
