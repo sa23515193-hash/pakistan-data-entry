@@ -1,170 +1,1624 @@
-/* General Styles */
-body {
+/* =========================================================
+   PAKISTAN INSIGHTS
+   Main Dashboard Stylesheet
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET & GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f2f5f7; /* Soft light gray for attractiveness */
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    background: #f4f7f6;
+    color: #17211f;
+    line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* =========================================================
+   2. HEADER
+   ========================================================= */
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background:
+        linear-gradient(
+            135deg,
+            #064e3b,
+            #087443
+        );
+
+    color: white;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.12);
+}
+
+.header-container {
+    width: min(1400px, 92%);
+    margin: auto;
+
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    border-radius: 14px;
+
+    font-size: 25px;
+}
+
+.brand h1 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.brand p {
+    margin-top: 3px;
+
+    font-size: 0.72rem;
+
+    color:
+        rgba(255, 255, 255, 0.75);
+
+    letter-spacing: 0.5px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.main-nav a {
+    padding: 9px 13px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    color:
+        rgba(255, 255, 255, 0.88);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background:
+        rgba(255, 255, 255, 0.14);
+
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   3. HERO
+   ========================================================= */
+
+.hero-section {
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        95px 20px
+        105px;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(35, 168, 100, 0.35),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(255, 255, 255, 0.09),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #032d21,
+            #075e3f 55%,
+            #087443
+        );
+}
+
+.hero-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: -180px;
+    bottom: -220px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1000px, 92%);
+    margin: auto;
+
+    text-align: center;
+}
+
+.hero-label,
+.section-label {
+    display: inline-block;
+
+    color: #087443;
+
+    background: #e6f5ee;
+
+    padding: 6px 13px;
+
+    border-radius: 50px;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.hero-label {
+    color: #d8f7e7;
+
+    background:
+        rgba(255, 255, 255, 0.11);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+}
+
+.hero-content h2 {
+    margin-top: 18px;
+
+    font-size:
+        clamp(2.2rem, 6vw, 4.7rem);
+
+    line-height: 1.05;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+}
+
+.hero-content h2 span {
+    color: #73d69f;
+}
+
+.hero-content > p {
+    width: min(760px, 100%);
+
+    margin:
+        22px auto
+        30px;
+
+    color:
+        rgba(255, 255, 255, 0.82);
+
+    font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   4. SEARCH
+   ========================================================= */
+
+.search-container {
+    width: min(760px, 100%);
+    margin: 28px auto 0;
+
+    display: flex;
+
+    padding: 6px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(0, 0, 0, 0.18);
+}
+
+.search-container input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding:
+        14px 16px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #17211f;
+
+    font-size: 0.95rem;
+}
+
+.search-container button {
+    border: none;
+
+    border-radius: 11px;
+
+    padding:
+        0 22px;
+
+    background: #087443;
+
+    color: white;
+
+    font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.search-container button:hover {
+    background: #064e3b;
+    transform: translateY(-1px);
+}
+
+.search-results {
+    width: min(760px, 100%);
+
+    margin: 15px auto 0;
+
+    text-align: left;
+}
+
+.search-result-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(210px, 1fr)
+        );
+
+    gap: 12px;
+}
+
+.search-result-card {
+    padding: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    color: #17211f;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.1);
+}
+
+.search-result-card span {
+    color: #087443;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+}
+
+.search-result-card h3 {
+    margin: 4px 0 8px;
+}
+
+.search-result-card a {
+    color: #087443;
+
+    text-decoration: none;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.search-empty {
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: white;
+
     color: #333;
 }
 
-/* Header */
-header {
-    background-color: #1a73e8; 
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-header h1 { margin: 0; font-size: 1.8rem; }
-header nav a {
-    color: white;
-    margin-left: 15px;
-    text-decoration: none;
-    font-weight: 500;
-}
-header nav a:hover { text-decoration: underline; }
 
-/* Dashboard */
-#dashboard { padding: 30px 20px; text-align: center; }
-#dashboard h2 { margin-bottom: 20px; }
+/* =========================================================
+   5. COMMON SECTIONS
+   ========================================================= */
+
+.dashboard-section,
+.data-results-section,
+.charts-section,
+.topics-section,
+.map-section,
+.sources-section,
+.job-section {
+    width: min(1400px, 92%);
+
+    margin:
+        0 auto;
+
+    padding:
+        85px 0;
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 38px;
+}
+
+.section-heading h2 {
+    margin-top: 12px;
+
+    color: #12382a;
+
+    font-size:
+        clamp(1.8rem, 4vw, 2.8rem);
+
+    line-height: 1.15;
+}
+
+.section-heading p {
+    max-width: 720px;
+
+    margin:
+        12px auto 0;
+
+    color: #66736e;
+}
+
+
+/* =========================================================
+   6. FILTERS
+   ========================================================= */
+
+.filters-panel {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 16px;
+
+    padding: 22px;
+
+    background: white;
+
+    border:
+        1px solid
+        #e1ebe6;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(12, 66, 45, 0.06);
+}
+
+.filter-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #244438;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.filter-group select {
+    width: 100%;
+
+    padding:
+        12px 13px;
+
+    border:
+        1px solid
+        #d5e1dc;
+
+    border-radius: 10px;
+
+    background: #fbfdfc;
+
+    color: #263c33;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+.filter-group select:focus {
+    border-color: #087443;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(8, 116, 67, 0.1);
+}
+
+.reset-filter-btn {
+    grid-column: 1 / -1;
+
+    width: fit-content;
+
+    justify-self: center;
+
+    padding:
+        10px 20px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #eaf5ef;
+
+    color: #087443;
+
+    font-weight: 800;
+
+    transition: 0.25s ease;
+}
+
+.reset-filter-btn:hover {
+    background: #087443;
+    color: white;
+}
+
+
+/* =========================================================
+   7. STATISTICS CARDS
+   ========================================================= */
+
+.statistics-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+.stat-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 22px;
+
+    background: white;
+
+    border:
+        1px solid
+        #e1ebe6;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(12, 66, 45, 0.055);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(12, 66, 45, 0.11);
+}
+
+.stat-icon {
+    flex: 0 0 52px;
+
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background: #eaf5ef;
+
+    font-size: 24px;
+}
+
+.stat-content {
+    min-width: 0;
+}
+
+.stat-label {
+    display: block;
+
+    color: #718079;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.stat-content strong {
+    display: block;
+
+    margin:
+        3px 0;
+
+    color: #12382a;
+
+    font-size: 1.55rem;
+
+    line-height: 1.1;
+}
+
+.stat-content small {
+    color: #87938e;
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   8. DATA RESULTS
+   ========================================================= */
+
+.data-results-section {
+    padding-top: 20px;
+}
+
+.data-results-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(230px, 1fr)
+        );
+
+    gap: 18px;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+
+    padding: 50px 25px;
+
+    text-align: center;
+
+    background: white;
+
+    border:
+        1px dashed
+        #cbdcd3;
+
+    border-radius: 18px;
+}
+
+.empty-icon {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+.empty-state h3 {
+    color: #12382a;
+}
+
+.empty-state p {
+    margin-top: 6px;
+
+    color: #75827d;
+}
+
+
+/* =========================================================
+   9. CHARTS
+   ========================================================= */
+
+.charts-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 22px;
+}
+
+.chart-card {
+    min-width: 0;
+
+    padding: 24px;
+
+    background: white;
+
+    border:
+        1px solid
+        #e1ebe6;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(12, 66, 45, 0.06);
+}
+
+.chart-header {
+    margin-bottom: 20px;
+}
+
+.chart-category {
+    color: #087443;
+
+    font-size: 0.68rem;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.chart-header h3 {
+    margin-top: 5px;
+
+    color: #173d2e;
+}
+
+.chart-wrapper {
+    position: relative;
+
+    height: 300px;
+}
+
+.chart-source {
+    margin-top: 15px;
+
+    padding-top: 12px;
+
+    border-top:
+        1px solid
+        #edf1ef;
+
+    color: #7a8782;
+
+    font-size: 0.72rem;
+}
+
+.chart-source a {
+    color: #087443;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.chart-source a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   10. TOPICS
+   ========================================================= */
+
+.topics-section {
+    padding-top: 60px;
+}
+
 .topics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+
+    grid-template-columns:
+        repeat(
+            5,
+            minmax(0, 1fr)
+        );
+
     gap: 15px;
 }
+
 .topic-btn {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    min-height: 82px;
+
+    padding: 15px;
+
+    border:
+        1px solid
+        rgba(8, 116, 67, 0.12);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087443,
+            #0a9560
+        );
+
     color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+
+    box-shadow:
+        0 7px 20px
+        rgba(8, 116, 67, 0.14);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
 }
+
 .topic-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 13px 28px
+        rgba(8, 116, 67, 0.2);
+
+    filter: brightness(1.05);
 }
 
-/* Pakistan Map */
-#home { padding: 30px 20px; text-align: center; }
-#pakistan-map {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 20px 0;
+
+/* =========================================================
+   11. MAP
+   ========================================================= */
+
+.map-section {
+    width: 100%;
+
+    max-width: none;
+
+    padding-left: 4%;
+    padding-right: 4%;
+
+    background:
+        #eef6f2;
 }
 
+.pakistan-map {
+    width: 100%;
+
+    height: 550px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        #d9e6e0;
+
+    box-shadow:
+        0 15px 40px
+        rgba(12, 66, 45, 0.1);
+}
+
+.leaflet-container {
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        sans-serif;
+
+    background: #dfeee8;
+}
+
+.province-selector {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            5,
+            minmax(0, 1fr)
+        );
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
 
 .province {
-    flex: 1 1 120px;
-    min-width: 120px;
-    height: 80px;
-    line-height: 80px;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-#punjab { background-color: #ff6b6b; }
-#sindh { background-color: #feca57; color: #333; }
-#kpk { background-color: #1dd1a1; }
-#balochistan { background-color: #5f27cd; }
-#gilgit { background-color: #54a0ff; }
-.province:hover { transform: translateY(-3px); }
+    min-height: 58px;
 
-/* Province Info */
-#province-info { margin-top: 20px; padding: 15px; background: #fff; border-radius: 10px; }
+    border: none;
 
-/* Footer */
-footer {
-    background-color: #1a1a2e;
-    color: white;
-    padding: 25px 20px;
+    border-radius: 12px;
+
+    background: white;
+
+    color: #155c3e;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 20px
+        rgba(12, 66, 45, 0.07);
+
+    transition: 0.25s ease;
 }
-.footer-topics {
+
+.province:hover {
+    background: #087443;
+
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+#province-info {
+    margin-top: 18px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(12, 66, 45, 0.07);
+
+    text-align: center;
+}
+
+.province-info-content h3 {
+    color: #12382a;
+
+    font-size: 1.4rem;
+}
+
+.province-info-content p {
+    max-width: 760px;
+
+    margin:
+        8px auto 18px;
+
+    color: #687770;
+}
+
+.province-info-content button {
+    padding:
+        9px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #087443;
+
+    color: white;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   12. SOURCES
+   ========================================================= */
+
+.sources-section {
+    background: #f4f7f6;
+}
+
+.sources-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-}
-.footer-topic h4 { margin-bottom: 10px; font-size: 1.1rem; }
-.footer-topic ul { list-style: none; padding: 0; }
-.footer-topic ul li { margin-bottom: 6px; }
-.footer-topic ul li a { color: #feca57; text-decoration: none; }
-.footer-topic ul li a:hover { text-decoration: underline; }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .topics-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
-    #pakistan-map { flex-direction: column; align-items: center; }
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
 }
+
+.source-card {
+    padding: 25px;
+
+    background: white;
+
+    border:
+        1px solid
+        #e1ebe6;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(12, 66, 45, 0.05);
+
+    transition:
+        transform 0.25s ease;
+}
+
+.source-card:hover {
+    transform: translateY(-4px);
+}
+
+.source-icon {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 30px;
+}
+
+.source-card h3 {
+    color: #173d2e;
+
+    font-size: 1.05rem;
+}
+
+.source-card p {
+    margin:
+        10px 0 15px;
+
+    color: #718079;
+
+    font-size: 0.85rem;
+}
+
+.source-card a {
+    color: #087443;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+.source-card a:hover {
+    text-decoration: underline;
+}
+
+.source-note {
+    margin-top: 22px;
+
+    padding: 20px;
+
+    border-left:
+        4px solid
+        #087443;
+
+    background: #eaf5ef;
+
+    border-radius: 10px;
+
+    color: #466258;
+
+    font-size: 0.85rem;
+}
+
+.source-note p {
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   13. JOB FORM
+   ========================================================= */
+
+.job-section {
+    max-width: 1000px;
+
+    padding-top: 70px;
+    padding-bottom: 90px;
+}
+
+.job-form {
+    padding: 38px;
+
+    background: white;
+
+    border:
+        1px solid
+        #e1ebe6;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(12, 66, 45, 0.07);
+}
+
+.job-form h2 {
+    margin-top: 10px;
+
+    color: #12382a;
+
+    font-size: 2rem;
+}
+
+.job-form > p {
+    margin:
+        8px 0 25px;
+
+    color: #718079;
+}
+
+.job-form .section-label {
+    margin-bottom: 2px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.job-form label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #28463a;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.job-form input,
+.job-form select {
+    width: 100%;
+
+    padding:
+        13px 14px;
+
+    border:
+        1px solid
+        #d6e1dc;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #fbfdfc;
+
+    color: #243c32;
+}
+
+.job-form input:focus,
+.job-form select:focus {
+    border-color: #087443;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(8, 116, 67, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+
+    padding:
+        13px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087443,
+            #0a9560
+        );
+
+    color: white;
+
+    font-weight: 800;
+
+    transition: 0.25s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(8, 116, 67, 0.18);
+}
+
+.form-message {
+    margin-top: 15px;
+
+    color: #087443;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   14. FOOTER
+   ========================================================= */
+
+.main-footer {
+    background:
+        #08251b;
+
+    color: white;
+
+    padding:
+        65px 4% 20px;
+}
+
+.footer-container {
+    width: min(1400px, 100%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 35px;
+}
+
+.footer-brand h2 {
+    margin:
+        12px 0 8px;
+
+    font-size: 1.25rem;
+}
+
+.footer-brand p {
+    max-width: 310px;
+
+    color:
+        rgba(255, 255, 255, 0.62);
+
+    font-size: 0.82rem;
+}
+
+.footer-topic h4 {
+    margin-bottom: 14px;
+
+    color: #72d69f;
+
+    font-size: 0.9rem;
+}
+
+.footer-topic ul {
+    list-style: none;
+}
+
+.footer-topic li {
+    margin-bottom: 9px;
+}
+
+.footer-topic a {
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    text-decoration: none;
+
+    font-size: 0.78rem;
+
+    transition:
+        color 0.2s ease;
+}
+
+.footer-topic a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    width: min(1400px, 100%);
+
+    margin:
+        45px auto 0;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    color:
+        rgba(255, 255, 255, 0.48);
+
+    font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   15. MANAGEMENT PAGE COMPATIBILITY
+========================================================= */
+
 .user-management {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+    width: min(1200px, 92%);
+
+    margin: 100px auto 30px;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        sans-serif;
 }
 
-.user-management h2, .user-management h3 {
-  color: #2c3e50;
+.user-management h2,
+.user-management h3 {
+    color: #12382a;
 }
 
-.owner, .province-managers, .job-form {
-  background-color: #ecf0f1;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
+.owner,
+.province-managers {
+    background: white;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        #e1ebe6;
+
+    box-shadow:
+        0 8px 25px
+        rgba(12, 66, 45, 0.05);
 }
 
 .province-managers ul {
-  list-style-type: none;
-  padding-left: 20px;
+    list-style: none;
+
+    padding-left: 0;
 }
 
 .province-managers li {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .city-managers {
-  padding-left: 15px;
-  color: #34495e;
+    padding-left: 15px;
+
+    color: #52645b;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .toggle-province {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 5px;
+    padding:
+        8px 13px;
+
+    background: #087443;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
 }
 
 .toggle-province:hover {
-  background-color: #1c5980;
+    background: #064e3b;
 }
 
-.job-form input, .job-form select, .job-form button {
-  padding: 8px;
-  margin: 5px 0;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 5px;
-  border: 1px solid #bdc3c7;
+
+/* =========================================================
+   16. RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .topics-grid {
+        grid-template-columns:
+            repeat(
+                4,
+                minmax(0, 1fr)
+            );
+    }
+
+    .statistics-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .sources-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
 }
 
-.job-form button {
-  background-color: #2980b9;
-  color: white;
-  border: none;
-  cursor: pointer;
+
+/* =========================================================
+   17. RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .header-container {
+        padding:
+            14px 0;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .main-nav {
+        justify-content: center;
+    }
+
+    .main-nav a {
+        font-size: 0.78rem;
+
+        padding:
+            7px 9px;
+    }
+
+    .hero-section {
+        padding:
+            70px 15px 75px;
+    }
+
+    .hero-content h2 {
+        letter-spacing: -1px;
+    }
+
+    .filters-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .statistics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topics-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .province-selector {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .sources-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
 }
 
-.job-form button:hover {
-  background-color: #1c5980;
+
+/* =========================================================
+   18. RESPONSIVE - SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .brand h1 {
+        font-size: 1.1rem;
+    }
+
+    .brand p {
+        font-size: 0.65rem;
+    }
+
+    .main-nav {
+        width: 100%;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+        flex-wrap: nowrap;
+
+        padding-bottom: 3px;
+    }
+
+    .main-nav a {
+        white-space: nowrap;
+    }
+
+    .search-container {
+        flex-direction: column;
+
+        background: transparent;
+
+        box-shadow: none;
+
+        gap: 8px;
+    }
+
+    .search-container input {
+        width: 100%;
+
+        background: white;
+
+        border-radius: 10px;
+
+        padding: 14px;
+    }
+
+    .search-container button {
+        width: 100%;
+
+        min-height: 46px;
+    }
+
+    .dashboard-section,
+    .data-results-section,
+    .charts-section,
+    .topics-section,
+    .sources-section,
+    .job-section {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .province-selector {
+        grid-template-columns: 1fr;
+    }
+
+    .pakistan-map {
+        height: 400px;
+    }
+
+    .job-form {
+        padding: 24px 18px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
 }
