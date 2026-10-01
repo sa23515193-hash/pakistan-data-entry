@@ -1,1001 +1,903 @@
-/* =========================================================
-   PAKISTAN INSIGHTS - MAIN SCRIPT
-   ========================================================= */
-
-
-/* =========================================================
-   1. TOPIC BUTTONS
-   ========================================================= */
-
-const topicButtons = document.querySelectorAll(".topic-btn");
-
-topicButtons.forEach((button) => {
-
-    button.addEventListener("click", () => {
-
-        const page = button.getAttribute("data-page");
-
-        if (page) {
-            window.location.href = page;
-        }
-
-    });
-
-});
-
-
-/* =========================================================
-   2. PROVINCE INFORMATION
-   ========================================================= */
-
-const provinceInfo = document.getElementById("province-info");
-const provinceButtons = document.querySelectorAll(".province");
-
-const provinceData = {
-
-    punjab: {
-        name: "Punjab",
-        description:
-            "Punjab is one of Pakistan's major administrative regions. Explore education, agriculture, population, employment and other indicators through the available topic pages."
-    },
-
-    sindh: {
-        name: "Sindh",
-        description:
-            "Sindh is an important region of Pakistan with major urban, agricultural, industrial and economic activity."
-    },
-
-    kpk: {
-        name: "Khyber Pakhtunkhwa",
-        description:
-            "Khyber Pakhtunkhwa contains diverse geographic, demographic, economic and social characteristics."
-    },
-
-    balochistan: {
-        name: "Balochistan",
-        description:
-            "Balochistan is Pakistan's largest province by area and contains important natural resources and diverse geographic regions."
-    },
-
-    gilgit: {
-        name: "Gilgit-Baltistan",
-        description:
-            "Gilgit-Baltistan is a mountainous region known for its distinctive geography, communities and tourism potential."
-    }
-
-};
-
-
-provinceButtons.forEach((province) => {
-
-    province.addEventListener("click", () => {
-
-        const id = province.id;
-        const data = provinceData[id];
-
-        if (!data || !provinceInfo) {
-            return;
-        }
-
-        provinceInfo.innerHTML = `
-            <div class="province-info-content">
-                <h3>${data.name}</h3>
-
-                <p>
-                    ${data.description}
-                </p>
-
-                <button
-                    type="button"
-                    onclick="scrollToDashboard()">
-                    Back to Dashboard
-                </button>
-            </div>
-        `;
-
-    });
-
-});
-
-
-/* =========================================================
-   3. BACK TO DASHBOARD
-   ========================================================= */
-
-function scrollToDashboard() {
-
-    const dashboard = document.getElementById("dashboard");
-
-    if (dashboard) {
-
-        dashboard.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
-
-}
-
-
-/* =========================================================
-   4. PAKISTAN LEAFLET MAP
-   ========================================================= */
-
-let pakistanMap = null;
-
-const mapElement = document.getElementById("pakistanMap");
-
-if (mapElement && typeof L !== "undefined") {
-
-    pakistanMap = L.map("pakistanMap").setView(
-        [30.3753, 69.3451],
-        5
-    );
-
-
-    L.tileLayer(
-        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        {
-            maxZoom: 18,
-
-            attribution:
-                "&copy; OpenStreetMap contributors"
-        }
-    ).addTo(pakistanMap);
-
-
-    /* -----------------------------------------
-       Major regional locations
-       ----------------------------------------- */
-
-    const locations = [
-
-        {
-            name: "Punjab",
-            coordinates: [31.1471, 72.7097]
-        },
-
-        {
-            name: "Sindh",
-            coordinates: [25.8943, 68.5247]
-        },
-
-        {
-            name: "Khyber Pakhtunkhwa",
-            coordinates: [34.9526, 72.3311]
-        },
-
-        {
-            name: "Balochistan",
-            coordinates: [28.4907, 65.0958]
-        },
-
-        {
-            name: "Gilgit-Baltistan",
-            coordinates: [35.9208, 74.3086]
-        }
-
-    ];
-
-
-    locations.forEach((location) => {
-
-        const marker = L.marker(
-            location.coordinates
-        ).addTo(pakistanMap);
-
-
-        marker.bindPopup(`
-            <strong>${location.name}</strong>
-            <br>
-            Pakistan Insights
-        `);
-
-
-        marker.on("click", () => {
-
-            if (provinceInfo) {
-
-                provinceInfo.innerHTML = `
-                    <div class="province-info-content">
-
-                        <h3>
-                            ${location.name}
-                        </h3>
-
-                        <p>
-                            You selected
-                            ${location.name}.
-                            Use the topic pages and
-                            dashboard filters to explore
-                            available information.
-                        </p>
-
-                    </div>
-                `;
-
-            }
-
-        });
-
-    });
-
-}
-
-
-/* =========================================================
-   5. SEARCH SYSTEM
-   ========================================================= */
-
-const searchInput = document.getElementById("searchInput");
-const searchBtn = document.getElementById("searchBtn");
-const searchResults = document.getElementById("searchResults");
-
-
-const searchableTopics = [
-
-    {
-        title: "Exports",
-        category: "Economy",
-        page: "topic1.html",
-        keywords:
-            "exports trade international trade products economy"
-    },
-
-    {
-        title: "Education",
-        category: "Education",
-        page: "topic2.html",
-        keywords:
-            "education schools universities literacy students"
-    },
-
-    {
-        title: "Employment",
-        category: "Employment",
-        page: "topic3.html",
-        keywords:
-            "employment jobs labour workforce unemployment"
-    },
-
-    {
-        title: "Online Work",
-        category: "Technology",
-        page: "topic4.html",
-        keywords:
-            "online work freelancing remote work digital jobs"
-    },
-
-    {
-        title: "Population",
-        category: "Population",
-        page: "topic5.html",
-        keywords:
-            "population census people demographic"
-    },
-
-    {
-        title: "Healthcare",
-        category: "Healthcare",
-        page: "topic6.html",
-        keywords:
-            "health hospitals healthcare diseases medical"
-    },
-
-    {
-        title: "Industries",
-        category: "Industry",
-        page: "topic7.html",
-        keywords:
-            "industries factories manufacturing business"
-    },
-
-    {
-        title: "Agriculture",
-        category: "Agriculture",
-        page: "topic8.html",
-        keywords:
-            "agriculture crops farming livestock food"
-    },
-
-    {
-        title: "Technology",
-        category: "Technology",
-        page: "topic9.html",
-        keywords:
-            "technology software IT digital innovation"
-    },
-
-    {
-        title: "Infrastructure",
-        category: "Infrastructure",
-        page: "topic10.html",
-        keywords:
-            "infrastructure roads transport construction development"
-    },
-
-    {
-        title: "Youth",
-        category: "Demographics",
-        page: "topic11.html",
-        keywords:
-            "youth young people students population"
-    },
-
-    {
-        title: "Economy",
-        category: "Economy",
-        page: "topic12.html",
-        keywords:
-            "economy GDP finance trade business economic"
-    },
-
-    {
-        title: "Defense & Security",
-        category: "Security",
-        page: "topic13.html",
-        keywords:
-            "defense security military safety"
-    },
-
-    {
-        title: "Energy & Power",
-        category: "Energy",
-        page: "topic14.html",
-        keywords:
-            "energy electricity power gas solar renewable"
-    },
-
-    {
-        title: "Demographics",
-        category: "Demographics",
-        page: "topic15.html",
-        keywords:
-            "demographics age gender population regions"
-    }
-
-];
-
-
-function performSearch() {
-
-    if (!searchInput || !searchResults) {
-        return;
-    }
-
-
-    const query =
-        searchInput.value.trim().toLowerCase();
-
-
-    if (!query) {
-
-        searchResults.innerHTML = "";
-
-        return;
-    }
-
-
-    const results =
-        searchableTopics.filter((item) => {
-
-            const searchableText =
-                `${item.title} ${item.category} ${item.keywords}`
-                    .toLowerCase();
-
-            return searchableText.includes(query);
-
-        });
-
-
-    if (results.length === 0) {
-
-        searchResults.innerHTML = `
-            <div class="search-empty">
-                <h3>No results found</h3>
-
-                <p>
-                    Try searching for population,
-                    education, employment, agriculture,
-                    technology or another topic.
-                </p>
-            </div>
-        `;
-
-        return;
-    }
-
-
-    searchResults.innerHTML = `
-
-        <div class="search-result-list">
-
-            ${results.map((item) => `
-
-                <div class="search-result-card">
-
-                    <span>
-                        ${item.category}
-                    </span>
-
-                    <h3>
-                        ${item.title}
-                    </h3>
-
-                    <a href="${item.page}">
-                        Explore Topic →
-                    </a>
-
-                </div>
-
-            `).join("")}
-
-        </div>
-
-    `;
-
-}
-
-
-if (searchBtn) {
-
-    searchBtn.addEventListener(
-        "click",
-        performSearch
-    );
-
-}
-
-
-if (searchInput) {
-
-    searchInput.addEventListener(
-        "input",
-        performSearch
-    );
-
-
-    searchInput.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (event.key === "Enter") {
-
-                event.preventDefault();
-
-                performSearch();
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   6. FILTER SYSTEM
-   ========================================================= */
-
-const provinceFilter =
-    document.getElementById("provinceFilter");
-
-const districtFilter =
-    document.getElementById("districtFilter");
-
-const categoryFilter =
-    document.getElementById("categoryFilter");
-
-const yearFilter =
-    document.getElementById("yearFilter");
-
-const resetFilters =
-    document.getElementById("resetFilters");
-
-const resultsSummary =
-    document.getElementById("resultsSummary");
-
-
-function updateFilters() {
-
-    const province =
-        provinceFilter
-            ? provinceFilter.value
-            : "all";
-
-    const category =
-        categoryFilter
-            ? categoryFilter.value
-            : "all";
-
-    const year =
-        yearFilter
-            ? yearFilter.value
-            : "all";
-
-
-    if (resultsSummary) {
-
-        let message =
-            "Showing available data";
-
-        if (province !== "all") {
-            message += ` for ${province}`;
-        }
-
-        if (category !== "all") {
-            message += ` • ${category}`;
-        }
-
-        if (year !== "all") {
-            message += ` • ${year}`;
-        }
-
-        message += ".";
-
-        resultsSummary.textContent = message;
-
-    }
-
-
-    updateCharts(
-        province,
-        category,
-        year
-    );
-
-}
-
-
-[
-    provinceFilter,
-    districtFilter,
-    categoryFilter,
-    yearFilter
-].forEach((filter) => {
-
-    if (filter) {
-
-        filter.addEventListener(
-            "change",
-            updateFilters
-        );
-
-    }
-
-});
-
-
-if (resetFilters) {
-
-    resetFilters.addEventListener(
-        "click",
-        () => {
-
-            if (provinceFilter) {
-                provinceFilter.value = "all";
-            }
-
-            if (districtFilter) {
-                districtFilter.value = "all";
-            }
-
-            if (categoryFilter) {
-                categoryFilter.value = "all";
-            }
-
-            if (yearFilter) {
-                yearFilter.value = "all";
-            }
-
-            updateFilters();
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   7. CHART.JS
-   ========================================================= */
-
+// ==========================================
+// Pakistan Data & Statistics Dashboard
+// ==========================================
+
+let indicatorData = [];
 let populationChart = null;
 let educationChart = null;
 let employmentChart = null;
 let regionalChart = null;
 
 
-function destroyChart(chart) {
+// ==========================================
+// LOAD ACTUAL DATA
+// ==========================================
 
-    if (chart) {
-        chart.destroy();
+async function loadIndicatorData() {
+    try {
+        const response = await fetch("data/indicators.json");
+
+        if (!response.ok) {
+            throw new Error("Unable to load indicators.json");
+        }
+
+        const json = await response.json();
+
+        indicatorData = Array.isArray(json.data) ? json.data : [];
+
+        console.log("Actual data loaded:", indicatorData);
+
+        populateFilters();
+        updateDashboard();
+
+    } catch (error) {
+        console.error("Data loading error:", error);
+
+        const results = document.getElementById("dataResults");
+
+        if (results) {
+            results.innerHTML = `
+                <div class="empty-state">
+                    <h3>Data could not be loaded</h3>
+                    <p>Please check whether <strong>data/indicators.json</strong> exists.</p>
+                </div>
+            `;
+        }
     }
-
 }
 
 
-function updateCharts(
-    selectedProvince = "all",
-    selectedCategory = "all",
-    selectedYear = "all"
-) {
+// ==========================================
+// POPULATE FILTERS
+// ==========================================
 
-    if (typeof Chart === "undefined") {
+function populateFilters() {
+
+    const provinceFilter = document.getElementById("provinceFilter");
+    const districtFilter = document.getElementById("districtFilter");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const yearFilter = document.getElementById("yearFilter");
+
+    if (!provinceFilter) return;
+
+    const provinces = [
+        ...new Set(indicatorData.map(item => item.province).filter(Boolean))
+    ];
+
+    const districts = [
+        ...new Set(indicatorData.map(item => item.district).filter(Boolean))
+    ];
+
+    const categories = [
+        ...new Set(indicatorData.map(item => item.category).filter(Boolean))
+    ];
+
+    const years = [
+        ...new Set(indicatorData.map(item => item.year).filter(Boolean))
+    ].sort((a, b) => b - a);
+
+
+    provinceFilter.innerHTML = `
+        <option value="">All Provinces</option>
+        ${provinces.map(p => `<option value="${p}">${p}</option>`).join("")}
+    `;
+
+
+    districtFilter.innerHTML = `
+        <option value="">All Districts</option>
+        ${districts.map(d => `<option value="${d}">${d}</option>`).join("")}
+    `;
+
+
+    categoryFilter.innerHTML = `
+        <option value="">All Categories</option>
+        ${categories.map(c => `<option value="${c}">${c}</option>`).join("")}
+    `;
+
+
+    yearFilter.innerHTML = `
+        <option value="">All Years</option>
+        ${years.map(y => `<option value="${y}">${y}</option>`).join("")}
+    `;
+}
+
+
+// ==========================================
+// FILTER DATA
+// ==========================================
+
+function getFilteredData() {
+
+    const province =
+        document.getElementById("provinceFilter")?.value || "";
+
+    const district =
+        document.getElementById("districtFilter")?.value || "";
+
+    const category =
+        document.getElementById("categoryFilter")?.value || "";
+
+    const year =
+        document.getElementById("yearFilter")?.value || "";
+
+
+    return indicatorData.filter(item => {
+
+        const provinceMatch =
+            !province || item.province === province;
+
+        const districtMatch =
+            !district || item.district === district;
+
+        const categoryMatch =
+            !category || item.category === category;
+
+        const yearMatch =
+            !year || String(item.year) === String(year);
+
+        return (
+            provinceMatch &&
+            districtMatch &&
+            categoryMatch &&
+            yearMatch
+        );
+    });
+}
+
+
+// ==========================================
+// UPDATE DASHBOARD
+// ==========================================
+
+function updateDashboard() {
+
+    const filteredData = getFilteredData();
+
+    renderDataResults(filteredData);
+    updateStatistics(filteredData);
+    updateCharts(filteredData);
+
+    const summary = document.getElementById("resultsSummary");
+
+    if (summary) {
+        summary.textContent =
+            `${filteredData.length} record(s) found`;
+    }
+}
+
+
+// ==========================================
+// RENDER DATA RESULTS
+// ==========================================
+
+function renderDataResults(data) {
+
+    const container = document.getElementById("dataResults");
+
+    if (!container) return;
+
+    if (data.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty-state">
+                <h3>No data found</h3>
+                <p>Try changing your filters.</p>
+            </div>
+        `;
+
         return;
     }
 
 
-    /* -----------------------------------------
-       Population Chart
-       ----------------------------------------- */
+    container.innerHTML = data.map(item => {
+
+        const formattedValue =
+            typeof item.value === "number"
+                ? item.value.toLocaleString()
+                : item.value ?? "N/A";
+
+
+        return `
+            <div class="data-card">
+
+                <div class="data-card-header">
+                    <span class="data-category">
+                        ${item.category || "Data"}
+                    </span>
+
+                    <span class="data-year">
+                        ${item.year || ""}
+                    </span>
+                </div>
+
+                <h3>${item.indicator || "Indicator"}</h3>
+
+                <p>
+                    <strong>Province:</strong>
+                    ${item.province || "N/A"}
+                </p>
+
+                <p>
+                    <strong>District:</strong>
+                    ${item.district || "N/A"}
+                </p>
+
+                <div class="data-value">
+                    ${formattedValue}
+                    <small>${item.unit || ""}</small>
+                </div>
+
+                <p class="data-source">
+                    Source: ${item.source || "Not specified"}
+                </p>
+
+            </div>
+        `;
+
+    }).join("");
+}
+
+
+// ==========================================
+// UPDATE STATISTICS
+// ==========================================
+
+function updateStatistics(data) {
+
+    const populationValue =
+        document.getElementById("populationValue");
+
+    const educationValue =
+        document.getElementById("educationValue");
+
+    const employmentValue =
+        document.getElementById("employmentValue");
+
+
+    const populationData =
+        data.filter(item =>
+            item.category === "Population"
+        );
+
+
+    const totalPopulation =
+        populationData.reduce(
+            (sum, item) =>
+                sum + (Number(item.value) || 0),
+            0
+        );
+
+
+    if (populationValue) {
+
+        if (totalPopulation > 0) {
+
+            populationValue.textContent =
+                formatLargeNumber(totalPopulation);
+
+        } else {
+
+            populationValue.textContent = "—";
+        }
+    }
+
+
+    if (educationValue) {
+
+        const educationData =
+            data.filter(item =>
+                item.category === "Education"
+            );
+
+        educationValue.textContent =
+            educationData.length
+                ? educationData.length
+                : "—";
+    }
+
+
+    if (employmentValue) {
+
+        const employmentData =
+            data.filter(item =>
+                item.category === "Employment"
+            );
+
+        employmentValue.textContent =
+            employmentData.length
+                ? employmentData.length
+                : "—";
+    }
+}
+
+
+// ==========================================
+// FORMAT LARGE NUMBERS
+// ==========================================
+
+function formatLargeNumber(number) {
+
+    if (number >= 1000000000) {
+        return (number / 1000000000).toFixed(2) + "B";
+    }
+
+    if (number >= 1000000) {
+        return (number / 1000000).toFixed(2) + "M";
+    }
+
+    if (number >= 1000) {
+        return (number / 1000).toFixed(1) + "K";
+    }
+
+    return number.toLocaleString();
+}
+
+
+// ==========================================
+// CHARTS
+// ==========================================
+
+function updateCharts(data) {
+
+    if (typeof Chart === "undefined") return;
+
+
+    // --------------------------------------
+    // Population Chart
+    // --------------------------------------
 
     const populationCanvas =
-        document.getElementById(
-            "populationChart"
-        );
+        document.getElementById("populationChart");
 
 
     if (populationCanvas) {
 
-        destroyChart(populationChart);
+        const populationData =
+            data.filter(item =>
+                item.category === "Population"
+            );
 
 
-        populationChart = new Chart(
-            populationCanvas,
-            {
+        const labels =
+            populationData.map(item => item.district);
+
+
+        const values =
+            populationData.map(item =>
+                Number(item.value) || 0
+            );
+
+
+        if (populationChart) {
+            populationChart.destroy();
+        }
+
+
+        populationChart =
+            new Chart(populationCanvas, {
+
                 type: "bar",
 
                 data: {
+                    labels: labels,
 
-                    labels: [
-                        "Punjab",
-                        "Sindh",
-                        "Khyber Pakhtunkhwa",
-                        "Balochistan",
-                        "Gilgit-Baltistan"
-                    ],
-
-                    datasets: [
-                        {
-                            label:
-                                "Population dataset",
-
-                            data: [
-                                null,
-                                null,
-                                null,
-                                null,
-                                null
-                            ]
-                        }
-                    ]
-
+                    datasets: [{
+                        label: "Population",
+                        data: values
+                    }]
                 },
 
                 options: {
-
                     responsive: true,
 
-                    maintainAspectRatio: false,
-
                     plugins: {
-
                         legend: {
                             display: true
-                        },
-
-                        tooltip: {
-
-                            callbacks: {
-
-                                label:
-                                    function(context) {
-
-                                        if (
-                                            context.raw === null
-                                        ) {
-
-                                            return "Data will be connected";
-
-                                        }
-
-                                        return context.raw;
-
-                                    }
-
-                            }
-
                         }
-
                     }
-
                 }
-
-            }
-        );
-
+            });
     }
 
 
-    /* -----------------------------------------
-       Education Chart
-       ----------------------------------------- */
+    // --------------------------------------
+    // Education Chart
+    // --------------------------------------
 
     const educationCanvas =
-        document.getElementById(
-            "educationChart"
-        );
+        document.getElementById("educationChart");
 
 
     if (educationCanvas) {
 
-        destroyChart(educationChart);
+        if (educationChart) {
+            educationChart.destroy();
+        }
 
 
-        educationChart = new Chart(
-            educationCanvas,
-            {
+        educationChart =
+            new Chart(educationCanvas, {
+
                 type: "line",
 
                 data: {
-
-                    labels: [
-                        "Punjab",
-                        "Sindh",
-                        "KPK",
-                        "Balochistan",
-                        "GB"
-                    ],
-
-                    datasets: [
-
-                        {
-                            label:
-                                "Education indicators",
-
-                            data: [
-                                null,
-                                null,
-                                null,
-                                null,
-                                null
-                            ],
-
-                            tension: 0.3
-
-                        }
-
-                    ]
-
+                    labels: [],
+                    datasets: [{
+                        label: "Education Data",
+                        data: []
+                    }]
                 },
 
                 options: {
-
-                    responsive: true,
-
-                    maintainAspectRatio: false
-
+                    responsive: true
                 }
-
-            }
-        );
-
+            });
     }
 
 
-    /* -----------------------------------------
-       Employment Chart
-       ----------------------------------------- */
+    // --------------------------------------
+    // Employment Chart
+    // --------------------------------------
 
     const employmentCanvas =
-        document.getElementById(
-            "employmentChart"
-        );
+        document.getElementById("employmentChart");
 
 
     if (employmentCanvas) {
 
-        destroyChart(employmentChart);
+        if (employmentChart) {
+            employmentChart.destroy();
+        }
 
 
-        employmentChart = new Chart(
-            employmentCanvas,
-            {
+        employmentChart =
+            new Chart(employmentCanvas, {
+
                 type: "doughnut",
 
                 data: {
-
-                    labels: [
-                        "Employment",
-                        "Unemployment",
-                        "Data Pending"
-                    ],
-
-                    datasets: [
-
-                        {
-                            data: [
-                                null,
-                                null,
-                                1
-                            ]
-                        }
-
-                    ]
-
+                    labels: ["Available Data"],
+                    datasets: [{
+                        data: [1]
+                    }]
                 },
 
                 options: {
-
-                    responsive: true,
-
-                    maintainAspectRatio: false
-
+                    responsive: true
                 }
-
-            }
-        );
-
+            });
     }
 
 
-    /* -----------------------------------------
-       Regional Comparison Chart
-       ----------------------------------------- */
+    // --------------------------------------
+    // Regional Chart
+    // --------------------------------------
 
     const regionalCanvas =
-        document.getElementById(
-            "regionalChart"
-        );
+        document.getElementById("regionalChart");
 
 
     if (regionalCanvas) {
 
-        destroyChart(regionalChart);
+        if (regionalChart) {
+            regionalChart.destroy();
+        }
 
 
-        regionalChart = new Chart(
-            regionalCanvas,
-            {
+        const provinceTotals = {};
+
+        data.forEach(item => {
+
+            if (item.category !== "Population") return;
+
+            const province = item.province;
+
+            provinceTotals[province] =
+                (provinceTotals[province] || 0) +
+                (Number(item.value) || 0);
+        });
+
+
+        regionalChart =
+            new Chart(regionalCanvas, {
+
                 type: "bar",
 
                 data: {
+                    labels: Object.keys(provinceTotals),
 
-                    labels: [
-                        "Punjab",
-                        "Sindh",
-                        "KPK",
-                        "Balochistan",
-                        "GB"
-                    ],
-
-                    datasets: [
-
-                        {
-                            label:
-                                "Regional dataset",
-
-                            data: [
-                                null,
-                                null,
-                                null,
-                                null,
-                                null
-                            ]
-                        }
-
-                    ]
-
+                    datasets: [{
+                        label: "Population",
+                        data: Object.values(provinceTotals)
+                    }]
                 },
 
                 options: {
-
-                    responsive: true,
-
-                    maintainAspectRatio: false
-
+                    responsive: true
                 }
+            });
+    }
+}
 
-            }
-        );
 
+// ==========================================
+// SEARCH
+// ==========================================
+
+function performSearch() {
+
+    const input =
+        document.getElementById("searchInput");
+
+    const results =
+        document.getElementById("searchResults");
+
+    if (!input || !results) return;
+
+
+    const query =
+        input.value.trim().toLowerCase();
+
+
+    if (!query) {
+
+        results.innerHTML = "";
+
+        return;
     }
 
+
+    const matches =
+        indicatorData.filter(item => {
+
+            return (
+                String(item.province || "")
+                    .toLowerCase()
+                    .includes(query) ||
+
+                String(item.district || "")
+                    .toLowerCase()
+                    .includes(query) ||
+
+                String(item.category || "")
+                    .toLowerCase()
+                    .includes(query) ||
+
+                String(item.indicator || "")
+                    .toLowerCase()
+                    .includes(query)
+            );
+        });
+
+
+    if (matches.length === 0) {
+
+        results.innerHTML = `
+            <div class="search-empty">
+                No matching data found.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    results.innerHTML = matches.map(item => {
+
+        return `
+            <div class="search-result-card">
+
+                <h3>${item.indicator}</h3>
+
+                <p>
+                    ${item.district},
+                    ${item.province}
+                </p>
+
+                <strong>
+                    ${Number(item.value).toLocaleString()}
+                    ${item.unit || ""}
+                </strong>
+
+                <small>
+                    ${item.year} · ${item.source}
+                </small>
+
+            </div>
+        `;
+
+    }).join("");
 }
 
 
-/* Initialize charts */
+// ==========================================
+// RESET FILTERS
+// ==========================================
 
-updateCharts();
+function resetFilters() {
 
-
-/* =========================================================
-   8. JOB FORM
-   ========================================================= */
-
-const jobForm =
-    document.getElementById("jobForm");
-
-
-if (jobForm) {
-
-    jobForm.addEventListener(
-        "submit",
-        function(event) {
-
-            event.preventDefault();
+    const filters = [
+        "provinceFilter",
+        "districtFilter",
+        "categoryFilter",
+        "yearFilter"
+    ];
 
 
-            const name =
-                document.getElementById(
-                    "name"
-                )?.value.trim();
+    filters.forEach(id => {
 
+        const element =
+            document.getElementById(id);
 
-            const email =
-                document.getElementById(
-                    "email"
-                )?.value.trim();
-
-
-            const province =
-                document.getElementById(
-                    "province"
-                )?.value;
-
-
-            const city =
-                document.getElementById(
-                    "city"
-                )?.value.trim();
-
-
-            const formMessage =
-                document.getElementById(
-                    "formMessage"
-                );
-
-
-            if (
-                !name ||
-                !email ||
-                !province ||
-                !city
-            ) {
-
-                if (formMessage) {
-
-                    formMessage.textContent =
-                        "Please complete all fields.";
-
-                }
-
-                return;
-
-            }
-
-
-            if (formMessage) {
-
-                formMessage.textContent =
-                    `Thank you ${name}! Your application for ${city}, ${province} has been submitted successfully.`;
-
-            }
-
-
-            jobForm.reset();
-
+        if (element) {
+            element.value = "";
         }
-    );
+    });
 
+
+    updateDashboard();
 }
 
 
-/* =========================================================
-   9. PAGE READY MESSAGE
-   ========================================================= */
+// ==========================================
+// PROVINCE MAP INFO
+// ==========================================
 
-console.log(
-    "🇵🇰 Pakistan Insights dashboard loaded successfully."
-);
+const provinceInfo = {
+
+    punjab:
+        "Punjab is Pakistan's most populous province and contains major urban and agricultural regions.",
+
+    sindh:
+        "Sindh is located in southeastern Pakistan and includes Karachi, Pakistan's largest city.",
+
+    kpk:
+        "Khyber Pakhtunkhwa is located in northwestern Pakistan and contains diverse mountainous regions.",
+
+    balochistan:
+        "Balochistan is Pakistan's largest province by area.",
+
+    gilgit:
+        "Gilgit-Baltistan is a mountainous administrative territory in northern Pakistan."
+};
+
+
+function showProvinceInfo(province) {
+
+    const info =
+        document.getElementById("province-info");
+
+    if (!info) return;
+
+    info.textContent =
+        provinceInfo[province] ||
+        "Select a province to view information.";
+}
+
+
+// ==========================================
+// LEAFLET MAP
+// ==========================================
+
+function initializeMap() {
+
+    const mapElement =
+        document.getElementById("pakistanMap");
+
+    if (!mapElement || typeof L === "undefined") {
+        return;
+    }
+
+
+    const map =
+        L.map("pakistanMap").setView(
+            [30.3753, 69.3451],
+            5
+        );
+
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            attribution:
+                '&copy; OpenStreetMap contributors'
+        }
+    ).addTo(map);
+
+
+    const locations = [
+
+        {
+            name: "Punjab",
+            lat: 31.1704,
+            lng: 72.7097
+        },
+
+        {
+            name: "Sindh",
+            lat: 25.8943,
+            lng: 68.5247
+        },
+
+        {
+            name: "Khyber Pakhtunkhwa",
+            lat: 34.9526,
+            lng: 72.3311
+        },
+
+        {
+            name: "Balochistan",
+            lat: 28.4907,
+            lng: 65.0958
+        },
+
+        {
+            name: "Gilgit-Baltistan",
+            lat: 35.8026,
+            lng: 74.9832
+        }
+    ];
+
+
+    locations.forEach(location => {
+
+        L.marker([
+            location.lat,
+            location.lng
+        ])
+        .addTo(map)
+        .bindPopup(
+            `<strong>${location.name}</strong>`
+        );
+    });
+}
+
+
+// ==========================================
+// JOB FORM
+// ==========================================
+
+function initializeJobForm() {
+
+    const form =
+        document.getElementById("jobForm");
+
+    if (!form) return;
+
+
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const message =
+            document.getElementById("formMessage");
+
+
+        if (message) {
+
+            message.textContent =
+                "Thank you! Your information has been submitted successfully.";
+
+            message.style.display = "block";
+        }
+
+
+        form.reset();
+    });
+}
+
+
+// ==========================================
+// EVENT LISTENERS
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Load actual JSON data
+    loadIndicatorData();
+
+
+    // Search
+    const searchBtn =
+        document.getElementById("searchBtn");
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+
+    if (searchBtn) {
+        searchBtn.addEventListener(
+            "click",
+            performSearch
+        );
+    }
+
+
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+                    performSearch();
+                }
+            }
+        );
+    }
+
+
+    // Filters
+    [
+        "provinceFilter",
+        "districtFilter",
+        "categoryFilter",
+        "yearFilter"
+    ].forEach(id => {
+
+        const element =
+            document.getElementById(id);
+
+        if (element) {
+
+            element.addEventListener(
+                "change",
+                updateDashboard
+            );
+        }
+    });
+
+
+    // Reset
+    const resetButton =
+        document.getElementById("resetFilters");
+
+    if (resetButton) {
+
+        resetButton.addEventListener(
+            "click",
+            resetFilters
+        );
+    }
+
+
+    // Province buttons
+    document.querySelectorAll(".province")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    showProvinceInfo(
+                        this.id
+                    );
+                }
+            );
+        });
+
+
+    // Topic buttons
+    document.querySelectorAll(".topic-btn")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const page =
+                        this.dataset.page;
+
+                    if (page) {
+                        window.location.href = page;
+                    }
+                }
+            );
+        });
+
+
+    initializeMap();
+    initializeJobForm();
+
+});
