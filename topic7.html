@@ -1,211 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Industries & Exports - Pakistan Insights 2025</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Industries & Exports | Pakistan Data & Statistics</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 <body>
 
-<!-- Header -->
-<header>
-    <h1>Pakistan Insights 2025</h1>
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="index.html#home">Home</a>
-    </nav>
+<header class="main-header">
+
+    <div class="header-container">
+
+        <a href="index.html" class="brand">
+            🇵🇰 Pakistan Data & Statistics
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html">Dashboard</a>
+            <a href="index.html#topics">Topics</a>
+            <a href="index.html#pakistan-map">Map</a>
+            <a href="index.html#statistics">Statistics</a>
+            <a href="management.html">Management</a>
+            <a href="index.html#sources">Sources</a>
+        </nav>
+
+    </div>
+
 </header>
 
-<!-- Industries & Exports Section -->
-<section class="topic-section">
-    <h2>Industries & Exports</h2>
 
-    <!-- Charts -->
-    <div class="chart-container">
-        <canvas id="industriesBarChart"></canvas>
-    </div>
-    <div class="chart-container">
-        <canvas id="exportsPieChart"></canvas>
-    </div>
+<main>
 
-    <!-- Optional Map Placeholder -->
-    <div class="map-placeholder">
-        <h3>Industries & Export Distribution by Province</h3>
-        <p>Map placeholder showing industrial zones and export hubs</p>
-    </div>
+<section class="topic-page-hero">
 
-    <!-- Detailed Explanation -->
-    <div class="topic-details">
-        <h3>Overview</h3>
-        <p>Pakistan has a diverse industrial sector, including textiles, agriculture-based industries, manufacturing, and IT services. Exports play a major role in the economy.</p>
-        
-        <h4>Major Industries by Province:</h4>
-        <ul>
-            <li>Punjab: Textiles, Sugar, Cement, Pharmaceuticals</li>
-            <li>Sindh: Textiles, IT Services, Port-based Trade</li>
-            <li>Khyber Pakhtunkhwa: Cement, Marble, Fruits Processing</li>
-            <li>Balochistan: Minerals, Fruits, Livestock Products</li>
-        </ul>
+    <div class="topic-hero-content">
 
-        <h4>Export Share by Product:</h4>
-        <ul>
-            <li>Textiles: 50%</li>
-            <li>Rice: 15%</li>
-            <li>Leather: 10%</li>
-            <li>Sports Goods: 5%</li>
-            <li>Other: 20%</li>
-        </ul>
+        <span class="topic-label">TOPIC 07</span>
 
-        <h4>Key Insights:</h4>
-        <ul>
-            <li>Punjab dominates textile production and export.</li>
-            <li>Sindh contributes heavily via Karachi ports.</li>
-            <li>Government incentives encourage industrial growth and export diversification.</li>
-        </ul>
+        <h1>Industries & Exports</h1>
+
+        <p>
+            Explore Pakistan's major industrial sectors, manufacturing
+            activity and important export categories.
+        </p>
+
+        <a href="index.html#topics" class="back-btn">
+            ← Back to Topics
+        </a>
+
     </div>
 
-    <!-- Back Button -->
-    <button onclick="goBack()" class="back-btn">← Back</button>
 </section>
 
-<!-- Footer -->
-<footer>
-    <div class="footer-topics">
-        <!-- 15 Topics x 3 Links each -->
-        <div class="footer-topic">
-            <h4>Exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Trade Data 1</a></li>
-                <li><a href="#" target="_blank">Trade Data 2</a></li>
-                <li><a href="#defense">Defense & Security</a></li>
-                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
-            </ul>
+
+<section class="topic-section">
+
+    <div class="topic-details">
+
+        <div class="topic-heading">
+
+            <span>01</span>
+
+            <div>
+                <h2>Industrial Overview</h2>
+                <p>Manufacturing, industries and international trade</p>
+            </div>
+
         </div>
-        <div class="footer-topic">
-            <h4>Education</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Education Report 1</a></li>
-                <li><a href="#" target="_blank">Education Report 2</a></li>
-                <li><a href="#mapSection">Pakistan Map</a></li>
-                 <li><a href="#imports">Imports & Exports Details</a></li>
-    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
 
-   
-            </ul>
+        <p>
+            Pakistan's industrial sector includes textiles, food
+            processing, sports goods, leather, chemicals, engineering
+            products and other manufacturing activities.
+        </p>
+
+        <p>
+            Exports are an important source of foreign exchange.
+            Textile products represent a major category of Pakistan's
+            international merchandise exports.
+        </p>
+
+    </div>
+
+
+    <div class="charts-grid">
+
+        <div class="chart-card">
+
+            <div class="chart-card-header">
+                <h3>Industrial Activity</h3>
+                <span>Illustrative index</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="industriesBarChart"></canvas>
+            </div>
+
         </div>
-        <!-- Add remaining 13 topics similarly -->
-         <div class="footer-topic">
-            <h4>military</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#education">Education Statistics</a></li>
-    <li><a href="#employment">Employment Data</a></li>
-    <li><a href="#gender">Gender Stats</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
-            </ul>
-   
-    </div>
-    <div class="footer-topic">
-            <h4>exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#youth">Youth Information</a></li>
-    <li><a href="#health">Healthcare & Diseases</a></li>
-    <li><a href="#agriculture">Agriculture</a></li>
-    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
 
-            </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>industries</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#industries">Industries & Exports</a></li>
-    <li><a href="#onlineBusiness">Online Business & Work</a></li>
-    <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="#technology">Technology & Innovation</a></li>
-    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>energy_power</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
-    <li><a href="#infrastructure">Infrastructure Projects</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
-</ul>
-    </div>
-    <div class="footer-topic">
-            <h4>more</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
-    <li><a href="#demographics">Population & Demographics</a></li>
-    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
-    <li><a href="#economy">Economy & Trade</a></li>
-    </ul>
+
+        <div class="chart-card">
+
+            <div class="chart-card-header">
+                <h3>Export Categories</h3>
+                <span>Illustrative share</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="exportsPieChart"></canvas>
+            </div>
+
+        </div>
+
     </div>
 
-</div>
+
+    <div class="topic-info-grid">
+
+        <div class="info-card">
+            <div class="info-icon">🏭</div>
+            <h3>Manufacturing</h3>
+            <p>
+                Manufacturing contributes to employment, production
+                and domestic economic activity.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🧵</div>
+            <h3>Textiles</h3>
+            <p>
+                Textile and apparel products form an important part
+                of Pakistan's export sector.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🌾</div>
+            <h3>Rice & Agriculture</h3>
+            <p>
+                Agricultural products including rice contribute to
+                Pakistan's international trade.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🌍</div>
+            <h3>Global Trade</h3>
+            <p>
+                Export markets connect Pakistani industries with
+                customers and businesses around the world.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="key-insights">
+
+        <h2>Key Insights</h2>
+
+        <div class="insight-list">
+            <div>✓ Textiles are a major component of Pakistan's export economy.</div>
+            <div>✓ Industrial activity is concentrated in major economic regions.</div>
+            <div>✓ Agricultural products also contribute to exports.</div>
+            <div>✓ Diversification can broaden the country's export base.</div>
+        </div>
+
+    </div>
+
+
+    <div class="data-note">
+        <strong>Data note:</strong>
+        Values displayed in the charts are illustrative project values,
+        not verified official export or industrial statistics.
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div>
+            <h3>🇵🇰 Pakistan Data & Statistics</h3>
+            <p>
+                Exploring Pakistan's economic and statistical landscape.
+            </p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="index.html">Dashboard</a>
+            <a href="index.html#topics">Topics</a>
+            <a href="index.html#statistics">Statistics</a>
+            <a href="index.html#sources">Sources</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Pakistan Data & Statistics
+    </div>
+
 </footer>
 
-<script src="script.js"></script>
+
 <script>
-// Bar Chart - Major Industries by Province
-const ctxBar = document.getElementById('industriesBarChart').getContext('2d');
-const industriesBarChart = new Chart(ctxBar, {
-    type: 'bar',
-    data: {
-        labels: ['Punjab', 'Sindh', 'KPK', 'Balochistan'],
-        datasets: [{
-            label: 'Industrial Index',
-            data: [100, 80, 50, 30],
-            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { display: false },
-            title: { display: true, text: 'Major Industries by Province' }
-        }
-    }
-});
+document.addEventListener("DOMContentLoaded", function () {
 
-// Pie Chart - Export Share by Product
-const ctxPie = document.getElementById('exportsPieChart').getContext('2d');
-const exportsPieChart = new Chart(ctxPie, {
-    type: 'pie',
-    data: {
-        labels: ['Textiles', 'Rice', 'Leather', 'Sports Goods', 'Other'],
-        datasets: [{
-            label: 'Export Share (%)',
-            data: [50, 15, 10, 5, 20],
-            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0','#9966ff']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { position: 'bottom' },
-            title: { display: true, text: 'Export Share by Product' }
-        }
-    }
-});
+    const bar = document.getElementById("industriesBarChart");
 
-// Back Button Function
-function goBack() {
-    window.history.back();
-}
+    if (bar) {
+
+        new Chart(bar, {
+            type: "bar",
+
+            data: {
+                labels: [
+                    "Punjab",
+                    "Sindh",
+                    "Khyber Pakhtunkhwa",
+                    "Balochistan"
+                ],
+
+                datasets: [{
+                    label: "Industrial Activity Index",
+                    data: [100, 80, 50, 30]
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+    }
+
+
+    const pie = document.getElementById("exportsPieChart");
+
+    if (pie) {
+
+        new Chart(pie, {
+            type: "doughnut",
+
+            data: {
+                labels: [
+                    "Textiles",
+                    "Rice",
+                    "Leather",
+                    "Sports Goods",
+                    "Other"
+                ],
+
+                datasets: [{
+                    data: [50, 15, 10, 5, 20]
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+    }
+
+});
 </script>
+
 </body>
 </html>
