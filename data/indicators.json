@@ -2,13 +2,363 @@
   "data": [
     {
       "province": "Punjab",
+      "district": "Attock",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 2133005,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Bahawalnagar",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 3544911,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Bahawalpur",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 4264457,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Bhakkar",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1956971,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Chakwal",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1731689,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Chiniot",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1663024,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Dera Ghazi Khan",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 3386575,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Faisalabad",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 9065306,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Gujranwala",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 5940173,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Gujrat",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 3216000,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Hafizabad",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1319651,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Jhang",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 3065639,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Jhelum",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1366297,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Kasur",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 4081568,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Khanewal",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 3363589,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Khushab",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1500835,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
       "district": "Lahore",
       "category": "Population",
-      "indicator": "Population",
+      "indicator": "Total Population",
       "year": 2023,
-      "value": null,
+      "value": 12978661,
       "unit": "persons",
-      "source": "Pakistan Bureau of Statistics"
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Layyah",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 2102361,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Lodhran",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1926357,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Mandi Bahauddin",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1829152,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Mianwali",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1795897,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Multan",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 5340762,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Muzaffargarh",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 5012124,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Nankana Sahib",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1634871,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Narowal",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 1950769,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Okara",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 3503451,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Pakpattan",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 2135511,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Rahim Yar Khan",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 5561720,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Rajanpur",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 2323980,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Rawalpindi",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 6058540,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Sahiwal",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 2878122,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Sargodha",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 4327263,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Sheikhupura",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 4049377,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Sialkot",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 4472462,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Toba Tek Singh",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 2524044,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
+    },
+    {
+      "province": "Punjab",
+      "district": "Vehari",
+      "category": "Population",
+      "indicator": "Total Population",
+      "year": 2023,
+      "value": 3428191,
+      "unit": "persons",
+      "source": "Pakistan Bureau of Statistics - Census 2023"
     }
   ]
 }
