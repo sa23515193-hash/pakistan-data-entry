@@ -3,207 +3,650 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Online Work - Pakistan Insights 2025</title>
-<link rel="stylesheet" href="style.css">
+
+<title>Online Work | Pakistan Data & Statistics</title>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f3f7f5;
+color:#18352b;
+line-height:1.6
+}
+
+header{
+background:linear-gradient(135deg,#064e3b,#087443);
+color:#fff;
+padding:16px 5%;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 4px 18px rgba(0,0,0,.15)
+}
+
+.header-inner{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px
+}
+
+.logo{
+font-size:21px;
+font-weight:800
+}
+
+nav{
+display:flex;
+gap:8px;
+flex-wrap:wrap
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+padding:9px 14px;
+border-radius:8px;
+font-size:14px;
+font-weight:600
+}
+
+nav a:hover{
+background:rgba(255,255,255,.16)
+}
+
+.dashboard-btn{
+background:#fff;
+color:#075b3d!important
+}
+
+.hero{
+max-width:1200px;
+margin:35px auto 25px;
+padding:0 20px
+}
+
+.hero-box{
+background:linear-gradient(135deg,#075b3d,#0b8f54);
+color:#fff;
+border-radius:22px;
+padding:45px 40px;
+box-shadow:0 12px 30px rgba(6,78,59,.18)
+}
+
+.badge{
+display:inline-block;
+background:rgba(255,255,255,.15);
+padding:6px 12px;
+border-radius:30px;
+font-size:12px;
+font-weight:bold;
+margin-bottom:12px
+}
+
+.hero h1{
+font-size:38px;
+margin-bottom:8px
+}
+
+.hero p{
+max-width:800px;
+opacity:.94
+}
+
+.container{
+max-width:1160px;
+margin:auto;
+padding:0 20px 50px
+}
+
+.section-title{
+color:#075b3d;
+margin:35px 0 18px;
+font-size:27px
+}
+
+.chart-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:22px
+}
+
+.chart-card,
+.info-card{
+background:#fff;
+border-radius:17px;
+padding:27px;
+box-shadow:0 7px 25px rgba(0,0,0,.06);
+border:1px solid #e0ebe5
+}
+
+.chart-card h3,
+.info-card h3{
+color:#075b3d;
+margin-bottom:18px
+}
+
+.chart-box{
+height:340px;
+position:relative
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px
+}
+
+.info-card p{
+color:#566a61
+}
+
+.info-card ul{
+padding-left:22px
+}
+
+.info-card li{
+margin:7px 0
+}
+
+.insights{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
+}
+
+.insight{
+background:#fff;
+padding:22px;
+border-radius:15px;
+border-left:4px solid #0b8f54;
+box-shadow:0 5px 18px rgba(0,0,0,.05)
+}
+
+.insight h3{
+color:#075b3d;
+font-size:17px;
+margin-bottom:7px
+}
+
+.insight p{
+color:#66766f;
+font-size:14px
+}
+
+.actions{
+display:flex;
+gap:12px;
+margin:35px 0;
+flex-wrap:wrap
+}
+
+.btn{
+display:inline-block;
+text-decoration:none;
+padding:12px 20px;
+border-radius:9px;
+font-weight:700;
+background:#075b3d;
+color:#fff
+}
+
+.btn-light{
+background:#fff;
+color:#075b3d;
+border:1px solid #cfe0d7
+}
+
+.topic-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:12px
+}
+
+.topic-link{
+background:#fff;
+color:#075b3d;
+text-decoration:none;
+padding:14px 10px;
+text-align:center;
+border-radius:10px;
+border:1px solid #dfebe4;
+font-size:13px;
+font-weight:700
+}
+
+.topic-link:hover{
+background:#075b3d;
+color:#fff
+}
+
+footer{
+background:#063c2d;
+color:#dcebe4
+}
+
+.footer-inner{
+max-width:1200px;
+margin:auto;
+padding:38px 20px
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px
+}
+
+.footer-col h3{
+color:#fff;
+margin-bottom:12px
+}
+
+.footer-col a{
+display:block;
+color:#bdd4ca;
+text-decoration:none;
+font-size:13px;
+margin:7px 0
+}
+
+.footer-col a:hover{
+color:#fff
+}
+
+.copyright{
+text-align:center;
+border-top:1px solid rgba(255,255,255,.12);
+padding-top:18px;
+margin-top:25px;
+font-size:13px
+}
+
+@media(max-width:850px){
+
+.chart-grid,
+.info-grid,
+.insights{
+grid-template-columns:1fr
+}
+
+.topic-grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.footer-grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+}
+
+@media(max-width:600px){
+
+.header-inner{
+flex-direction:column;
+align-items:flex-start
+}
+
+.hero-box{
+padding:30px 22px
+}
+
+.hero h1{
+font-size:28px
+}
+
+.topic-grid,
+.footer-grid{
+grid-template-columns:1fr
+}
+
+}
+</style>
 </head>
+
 <body>
 
-<!-- Header -->
 <header>
-    <h1>Pakistan Insights 2025</h1>
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="index.html#home">Home</a>
-    </nav>
-</header>
+<div class="header-inner">
 
-<!-- Online Work Section -->
-<section class="topic-section">
-    <h2>Online Work</h2>
+<div class="logo">🇵🇰 Pakistan Data & Statistics</div>
 
-    <!-- Charts -->
-    <div class="chart-container">
-        <canvas id="onlineWorkBarChart"></canvas>
-    </div>
-    <div class="chart-container">
-        <canvas id="onlineWorkPieChart"></canvas>
-    </div>
-
-    <!-- Optional Map Placeholder -->
-    <div class="map-placeholder">
-        <h3>Online Workforce Distribution</h3>
-        <p>Map placeholder showing urban and rural online workers</p>
-    </div>
-
-    <!-- Detailed Explanation -->
-    <div class="topic-details">
-        <h3>Overview</h3>
-        <p>Online work and freelancing are growing rapidly in Pakistan. Remote jobs include IT services, digital marketing, content creation, and e-commerce.</p>
-        
-        <h4>Online Work by Sector:</h4>
-        <ul>
-            <li>IT & Software: 40%</li>
-            <li>Digital Marketing: 25%</li>
-            <li>Content Creation: 20%</li>
-            <li>E-commerce: 10%</li>
-            <li>Other: 5%</li>
-        </ul>
-
-        <h4>Urban vs Rural Online Workers:</h4>
-        <ul>
-            <li>Urban: 70%</li>
-            <li>Rural: 30%</li>
-        </ul>
-
-        <h4>Key Insights:</h4>
-        <ul>
-            <li>Majority of online workers are in Karachi, Lahore, Islamabad, and Faisalabad.</li>
-            <li>High growth potential in rural areas with improved internet access.</li>
-            <li>Government and private initiatives promote digital skills training.</li>
-        </ul>
-    </div>
-
-    <!-- Back Button -->
-    <button onclick="goBack()" class="back-btn">← Back</button>
-</section>
-
-<!-- Footer -->
-<footer>
-    <div class="footer-topics">
-        <!-- 15 Topics x 3 Links each -->
-        <div class="footer-topic">
-            <h4>Exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Trade Data 1</a></li>
-                <li><a href="#" target="_blank">Trade Data 2</a></li>
-                <li><a href="#defense">Defense & Security</a></li>
-                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
-            </ul>
-        </div>
-        <div class="footer-topic">
-            <h4>Education</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Education Report 1</a></li>
-                <li><a href="#" target="_blank">Education Report 2</a></li>
-                <li><a href="#mapSection">Pakistan Map</a></li>
-                 <li><a href="#imports">Imports & Exports Details</a></li>
-    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
-
-   
-            </ul>
-        </div>
-        <!-- Add remaining 13 topics similarly -->
-         <div class="footer-topic">
-            <h4>military</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#education">Education Statistics</a></li>
-    <li><a href="#employment">Employment Data</a></li>
-    <li><a href="#gender">Gender Stats</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
-            </ul>
-   
-    </div>
-    <div class="footer-topic">
-            <h4>exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#youth">Youth Information</a></li>
-    <li><a href="#health">Healthcare & Diseases</a></li>
-    <li><a href="#agriculture">Agriculture</a></li>
-    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
-
-            </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>industries</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#industries">Industries & Exports</a></li>
-    <li><a href="#onlineBusiness">Online Business & Work</a></li>
-    <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="#technology">Technology & Innovation</a></li>
-    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>energy_power</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
-    <li><a href="#infrastructure">Infrastructure Projects</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
-</ul>
-    </div>
-    <div class="footer-topic">
-            <h4>more</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
-    <li><a href="#demographics">Population & Demographics</a></li>
-    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
-    <li><a href="#economy">Economy & Trade</a></li>
-    </ul>
-    </div>
+<nav>
+<a href="index.html" class="dashboard-btn">← Dashboard</a>
+<a href="index.html#topics">Topics</a>
+<a href="index.html#statistics">Statistics</a>
+<a href="management.html">Management</a>
+</nav>
 
 </div>
+</header>
+
+<section class="hero">
+<div class="hero-box">
+
+<span class="badge">DIGITAL ECONOMY</span>
+
+<h1>Online Work in Pakistan</h1>
+
+<p>
+Explore online work and freelancing sectors, digital skills,
+remote work patterns and urban-rural distribution.
+</p>
+
+</div>
+</section>
+
+<main class="container">
+
+<h2 class="section-title">Online Work Statistics</h2>
+
+<div class="chart-grid">
+
+<div class="chart-card">
+<h3>Online Work by Sector</h3>
+
+<div class="chart-box">
+<canvas id="onlineWorkBarChart"></canvas>
+</div>
+
+</div>
+
+<div class="chart-card">
+<h3>Urban vs Rural Online Workers</h3>
+
+<div class="chart-box">
+<canvas id="onlineWorkPieChart"></canvas>
+</div>
+
+</div>
+
+</div>
+
+<h2 class="section-title">Sector Distribution</h2>
+
+<div class="info-grid">
+
+<div class="info-card">
+<h3>💻 Online Work by Sector</h3>
+
+<ul>
+<li>IT & Software — 40%</li>
+<li>Digital Marketing — 25%</li>
+<li>Content Creation — 20%</li>
+<li>E-commerce — 10%</li>
+<li>Other — 5%</li>
+</ul>
+
+</div>
+
+<div class="info-card">
+
+<h3>🌍 Urban vs Rural</h3>
+
+<ul>
+<li>Urban — 70%</li>
+<li>Rural — 30%</li>
+</ul>
+
+</div>
+
+</div>
+
+<h2 class="section-title">Key Insights</h2>
+
+<div class="insights">
+
+<div class="insight">
+<h3>💻 IT & Software</h3>
+<p>
+IT and software development represent the largest online-work
+category in the project's dataset.
+</p>
+</div>
+
+<div class="insight">
+<h3>📱 Digital Services</h3>
+<p>
+Digital marketing and content creation are additional categories
+represented in the online-work dataset.
+</p>
+</div>
+
+<div class="insight">
+<h3>🌐 Remote Opportunities</h3>
+<p>
+Improved connectivity and digital skills can expand access to
+remote and online work opportunities.
+</p>
+</div>
+
+</div>
+
+<h2 class="section-title">Online Work Areas</h2>
+
+<div class="info-card">
+
+<ul>
+<li>Web Development</li>
+<li>Software Development</li>
+<li>Graphic Design</li>
+<li>Digital Marketing</li>
+<li>Content Writing</li>
+<li>Video Editing</li>
+<li>Virtual Assistance</li>
+<li>E-commerce</li>
+<li>Data Entry</li>
+<li>Online Education</li>
+</ul>
+
+</div>
+
+<div class="actions">
+
+<a href="index.html" class="btn">
+← Back to Dashboard
+</a>
+
+<a href="topic5.html" class="btn btn-light">
+Next: Agriculture →
+</a>
+
+</div>
+
+<h2 class="section-title">Explore Topics</h2>
+
+<div class="topic-grid">
+
+<a class="topic-link" href="topic1.html">Exports</a>
+<a class="topic-link" href="topic2.html">Education</a>
+<a class="topic-link" href="topic3.html">Employment</a>
+<a class="topic-link" href="topic4.html">Online Work</a>
+<a class="topic-link" href="topic5.html">Agriculture</a>
+<a class="topic-link" href="topic6.html">Health</a>
+<a class="topic-link" href="topic7.html">Population</a>
+<a class="topic-link" href="topic8.html">Industries</a>
+<a class="topic-link" href="topic9.html">Energy</a>
+<a class="topic-link" href="topic10.html">Technology</a>
+<a class="topic-link" href="topic11.html">Gender</a>
+<a class="topic-link" href="topic12.html">Youth</a>
+<a class="topic-link" href="topic13.html">Infrastructure</a>
+<a class="topic-link" href="topic14.html">Imports</a>
+<a class="topic-link" href="topic15.html">Economy</a>
+
+</div>
+
+</main>
+
+<footer>
+
+<div class="footer-inner">
+
+<div class="footer-grid">
+
+<div class="footer-col">
+
+<h3>Pakistan Data</h3>
+
+<a href="index.html">Dashboard</a>
+<a href="management.html">Data Management</a>
+<a href="index.html#sources">Sources</a>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Digital Economy</h3>
+
+<a href="topic4.html">Online Work</a>
+<a href="topic10.html">Technology</a>
+<a href="topic15.html">Economy</a>
+
+</div>
+
+<div class="footer-col">
+
+<h3>People</h3>
+
+<a href="topic2.html">Education</a>
+<a href="topic3.html">Employment</a>
+<a href="topic7.html">Population</a>
+<a href="topic12.html">Youth</a>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Official Sources</h3>
+
+<a href="https://www.pbs.gov.pk/" target="_blank">
+Pakistan Bureau of Statistics
+</a>
+
+<a href="https://www.pta.gov.pk/" target="_blank">
+Pakistan Telecommunication Authority
+</a>
+
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Pakistan Data & Statistics Dashboard
+</div>
+
+</div>
+
 </footer>
 
-<script src="script.js"></script>
 <script>
-// Bar Chart - Online Work by Sector
-const ctxBar = document.getElementById('onlineWorkBarChart').getContext('2d');
-const onlineWorkBarChart = new Chart(ctxBar, {
-    type: 'bar',
-    data: {
-        labels: ['IT & Software', 'Digital Marketing', 'Content Creation', 'E-commerce', 'Other'],
-        datasets: [{
-            label: 'Online Work by Sector (%)',
-            data: [40, 25, 20, 10, 5],
-            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0','#9966ff']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { display: false },
-            title: { display: true, text: 'Online Work by Sector' }
-        }
-    }
-});
+document.addEventListener("DOMContentLoaded",function(){
 
-// Pie Chart - Urban vs Rural Online Workers
-const ctxPie = document.getElementById('onlineWorkPieChart').getContext('2d');
-const onlineWorkPieChart = new Chart(ctxPie, {
-    type: 'pie',
-    data: {
-        labels: ['Urban', 'Rural'],
-        datasets: [{
-            label: 'Urban vs Rural Online Workers (%)',
-            data: [70, 30],
-            backgroundColor: ['#54a0ff', '#ff6b6b']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { position: 'bottom' },
-            title: { display: true, text: 'Urban vs Rural Online Workers' }
-        }
-    }
-});
+new Chart(document.getElementById("onlineWorkBarChart"),{
 
-// Back Button Function
-function goBack() {
-    window.history.back();
+type:"bar",
+
+data:{
+labels:[
+"IT & Software",
+"Digital Marketing",
+"Content Creation",
+"E-commerce",
+"Other"
+],
+
+datasets:[{
+label:"Online Work Share (%)",
+
+data:[40,25,20,10,5],
+
+backgroundColor:"#087443",
+
+borderRadius:8
+}]
+},
+
+options:{
+
+responsive:true,
+
+maintainAspectRatio:false,
+
+plugins:{
+legend:{
+display:false
 }
+},
+
+scales:{
+y:{
+beginAtZero:true,
+
+ticks:{
+callback:function(value){
+return value+"%";
+}
+}
+}
+}
+
+}
+
+});
+
+new Chart(document.getElementById("onlineWorkPieChart"),{
+
+type:"doughnut",
+
+data:{
+
+labels:[
+"Urban",
+"Rural"
+],
+
+datasets:[{
+
+data:[70,30],
+
+backgroundColor:[
+"#087443",
+"#9bcdb0"
+],
+
+borderColor:"#fff",
+
+borderWidth:2
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+maintainAspectRatio:false,
+
+plugins:{
+legend:{
+position:"bottom"
+}
+}
+
+}
+
+});
+
+});
 </script>
+
 </body>
 </html>
