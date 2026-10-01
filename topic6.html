@@ -1,210 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Healthcare - Pakistan Insights 2025</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Healthcare in Pakistan | Pakistan Data & Statistics</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
-<!-- Header -->
-<header>
-    <h1>Pakistan Insights 2025</h1>
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="index.html#home">Home</a>
-    </nav>
+<header class="main-header">
+    <div class="header-container">
+
+        <a href="index.html" class="brand">
+            🇵🇰 Pakistan Data & Statistics
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html">Dashboard</a>
+            <a href="index.html#topics">Topics</a>
+            <a href="index.html#pakistan-map">Map</a>
+            <a href="index.html#statistics">Statistics</a>
+            <a href="management.html">Management</a>
+            <a href="index.html#sources">Sources</a>
+        </nav>
+
+    </div>
 </header>
 
-<!-- Healthcare Section -->
-<section class="topic-section">
-    <h2>Healthcare</h2>
 
-    <!-- Charts -->
-    <div class="chart-container">
-        <canvas id="hospitalsBarChart"></canvas>
-    </div>
-    <div class="chart-container">
-        <canvas id="healthWorkersPieChart"></canvas>
-    </div>
+<main>
 
-    <!-- Optional Map Placeholder -->
-    <div class="map-placeholder">
-        <h3>Healthcare Facilities Distribution</h3>
-        <p>Map placeholder showing hospitals and clinics in each province</p>
-    </div>
+<section class="topic-page-hero">
 
-    <!-- Detailed Explanation -->
-    <div class="topic-details">
-        <h3>Overview</h3>
-        <p>Pakistan's healthcare system includes public and private hospitals, clinics, and community health centers. The number of doctors, nurses, and paramedics varies across provinces.</p>
-        
-        <h4>Number of Hospitals by Province (Approx. 2025):</h4>
-        <ul>
-            <li>Punjab: 1,200</li>
-            <li>Sindh: 600</li>
-            <li>Khyber Pakhtunkhwa: 450</li>
-            <li>Balochistan: 200</li>
-            <li>Gilgit-Baltistan: 50</li>
-        </ul>
+    <div class="topic-hero-content">
 
-        <h4>Healthcare Workers Distribution:</h4>
-        <ul>
-            <li>Doctors: 35%</li>
-            <li>Nurses: 40%</li>
-            <li>Paramedics: 25%</li>
-        </ul>
+        <span class="topic-label">TOPIC 06</span>
 
-        <h4>Key Insights:</h4>
-        <ul>
-            <li>Major hospitals concentrated in urban areas like Karachi, Lahore, Islamabad.</li>
-            <li>Rural areas face challenges with access to healthcare professionals.</li>
-            <li>Government initiatives focus on improving health infrastructure and disease control.</li>
-        </ul>
+        <h1>Healthcare in Pakistan</h1>
+
+        <p>
+            Explore healthcare infrastructure, health workforce
+            distribution and major healthcare challenges.
+        </p>
+
+        <a href="index.html#topics" class="back-btn">
+            ← Back to Topics
+        </a>
+
     </div>
 
-    <!-- Back Button -->
-    <button onclick="goBack()" class="back-btn">← Back</button>
 </section>
 
-<!-- Footer -->
-<footer>
-    <div class="footer-topics">
-        <!-- 15 Topics x 3 Links each -->
-        <div class="footer-topic">
-            <h4>Exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Trade Data 1</a></li>
-                <li><a href="#" target="_blank">Trade Data 2</a></li>
-                <li><a href="#defense">Defense & Security</a></li>
-                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
-            </ul>
+
+<section class="topic-section">
+
+    <div class="topic-details">
+
+        <div class="topic-heading">
+            <span>01</span>
+
+            <div>
+                <h2>Healthcare Overview</h2>
+                <p>Healthcare infrastructure and human resources</p>
+            </div>
         </div>
-        <div class="footer-topic">
-            <h4>Education</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Education Report 1</a></li>
-                <li><a href="#" target="_blank">Education Report 2</a></li>
-                <li><a href="#mapSection">Pakistan Map</a></li>
-                 <li><a href="#imports">Imports & Exports Details</a></li>
-    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
 
-   
-            </ul>
+        <p>
+            Healthcare is an essential component of national development.
+            Pakistan's healthcare system includes public hospitals,
+            private healthcare facilities, clinics and specialized
+            medical institutions.
+        </p>
+
+        <p>
+            Access to healthcare differs between urban and rural areas.
+            Health workforce availability, hospital infrastructure and
+            preventive healthcare remain important areas of planning.
+        </p>
+
+    </div>
+
+
+    <div class="charts-grid">
+
+        <div class="chart-card">
+
+            <div class="chart-card-header">
+                <h3>Healthcare Facilities</h3>
+                <span>Illustrative values</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="hospitalsBarChart"></canvas>
+            </div>
+
         </div>
-        <!-- Add remaining 13 topics similarly -->
-         <div class="footer-topic">
-            <h4>military</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#education">Education Statistics</a></li>
-    <li><a href="#employment">Employment Data</a></li>
-    <li><a href="#gender">Gender Stats</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
-            </ul>
-   
-    </div>
-    <div class="footer-topic">
-            <h4>exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#youth">Youth Information</a></li>
-    <li><a href="#health">Healthcare & Diseases</a></li>
-    <li><a href="#agriculture">Agriculture</a></li>
-    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
 
-            </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>industries</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#industries">Industries & Exports</a></li>
-    <li><a href="#onlineBusiness">Online Business & Work</a></li>
-    <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="#technology">Technology & Innovation</a></li>
-    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>energy_power</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
-    <li><a href="#infrastructure">Infrastructure Projects</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
-</ul>
-    </div>
-    <div class="footer-topic">
-            <h4>more</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
-    <li><a href="#demographics">Population & Demographics</a></li>
-    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
-    <li><a href="#economy">Economy & Trade</a></li>
-    </ul>
+
+        <div class="chart-card">
+
+            <div class="chart-card-header">
+                <h3>Healthcare Workforce</h3>
+                <span>Illustrative share</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="healthWorkersPieChart"></canvas>
+            </div>
+
+        </div>
+
     </div>
 
-</div>
+
+    <div class="topic-info-grid">
+
+        <div class="info-card">
+            <div class="info-icon">🏥</div>
+            <h3>Hospitals</h3>
+            <p>
+                Hospitals and healthcare facilities provide essential
+                medical services to communities.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">👨‍⚕️</div>
+            <h3>Doctors</h3>
+            <p>
+                Doctors are a central component of Pakistan's healthcare
+                workforce and medical service delivery.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">👩‍⚕️</div>
+            <h3>Nurses</h3>
+            <p>
+                Nurses support patient care, hospitals and community
+                healthcare services.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🚑</div>
+            <h3>Emergency Services</h3>
+            <p>
+                Emergency and ambulance services are important for
+                timely access to medical care.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="key-insights">
+
+        <h2>Key Insights</h2>
+
+        <div class="insight-list">
+            <div>✓ Healthcare facilities are distributed across provinces.</div>
+            <div>✓ Urban areas generally have greater access to specialized services.</div>
+            <div>✓ Health workforce availability is important for service quality.</div>
+            <div>✓ Rural healthcare access remains an important planning issue.</div>
+        </div>
+
+    </div>
+
+
+    <div class="data-note">
+        <strong>Data note:</strong>
+        The chart values are illustrative project values and should not
+        be treated as official healthcare statistics.
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div>
+            <h3>🇵🇰 Pakistan Data & Statistics</h3>
+            <p>
+                Exploring Pakistan's demographic and socio-economic data.
+            </p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="index.html">Dashboard</a>
+            <a href="index.html#topics">Topics</a>
+            <a href="index.html#statistics">Statistics</a>
+            <a href="index.html#sources">Sources</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Pakistan Data & Statistics
+    </div>
+
 </footer>
 
-<script src="script.js"></script>
+
 <script>
-// Bar Chart - Hospitals by Province
-const ctxHospitals = document.getElementById('hospitalsBarChart').getContext('2d');
-const hospitalsBarChart = new Chart(ctxHospitals, {
-    type: 'bar',
-    data: {
-        labels: ['Punjab', 'Sindh', 'KPK', 'Balochistan', 'Gilgit-Baltistan'],
-        datasets: [{
-            label: 'Number of Hospitals',
-            data: [1200, 600, 450, 200, 50],
-            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0','#9966ff']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { display: false },
-            title: { display: true, text: 'Hospitals by Province' }
-        }
-    }
-});
+document.addEventListener("DOMContentLoaded", function () {
 
-// Pie Chart - Healthcare Workers Distribution
-const ctxHealth = document.getElementById('healthWorkersPieChart').getContext('2d');
-const healthWorkersPieChart = new Chart(ctxHealth, {
-    type: 'pie',
-    data: {
-        labels: ['Doctors', 'Nurses', 'Paramedics'],
-        datasets: [{
-            label: 'Healthcare Workers (%)',
-            data: [35, 40, 25],
-            backgroundColor: ['#54a0ff', '#ff6b6b', '#ffcd56']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { position: 'bottom' },
-            title: { display: true, text: 'Healthcare Workers Distribution' }
-        }
-    }
-});
+    const bar = document.getElementById("hospitalsBarChart");
 
-// Back Button Function
-function goBack() {
-    window.history.back();
-}
+    if (bar) {
+        new Chart(bar, {
+            type: "bar",
+            data: {
+                labels: [
+                    "Punjab",
+                    "Sindh",
+                    "Khyber Pakhtunkhwa",
+                    "Balochistan",
+                    "GB"
+                ],
+                datasets: [{
+                    label: "Healthcare Facilities (Illustrative)",
+                    data: [1200, 600, 450, 200, 50]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    }
+
+
+    const pie = document.getElementById("healthWorkersPieChart");
+
+    if (pie) {
+        new Chart(pie, {
+            type: "doughnut",
+            data: {
+                labels: [
+                    "Doctors",
+                    "Nurses",
+                    "Paramedics"
+                ],
+                datasets: [{
+                    data: [35, 40, 25]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    }
+
+});
 </script>
+
 </body>
 </html>
