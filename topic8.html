@@ -1,211 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agriculture - Pakistan Insights 2025</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agriculture of Pakistan | Pakistan Data & Statistics</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 <body>
 
-<!-- Header -->
-<header>
-    <h1>Pakistan Insights 2025</h1>
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="index.html#home">Home</a>
-    </nav>
+<header class="main-header">
+
+    <div class="header-container">
+
+        <a href="index.html" class="brand">
+            🇵🇰 Pakistan Data & Statistics
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html">Dashboard</a>
+            <a href="index.html#topics">Topics</a>
+            <a href="index.html#pakistan-map">Map</a>
+            <a href="index.html#statistics">Statistics</a>
+            <a href="management.html">Management</a>
+            <a href="index.html#sources">Sources</a>
+        </nav>
+
+    </div>
+
 </header>
 
-<!-- Agriculture Section -->
-<section class="topic-section">
-    <h2>Agriculture</h2>
 
-    <!-- Charts -->
-    <div class="chart-container">
-        <canvas id="cropsBarChart"></canvas>
-    </div>
-    <div class="chart-container">
-        <canvas id="cropPieChart"></canvas>
-    </div>
+<main>
 
-    <!-- Optional Map Placeholder -->
-    <div class="map-placeholder">
-        <h3>Agriculture Distribution by Province</h3>
-        <p>Map placeholder showing crop production and farmland distribution</p>
-    </div>
+<section class="topic-page-hero">
 
-    <!-- Detailed Explanation -->
-    <div class="topic-details">
-        <h3>Overview</h3>
-        <p>Agriculture is a major sector in Pakistan's economy, providing employment and contributing significantly to GDP. Key crops include wheat, rice, sugarcane, cotton, and maize.</p>
-        
-        <h4>Major Crops Production by Province (Approx. 2025):</h4>
-        <ul>
-            <li>Punjab: Wheat, Sugarcane, Cotton</li>
-            <li>Sindh: Rice, Cotton, Sugarcane</li>
-            <li>Khyber Pakhtunkhwa: Wheat, Maize, Fruits</li>
-            <li>Balochistan: Wheat, Fruits, Vegetables</li>
-        </ul>
+    <div class="topic-hero-content">
 
-        <h4>Crop Type Share:</h4>
-        <ul>
-            <li>Wheat: 40%</li>
-            <li>Rice: 20%</li>
-            <li>Sugarcane: 15%</li>
-            <li>Cotton: 15%</li>
-            <li>Other: 10%</li>
-        </ul>
+        <span class="topic-label">TOPIC 08</span>
 
-        <h4>Key Insights:</h4>
-        <ul>
-            <li>Punjab is the leading province in wheat and sugarcane production.</li>
-            <li>Sindh specializes in rice cultivation and cotton.</li>
-            <li>Government supports agriculture through subsidies, modern irrigation, and crop insurance programs.</li>
-        </ul>
+        <h1>Agriculture of Pakistan</h1>
+
+        <p>
+            Explore major crops, agricultural production and the role
+            of agriculture in Pakistan's economy.
+        </p>
+
+        <a href="index.html#topics" class="back-btn">
+            ← Back to Topics
+        </a>
+
     </div>
 
-    <!-- Back Button -->
-    <button onclick="goBack()" class="back-btn">← Back</button>
 </section>
 
-<!-- Footer -->
-<footer>
-    <div class="footer-topics">
-        <!-- 15 Topics x 3 Links each -->
-        <div class="footer-topic">
-            <h4>Exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Trade Data 1</a></li>
-                <li><a href="#" target="_blank">Trade Data 2</a></li>
-                <li><a href="#defense">Defense & Security</a></li>
-                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
-            </ul>
+
+<section class="topic-section">
+
+    <div class="topic-details">
+
+        <div class="topic-heading">
+
+            <span>01</span>
+
+            <div>
+                <h2>Agricultural Overview</h2>
+                <p>Crops, farming and food production</p>
+            </div>
+
         </div>
-        <div class="footer-topic">
-            <h4>Education</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Education Report 1</a></li>
-                <li><a href="#" target="_blank">Education Report 2</a></li>
-                <li><a href="#mapSection">Pakistan Map</a></li>
-                 <li><a href="#imports">Imports & Exports Details</a></li>
-    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
 
-   
-            </ul>
+        <p>
+            Agriculture remains an important sector of Pakistan's
+            economy and supports rural livelihoods, food production
+            and agricultural industries.
+        </p>
+
+        <p>
+            Major crops include wheat, rice, sugarcane and cotton.
+            Production varies by province because of differences in
+            climate, irrigation, soil and agricultural practices.
+        </p>
+
+    </div>
+
+
+    <div class="charts-grid">
+
+        <div class="chart-card">
+
+            <div class="chart-card-header">
+                <h3>Crop Production Index</h3>
+                <span>Illustrative values</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="cropsBarChart"></canvas>
+            </div>
+
         </div>
-        <!-- Add remaining 13 topics similarly -->
-         <div class="footer-topic">
-            <h4>military</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#education">Education Statistics</a></li>
-    <li><a href="#employment">Employment Data</a></li>
-    <li><a href="#gender">Gender Stats</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
-            </ul>
-   
-    </div>
-    <div class="footer-topic">
-            <h4>exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#youth">Youth Information</a></li>
-    <li><a href="#health">Healthcare & Diseases</a></li>
-    <li><a href="#agriculture">Agriculture</a></li>
-    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
 
-            </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>industries</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#industries">Industries & Exports</a></li>
-    <li><a href="#onlineBusiness">Online Business & Work</a></li>
-    <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="#technology">Technology & Innovation</a></li>
-    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>energy_power</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
-    <li><a href="#infrastructure">Infrastructure Projects</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
-</ul>
-    </div>
-    <div class="footer-topic">
-            <h4>more</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
-    <li><a href="#demographics">Population & Demographics</a></li>
-    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
-    <li><a href="#economy">Economy & Trade</a></li>
-    </ul>
+
+        <div class="chart-card">
+
+            <div class="chart-card-header">
+                <h3>Major Crop Share</h3>
+                <span>Illustrative share</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="cropPieChart"></canvas>
+            </div>
+
+        </div>
+
     </div>
 
-</div>
+
+    <div class="topic-info-grid">
+
+        <div class="info-card">
+            <div class="info-icon">🌾</div>
+            <h3>Wheat</h3>
+            <p>
+                Wheat is a major food crop and an important component
+                of Pakistan's food supply.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🍚</div>
+            <h3>Rice</h3>
+            <p>
+                Rice is an important food crop and contributes to
+                agricultural exports.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🍬</div>
+            <h3>Sugarcane</h3>
+            <p>
+                Sugarcane supports the sugar industry and agricultural
+                employment.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🌱</div>
+            <h3>Cotton</h3>
+            <p>
+                Cotton is closely connected with Pakistan's textile
+                and manufacturing industries.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="key-insights">
+
+        <h2>Key Insights</h2>
+
+        <div class="insight-list">
+            <div>✓ Agriculture supports food security and rural livelihoods.</div>
+            <div>✓ Wheat, rice, sugarcane and cotton are major crops.</div>
+            <div>✓ Punjab is an important agricultural production region.</div>
+            <div>✓ Irrigation and climate conditions affect crop production.</div>
+        </div>
+
+    </div>
+
+
+    <div class="data-note">
+        <strong>Data note:</strong>
+        Chart values are illustrative project values and are not intended
+        as official crop-production statistics.
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div>
+            <h3>🇵🇰 Pakistan Data & Statistics</h3>
+            <p>
+                Exploring Pakistan's agricultural and economic data.
+            </p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="index.html">Dashboard</a>
+            <a href="index.html#topics">Topics</a>
+            <a href="index.html#statistics">Statistics</a>
+            <a href="index.html#sources">Sources</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Pakistan Data & Statistics
+    </div>
+
 </footer>
 
-<script src="script.js"></script>
+
 <script>
-// Bar Chart - Major Crops Production by Province
-const ctxBar = document.getElementById('cropsBarChart').getContext('2d');
-const cropsBarChart = new Chart(ctxBar, {
-    type: 'bar',
-    data: {
-        labels: ['Punjab', 'Sindh', 'KPK', 'Balochistan'],
-        datasets: [{
-            label: 'Crop Production (Index)',
-            data: [100, 80, 50, 30],
-            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { display: false },
-            title: { display: true, text: 'Major Crops Production by Province' }
-        }
-    }
-});
+document.addEventListener("DOMContentLoaded", function () {
 
-// Pie Chart - Crop Type Share
-const ctxPie = document.getElementById('cropPieChart').getContext('2d');
-const cropPieChart = new Chart(ctxPie, {
-    type: 'pie',
-    data: {
-        labels: ['Wheat', 'Rice', 'Sugarcane', 'Cotton', 'Other'],
-        datasets: [{
-            label: 'Crop Type Share (%)',
-            data: [40, 20, 15, 15, 10],
-            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0','#9966ff']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { position: 'bottom' },
-            title: { display: true, text: 'Crop Type Share in Pakistan' }
-        }
-    }
-});
+    const bar = document.getElementById("cropsBarChart");
 
-// Back Button Function
-function goBack() {
-    window.history.back();
-}
+    if (bar) {
+
+        new Chart(bar, {
+
+            type: "bar",
+
+            data: {
+                labels: [
+                    "Wheat",
+                    "Rice",
+                    "Sugarcane",
+                    "Cotton"
+                ],
+
+                datasets: [{
+                    label: "Crop Production Index",
+                    data: [100, 80, 50, 30]
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+
+        });
+
+    }
+
+
+    const pie = document.getElementById("cropPieChart");
+
+    if (pie) {
+
+        new Chart(pie, {
+
+            type: "doughnut",
+
+            data: {
+                labels: [
+                    "Wheat",
+                    "Rice",
+                    "Sugarcane",
+                    "Cotton",
+                    "Other"
+                ],
+
+                datasets: [{
+                    data: [40, 20, 15, 15, 10]
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+
+        });
+
+    }
+
+});
 </script>
+
 </body>
 </html>
