@@ -1,210 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Technology & Innovation - Pakistan Insights 2025</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Technology & Innovation | Pakistan Data & Statistics</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 <body>
 
-<!-- Header -->
-<header>
-    <h1>Pakistan Insights 2025</h1>
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="index.html#home">Home</a>
-    </nav>
+<header class="main-header">
+
+    <div class="header-container">
+
+        <a href="index.html" class="brand">
+            🇵🇰 Pakistan Data & Statistics
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html">Dashboard</a>
+            <a href="index.html#topics">Topics</a>
+            <a href="index.html#pakistan-map">Map</a>
+            <a href="index.html#statistics">Statistics</a>
+            <a href="management.html">Management</a>
+            <a href="index.html#sources">Sources</a>
+        </nav>
+
+    </div>
+
 </header>
 
-<!-- Technology & Innovation Section -->
-<section class="topic-section">
-    <h2>Technology & Innovation</h2>
 
-    <!-- Charts -->
-    <div class="chart-container">
-        <canvas id="techBarChart"></canvas>
-    </div>
-    <div class="chart-container">
-        <canvas id="itPieChart"></canvas>
-    </div>
+<main>
 
-    <!-- Optional Map Placeholder -->
-    <div class="map-placeholder">
-        <h3>Innovation Hubs by Province</h3>
-        <p>Map placeholder showing tech parks, incubators, and IT centers</p>
-    </div>
+<section class="topic-page-hero">
 
-    <!-- Detailed Explanation -->
-    <div class="topic-details">
-        <h3>Overview</h3>
-        <p>Pakistan’s technology and innovation sector is growing rapidly with startups, IT services, and R&D contributing to economic growth.</p>
-        
-        <h4>Tech Startups by Province (Approx. 2025):</h4>
-        <ul>
-            <li>Punjab: 60%</li>
-            <li>Sindh: 25%</li>
-            <li>Khyber Pakhtunkhwa: 10%</li>
-            <li>Balochistan: 5%</li>
-        </ul>
+    <div class="topic-hero-content">
 
-        <h4>IT Sector Share:</h4>
-        <ul>
-            <li>Software Development: 50%</li>
-            <li>IT Services: 30%</li>
-            <li>Digital Marketing: 10%</li>
-            <li>Other Tech: 10%</li>
-        </ul>
+        <span class="topic-label">TOPIC 09</span>
 
-        <h4>Key Insights:</h4>
-        <ul>
-            <li>Lahore and Karachi are the major hubs for startups and IT development.</li>
-            <li>Government supports innovation through tech incubators and digital transformation policies.</li>
-            <li>Emerging technologies like AI, fintech, and e-commerce are gaining momentum.</li>
-        </ul>
+        <h1>Technology & Innovation</h1>
+
+        <p>
+            Explore Pakistan's technology ecosystem, startups,
+            IT services and digital economy.
+        </p>
+
+        <a href="index.html#topics" class="back-btn">
+            ← Back to Topics
+        </a>
+
     </div>
 
-    <!-- Back Button -->
-    <button onclick="goBack()" class="back-btn">← Back</button>
 </section>
 
-<!-- Footer -->
-<footer>
-    <div class="footer-topics">
-        <!-- 15 Topics x 3 Links each -->
-        <div class="footer-topic">
-            <h4>Exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Trade Data 1</a></li>
-                <li><a href="#" target="_blank">Trade Data 2</a></li>
-                <li><a href="#defense">Defense & Security</a></li>
-                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
-            </ul>
+
+<section class="topic-section">
+
+    <div class="topic-details">
+
+        <div class="topic-heading">
+
+            <span>01</span>
+
+            <div>
+                <h2>Technology Overview</h2>
+                <p>Digital services, startups and innovation</p>
+            </div>
+
         </div>
-        <div class="footer-topic">
-            <h4>Education</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Education Report 1</a></li>
-                <li><a href="#" target="_blank">Education Report 2</a></li>
-                <li><a href="#mapSection">Pakistan Map</a></li>
-                 <li><a href="#imports">Imports & Exports Details</a></li>
-    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
 
-   
-            </ul>
+        <p>
+            Pakistan's technology sector includes software development,
+            IT-enabled services, digital platforms, freelancing,
+            startups and technology-based businesses.
+        </p>
+
+        <p>
+            Major cities such as Lahore, Karachi and Islamabad-Rawalpindi
+            have developed significant technology and startup ecosystems.
+        </p>
+
+    </div>
+
+
+    <div class="charts-grid">
+
+        <div class="chart-card">
+
+            <div class="chart-card-header">
+                <h3>Technology Activity</h3>
+                <span>Illustrative values</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="techBarChart"></canvas>
+            </div>
+
         </div>
-        <!-- Add remaining 13 topics similarly -->
-         <div class="footer-topic">
-            <h4>military</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#education">Education Statistics</a></li>
-    <li><a href="#employment">Employment Data</a></li>
-    <li><a href="#gender">Gender Stats</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
-            </ul>
-   
-    </div>
-    <div class="footer-topic">
-            <h4>exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#youth">Youth Information</a></li>
-    <li><a href="#health">Healthcare & Diseases</a></li>
-    <li><a href="#agriculture">Agriculture</a></li>
-    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
 
-            </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>industries</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#industries">Industries & Exports</a></li>
-    <li><a href="#onlineBusiness">Online Business & Work</a></li>
-    <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="#technology">Technology & Innovation</a></li>
-    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>energy_power</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
-    <li><a href="#infrastructure">Infrastructure Projects</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
-</ul>
-    </div>
-    <div class="footer-topic">
-            <h4>more</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
-    <li><a href="#demographics">Population & Demographics</a></li>
-    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
-    <li><a href="#economy">Economy & Trade</a></li>
-    </ul>
+
+        <div class="chart-card">
+
+            <div class="chart-card-header">
+                <h3>IT Sector Categories</h3>
+                <span>Illustrative share</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="itPieChart"></canvas>
+            </div>
+
+        </div>
+
     </div>
 
-</div>
+
+    <div class="topic-info-grid">
+
+        <div class="info-card">
+            <div class="info-icon">💻</div>
+            <h3>Software Development</h3>
+            <p>
+                Software development supports local businesses,
+                international clients and digital products.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🚀</div>
+            <h3>Startups</h3>
+            <p>
+                Technology startups operate across fintech, e-commerce,
+                education, healthcare and other sectors.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🌐</div>
+            <h3>IT Services</h3>
+            <p>
+                IT services include software development, consulting,
+                outsourcing and technology support.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">📱</div>
+            <h3>Digital Economy</h3>
+            <p>
+                Digital platforms and online services are expanding
+                economic participation and business opportunities.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="key-insights">
+
+        <h2>Key Insights</h2>
+
+        <div class="insight-list">
+            <div>✓ Pakistan has a growing software and IT services sector.</div>
+            <div>✓ Major urban centres host important technology ecosystems.</div>
+            <div>✓ Digital businesses operate across many economic sectors.</div>
+            <div>✓ Technology creates opportunities for remote and global work.</div>
+        </div>
+
+    </div>
+
+
+    <div class="data-note">
+        <strong>Data note:</strong>
+        Technology and startup chart values are illustrative project values
+        and should not be treated as official statistics.
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div>
+            <h3>🇵🇰 Pakistan Data & Statistics</h3>
+            <p>
+                Exploring Pakistan's technology and innovation landscape.
+            </p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="index.html">Dashboard</a>
+            <a href="index.html#topics">Topics</a>
+            <a href="index.html#statistics">Statistics</a>
+            <a href="index.html#sources">Sources</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Pakistan Data & Statistics
+    </div>
+
 </footer>
 
-<script src="script.js"></script>
+
 <script>
-// Bar Chart - Tech Startups by Province
-const ctxBar = document.getElementById('techBarChart').getContext('2d');
-const techBarChart = new Chart(ctxBar, {
-    type: 'bar',
-    data: {
-        labels: ['Punjab', 'Sindh', 'KPK', 'Balochistan'],
-        datasets: [{
-            label: 'Tech Startups (%)',
-            data: [60, 25, 10, 5],
-            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { display: false },
-            title: { display: true, text: 'Tech Startups by Province' }
-        }
-    }
-});
+document.addEventListener("DOMContentLoaded", function () {
 
-// Pie Chart - IT Sector Share
-const ctxPie = document.getElementById('itPieChart').getContext('2d');
-const itPieChart = new Chart(ctxPie, {
-    type: 'pie',
-    data: {
-        labels: ['Software Development', 'IT Services', 'Digital Marketing', 'Other Tech'],
-        datasets: [{
-            label: 'IT Sector Share (%)',
-            data: [50, 30, 10, 10],
-            backgroundColor: ['#36a2eb','#ff6384','#ffcd56','#4bc0c0']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { position: 'bottom' },
-            title: { display: true, text: 'IT Sector Share in Pakistan' }
-        }
-    }
-});
+    const bar = document.getElementById("techBarChart");
 
-// Back Button Function
-function goBack() {
-    window.history.back();
-}
+    if (bar) {
+
+        new Chart(bar, {
+
+            type: "bar",
+
+            data: {
+                labels: [
+                    "Punjab",
+                    "Sindh",
+                    "Khyber Pakhtunkhwa",
+                    "Balochistan"
+                ],
+
+                datasets: [{
+                    label: "Technology Activity Index",
+                    data: [60, 25, 10, 5]
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+
+        });
+
+    }
+
+
+    const pie = document.getElementById("itPieChart");
+
+    if (pie) {
+
+        new Chart(pie, {
+
+            type: "doughnut",
+
+            data: {
+                labels: [
+                    "Software Development",
+                    "IT Services",
+                    "Digital Marketing",
+                    "Other Technology"
+                ],
+
+                datasets: [{
+                    data: [50, 30, 10, 10]
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+
+        });
+
+    }
+
+});
 </script>
+
 </body>
 </html>
