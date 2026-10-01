@@ -3,200 +3,516 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Education - Pakistan Insights 2025</title>
-<link rel="stylesheet" href="style.css">
+
+<title>Education | Pakistan Data & Statistics</title>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f7f5;
+    color:#18352b;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(135deg,#064e3b,#087443);
+    color:#fff;
+    padding:16px 5%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 18px rgba(0,0,0,.15)
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px
+}
+
+.logo{font-size:21px;font-weight:800}
+
+nav{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    padding:9px 14px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600
+}
+
+nav a:hover{background:rgba(255,255,255,.16)}
+
+.dashboard-btn{
+    background:#fff;
+    color:#075b3d!important
+}
+
+.hero{
+    max-width:1200px;
+    margin:35px auto 25px;
+    padding:0 20px
+}
+
+.hero-box{
+    background:linear-gradient(135deg,#075b3d,#0b8f54);
+    color:#fff;
+    border-radius:22px;
+    padding:45px 40px;
+    box-shadow:0 12px 30px rgba(6,78,59,.18)
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:6px 12px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:12px
+}
+
+.hero h1{font-size:38px;margin-bottom:8px}
+.hero p{max-width:800px;opacity:.94}
+
+.container{
+    max-width:1160px;
+    margin:auto;
+    padding:0 20px 50px
+}
+
+.section-title{
+    color:#075b3d;
+    margin:35px 0 18px;
+    font-size:27px
+}
+
+.chart-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px
+}
+
+.chart-card{
+    background:#fff;
+    border-radius:17px;
+    padding:25px;
+    box-shadow:0 7px 25px rgba(0,0,0,.07);
+    border:1px solid #e0ebe5
+}
+
+.chart-card h3{
+    color:#075b3d;
+    margin-bottom:18px
+}
+
+.chart-box{
+    height:340px;
+    position:relative
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px
+}
+
+.info-card{
+    background:#fff;
+    border-radius:17px;
+    padding:27px;
+    box-shadow:0 7px 25px rgba(0,0,0,.06);
+    border:1px solid #e0ebe5
+}
+
+.info-card h3{
+    color:#075b3d;
+    margin-bottom:12px
+}
+
+.info-card p{color:#566a61}
+
+.info-card ul{padding-left:22px}
+
+.info-card li{margin:7px 0}
+
+.insights{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px
+}
+
+.insight{
+    background:#fff;
+    padding:22px;
+    border-radius:15px;
+    border-left:4px solid #0b8f54;
+    box-shadow:0 5px 18px rgba(0,0,0,.05)
+}
+
+.insight h3{
+    color:#075b3d;
+    margin-bottom:7px;
+    font-size:17px
+}
+
+.insight p{
+    color:#66766f;
+    font-size:14px
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    margin:35px 0;
+    flex-wrap:wrap
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:9px;
+    font-weight:700;
+    background:#075b3d;
+    color:#fff
+}
+
+.btn-light{
+    background:#fff;
+    color:#075b3d;
+    border:1px solid #cfe0d7
+}
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px
+}
+
+.topic-link{
+    background:#fff;
+    color:#075b3d;
+    text-decoration:none;
+    padding:14px 10px;
+    text-align:center;
+    border-radius:10px;
+    border:1px solid #dfebe4;
+    font-size:13px;
+    font-weight:700
+}
+
+.topic-link:hover{
+    background:#075b3d;
+    color:#fff
+}
+
+footer{
+    background:#063c2d;
+    color:#dcebe4
+}
+
+.footer-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:38px 20px
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px
+}
+
+.footer-col h3{
+    color:#fff;
+    margin-bottom:12px
+}
+
+.footer-col a{
+    display:block;
+    color:#bdd4ca;
+    text-decoration:none;
+    font-size:13px;
+    margin:7px 0
+}
+
+.footer-col a:hover{color:#fff}
+
+.copyright{
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.12);
+    padding-top:18px;
+    margin-top:25px;
+    font-size:13px
+}
+
+@media(max-width:850px){
+    .chart-grid,
+    .info-grid,
+    .insights{grid-template-columns:1fr}
+
+    .topic-grid{grid-template-columns:repeat(2,1fr)}
+    .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:600px){
+    .header-inner{
+        flex-direction:column;
+        align-items:flex-start
+    }
+
+    .hero-box{padding:30px 22px}
+    .hero h1{font-size:28px}
+    .topic-grid,
+    .footer-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
 
-<!-- Header -->
 <header>
-    <h1>Pakistan Insights 2025</h1>
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="index.html#home">Home</a>
-    </nav>
+<div class="header-inner">
+
+<div class="logo">🇵🇰 Pakistan Data & Statistics</div>
+
+<nav>
+<a href="index.html" class="dashboard-btn">← Dashboard</a>
+<a href="index.html#topics">Topics</a>
+<a href="index.html#statistics">Statistics</a>
+<a href="management.html">Management</a>
+</nav>
+
+</div>
 </header>
 
-<!-- Education Section -->
-<section class="topic-section">
-    <h2>Education</h2>
+<section class="hero">
+<div class="hero-box">
 
-    <!-- Charts -->
-    <div class="chart-container">
-        <canvas id="educationBarChart"></canvas>
-    </div>
-    <div class="chart-container">
-        <canvas id="educationPieChart"></canvas>
-    </div>
+<span class="badge">EDUCATION & HUMAN DEVELOPMENT</span>
 
-    <!-- Optional Map Placeholder -->
-    <div class="map-placeholder">
-        <h3>Educational Institutes Distribution</h3>
-        <p>Map placeholder showing schools, colleges, and universities</p>
-    </div>
+<h1>Education in Pakistan</h1>
 
-    <!-- Detailed Explanation -->
-    <div class="topic-details">
-        <h3>Overview</h3>
-        <p>Pakistan's education system includes public and private schools, colleges, universities, and technical institutes. The literacy rate is gradually improving, and there are multiple programs to enhance teacher quality and student learning.</p>
-        
-        <h4>Institutions:</h4>
-        <ul>
-            <li>Schools: 200,000+</li>
-            <li>Colleges: 6,000+</li>
-            <li>Universities: 200+</li>
-            <li>Technical Colleges: 150+</li>
-        </ul>
+<p>
+Explore education institutions, literacy information, study methods
+and major areas of Pakistan's education system.
+</p>
 
-        <h4>Study Methods & Scope:</h4>
-        <ul>
-            <li>Curriculum: National + provincial boards, international curriculum in private schools</li>
-            <li>Teaching Methods: Traditional, online blended learning</li>
-            <li>Career Scope: Engineering, Medicine, IT, Education, Business</li>
-        </ul>
-    </div>
-
-    <!-- Back Button -->
-    <button onclick="goBack()" class="back-btn">← Back</button>
+</div>
 </section>
 
-<!-- Footer -->
-<footer>
-    <div class="footer-topics">
-        <!-- 15 Topics x 3 Links each -->
-        <div class="footer-topic">
-            <h4>Exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Trade Data 1</a></li>
-                <li><a href="#" target="_blank">Trade Data 2</a></li>
-                <li><a href="#defense">Defense & Security</a></li>
-                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
-            </ul>
-        </div>
-        <div class="footer-topic">
-            <h4>Education</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Education Report 1</a></li>
-                <li><a href="#" target="_blank">Education Report 2</a></li>
-                <li><a href="#mapSection">Pakistan Map</a></li>
-                 <li><a href="#imports">Imports & Exports Details</a></li>
-    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
+<main class="container">
 
-   
-            </ul>
-        </div>
-        <!-- Add remaining 13 topics similarly -->
-         <div class="footer-topic">
-            <h4>military</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#education">Education Statistics</a></li>
-    <li><a href="#employment">Employment Data</a></li>
-    <li><a href="#gender">Gender Stats</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
-            </ul>
-   
-    </div>
-    <div class="footer-topic">
-            <h4>exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#youth">Youth Information</a></li>
-    <li><a href="#health">Healthcare & Diseases</a></li>
-    <li><a href="#agriculture">Agriculture</a></li>
-    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
+<h2 class="section-title">Education Statistics</h2>
 
-            </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>industries</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#industries">Industries & Exports</a></li>
-    <li><a href="#onlineBusiness">Online Business & Work</a></li>
-    <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="#technology">Technology & Innovation</a></li>
-    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>energy_power</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
-    <li><a href="#infrastructure">Infrastructure Projects</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
+<div class="chart-grid">
+
+<div class="chart-card">
+<h3>Institutions by Type</h3>
+<div class="chart-box">
+<canvas id="educationBarChart"></canvas>
+</div>
+</div>
+
+<div class="chart-card">
+<h3>Literacy Distribution</h3>
+<div class="chart-box">
+<canvas id="educationPieChart"></canvas>
+</div>
+</div>
+
+</div>
+
+<h2 class="section-title">Education Overview</h2>
+
+<div class="info-grid">
+
+<div class="info-card">
+<h3>Institutions</h3>
+<ul>
+<li>Schools: 200,000+</li>
+<li>Colleges: 6,000+</li>
+<li>Universities: 200+</li>
+<li>Technical Colleges: 150+</li>
 </ul>
-    </div>
-    <div class="footer-topic">
-            <h4>more</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
-    <li><a href="#demographics">Population & Demographics</a></li>
-    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
-    <li><a href="#economy">Economy & Trade</a></li>
-    </ul>
-    </div>
+</div>
+
+<div class="info-card">
+<h3>Study Methods & Scope</h3>
+<ul>
+<li>National and provincial curricula</li>
+<li>International curriculum in some private institutions</li>
+<li>Traditional classroom teaching</li>
+<li>Online and blended learning</li>
+<li>Career paths across multiple fields</li>
+</ul>
+</div>
+
+</div>
+
+<h2 class="section-title">Key Insights</h2>
+
+<div class="insights">
+
+<div class="insight">
+<h3>🏫 School Education</h3>
+<p>
+Schools form the largest part of the education infrastructure
+represented in this project.
+</p>
+</div>
+
+<div class="insight">
+<h3>🎓 Higher Education</h3>
+<p>
+Universities and colleges provide pathways toward professional
+and academic careers.
+</p>
+</div>
+
+<div class="insight">
+<h3>💻 Digital Learning</h3>
+<p>
+Online and blended learning provide additional educational
+opportunities for students.
+</p>
+</div>
+
+</div>
+
+<div class="actions">
+<a href="index.html" class="btn">← Back to Dashboard</a>
+<a href="topic3.html" class="btn btn-light">Next: Employment →</a>
+</div>
+
+<h2 class="section-title">Explore Topics</h2>
+
+<div class="topic-grid">
+<a class="topic-link" href="topic1.html">Exports</a>
+<a class="topic-link" href="topic2.html">Education</a>
+<a class="topic-link" href="topic3.html">Employment</a>
+<a class="topic-link" href="topic4.html">Online Work</a>
+<a class="topic-link" href="topic5.html">Agriculture</a>
+<a class="topic-link" href="topic6.html">Health</a>
+<a class="topic-link" href="topic7.html">Population</a>
+<a class="topic-link" href="topic8.html">Industries</a>
+<a class="topic-link" href="topic9.html">Energy</a>
+<a class="topic-link" href="topic10.html">Technology</a>
+<a class="topic-link" href="topic11.html">Gender</a>
+<a class="topic-link" href="topic12.html">Youth</a>
+<a class="topic-link" href="topic13.html">Infrastructure</a>
+<a class="topic-link" href="topic14.html">Imports</a>
+<a class="topic-link" href="topic15.html">Economy</a>
+</div>
+
+</main>
+
+<footer>
+<div class="footer-inner">
+
+<div class="footer-grid">
+
+<div class="footer-col">
+<h3>Pakistan Data</h3>
+<a href="index.html">Dashboard</a>
+<a href="management.html">Data Management</a>
+<a href="index.html#sources">Sources</a>
+</div>
+
+<div class="footer-col">
+<h3>Education</h3>
+<a href="topic2.html">Education</a>
+<a href="topic3.html">Employment</a>
+<a href="topic12.html">Youth</a>
+</div>
+
+<div class="footer-col">
+<h3>Economy</h3>
+<a href="topic1.html">Exports</a>
+<a href="topic14.html">Imports</a>
+<a href="topic15.html">Economy</a>
+</div>
+
+<div class="footer-col">
+<h3>Official Sources</h3>
+<a href="https://www.pbs.gov.pk/" target="_blank">Pakistan Bureau of Statistics</a>
+<a href="https://www.hec.gov.pk/" target="_blank">Higher Education Commission</a>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Pakistan Data & Statistics Dashboard
+</div>
 
 </div>
 </footer>
 
-<script src="script.js"></script>
 <script>
-// Bar Chart - Number of Institutions by Type
-const ctxBar = document.getElementById('educationBarChart').getContext('2d');
-const educationBarChart = new Chart(ctxBar, {
-    type: 'bar',
-    data: {
-        labels: ['Schools', 'Colleges', 'Universities', 'Technical Colleges'],
-        datasets: [{
-            label: 'Number of Institutions',
-            data: [200000, 6000, 200, 150],
-            backgroundColor: ['#ff6384','#36a2eb','#ffcd56','#4bc0c0']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { display: false },
-            title: { display: true, text: 'Institutions in Pakistan' }
-        }
-    }
-});
+document.addEventListener("DOMContentLoaded",function(){
 
-// Pie Chart - Approximate Literacy Rates
-const ctxPie = document.getElementById('educationPieChart').getContext('2d');
-const educationPieChart = new Chart(ctxPie, {
-    type: 'pie',
-    data: {
-        labels: ['Literate', 'Illiterate'],
-        datasets: [{
-            label: 'Literacy Rate (%)',
-            data: [62, 38],
-            backgroundColor: ['#54a0ff', '#ff6b6b']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { position: 'bottom' },
-            title: { display: true, text: 'Literacy Rate in Pakistan' }
-        }
-    }
-});
-
-// Back Button Function
-function goBack() {
-    window.history.back();
+new Chart(document.getElementById("educationBarChart"),{
+type:"bar",
+data:{
+labels:["Schools","Colleges","Universities","Technical Colleges"],
+datasets:[{
+label:"Number of Institutions",
+data:[200000,6000,200,150],
+backgroundColor:"#087443",
+borderRadius:8
+}]
+},
+options:{
+responsive:true,
+maintainAspectRatio:false,
+plugins:{
+legend:{display:false}
+},
+scales:{
+y:{
+beginAtZero:true
 }
+}
+}
+});
+
+new Chart(document.getElementById("educationPieChart"),{
+type:"doughnut",
+data:{
+labels:["Literate","Illiterate"],
+datasets:[{
+data:[62,38],
+backgroundColor:["#087443","#b7d8c6"],
+borderColor:"#fff",
+borderWidth:2
+}]
+},
+options:{
+responsive:true,
+maintainAspectRatio:false,
+plugins:{
+legend:{position:"bottom"}
+}
+}
+});
+
+});
 </script>
+
 </body>
 </html>
