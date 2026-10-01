@@ -1,661 +1,663 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Data Management | Pakistan Data & Statistics</title>
+  <title>Pakistan Data Management</title>
 
-    <!-- Main Website Styling -->
-    <link rel="stylesheet" href="style.css">
+  <!-- Main Dashboard CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Management Page CSS -->
+  <style>
+    /* ================================
+       MANAGEMENT PAGE
+       ================================ */
+
+    .management-page {
+      min-height: 100vh;
+      background: #f4f8f5;
+      padding-bottom: 50px;
+    }
+
+    /* Header */
+    .management-header {
+      background: linear-gradient(135deg, #064e3b, #087443);
+      color: white;
+      padding: 18px 5%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .management-header-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .management-logo {
+      font-size: 22px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .management-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .management-nav a {
+      color: white;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .management-nav a:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-1px);
+    }
+
+    .dashboard-link {
+      background: #ffffff;
+      color: #075b3d !important;
+    }
+
+    .dashboard-link:hover {
+      background: #e9f7ef !important;
+    }
+
+    /* Hero */
+    .management-hero {
+      max-width: 1200px;
+      margin: 40px auto 25px;
+      padding: 0 20px;
+    }
+
+    .management-hero-box {
+      background: linear-gradient(135deg, #075b3d, #0b8a50);
+      color: white;
+      border-radius: 20px;
+      padding: 42px 35px;
+      box-shadow: 0 12px 30px rgba(6,78,59,0.18);
+    }
+
+    .management-hero-box h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+    }
+
+    .management-hero-box p {
+      margin: 0;
+      max-width: 850px;
+      line-height: 1.7;
+      opacity: 0.94;
+    }
+
+    /* Intro */
+    .management-intro {
+      max-width: 1160px;
+      margin: 25px auto 35px;
+      padding: 0 20px;
+    }
+
+    .management-intro-box {
+      background: white;
+      border-left: 5px solid #0b8a50;
+      border-radius: 12px;
+      padding: 22px 25px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+    }
+
+    .management-intro-box h2 {
+      margin-top: 0;
+      color: #075b3d;
+    }
+
+    .management-intro-box p {
+      color: #53645c;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* Form sections */
+    .form-section {
+      max-width: 1160px;
+      margin: 0 auto 35px;
+      padding: 0 20px;
+    }
+
+    .form-section h2 {
+      color: #075b3d;
+      font-size: 25px;
+      margin: 0 0 15px;
+    }
+
+    /* Form Card */
+    .form-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 7px 25px rgba(0,0,0,0.07);
+      border: 1px solid #e3eee7;
+    }
+
+    .form-card form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px 22px;
+    }
+
+    .form-card label {
+      display: block;
+      color: #24443a;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: -8px;
+    }
+
+    .form-card input,
+    .form-card select,
+    .form-card textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px 14px;
+      border: 1px solid #cbded3;
+      border-radius: 9px;
+      background: #fbfdfc;
+      color: #263c34;
+      font-size: 14px;
+      outline: none;
+      transition: 0.25s ease;
+    }
+
+    .form-card input:focus,
+    .form-card select:focus,
+    .form-card textarea:focus {
+      border-color: #0b8a50;
+      box-shadow: 0 0 0 3px rgba(11,138,80,0.10);
+      background: white;
+    }
+
+    .form-card input::placeholder {
+      color: #9aa9a2;
+    }
+
+    .form-card button {
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+
+    /* Button */
+    .form-card .btn {
+      border: none;
+      border-radius: 9px;
+      padding: 13px 25px;
+      background: linear-gradient(135deg, #075b3d, #0b8a50);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .form-card .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 16px rgba(7,91,61,0.22);
+    }
+
+    /* Quick Navigation */
+    .management-quick {
+      max-width: 1160px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .management-quick h2 {
+      color: #075b3d;
+      margin-bottom: 18px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .quick-card {
+      display: block;
+      text-decoration: none;
+      background: white;
+      border: 1px solid #e1ebe5;
+      border-radius: 13px;
+      padding: 20px;
+      color: #174d3b;
+      font-weight: 700;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+      transition: 0.25s ease;
+    }
+
+    .quick-card span {
+      display: block;
+      margin-top: 7px;
+      color: #73837c;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-4px);
+      border-color: #0b8a50;
+      box-shadow: 0 10px 25px rgba(7,91,61,0.12);
+    }
+
+    /* Footer */
+    .management-footer {
+      background: #063c2d;
+      color: #dcebe4;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 45px;
+    }
+
+    .management-footer p {
+      margin: 5px;
+      font-size: 13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .management-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .management-nav {
+        justify-content: flex-start;
+      }
+
+      .form-card form {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .management-hero-box h1 {
+        font-size: 27px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .management-header {
+        padding: 15px;
+      }
+
+      .management-nav a {
+        padding: 8px 9px;
+        font-size: 12px;
+      }
+
+      .management-hero-box {
+        padding: 28px 22px;
+      }
+
+      .form-card {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- =========================
-         HEADER / NAVIGATION
-    ========================== -->
-    <header class="main-header">
+<div class="management-page">
 
-        <div class="header-container">
+  <!-- ================= HEADER ================= -->
+  <header class="management-header">
+    <div class="management-header-inner">
 
-            <a href="index.html" class="brand">
-                <span class="brand-icon">🇵🇰</span>
-                <span>Pakistan Data & Statistics</span>
-            </a>
+      <div class="management-logo">
+        🇵🇰 Pakistan Data & Statistics
+      </div>
 
-            <nav class="main-nav">
+      <nav class="management-nav">
+        <a href="index.html" class="dashboard-link">← Dashboard</a>
+        <a href="index.html#topics">Topics</a>
+        <a href="index.html#pakistan-map">Map</a>
+        <a href="index.html#statistics">Statistics</a>
+        <a href="index.html#sources">Sources</a>
+      </nav>
 
-                <a href="index.html">Dashboard</a>
+    </div>
+  </header>
 
-                <a href="index.html#topics">Topics</a>
 
-                <a href="index.html#pakistan-map">Map</a>
+  <!-- ================= HERO ================= -->
+  <section class="management-hero">
+    <div class="management-hero-box">
+      <h1>Pakistan Data Management</h1>
+      <p>
+        Manage structured data for provinces, districts, tehsils and
+        Pakistan-level statistics. Use the forms below to organize
+        population, education and employment information.
+      </p>
+    </div>
+  </section>
 
-                <a href="index.html#statistics">Statistics</a>
 
-                <a href="management.html" class="active">
-                    Management
-                </a>
+  <!-- ================= INTRO ================= -->
+  <section class="management-intro">
+    <div class="management-intro-box">
 
-                <a href="index.html#sources">
-                    Sources
-                </a>
+      <h2>Why This Data Collection is Important</h2>
 
-            </nav>
+      <p>
+        Collecting structured data from provinces, districts, tehsils,
+        and national level helps in population planning, education growth,
+        employment opportunities, and infrastructure development.
+        <br><br>
+        This system supports better data organization for government,
+        researchers, NGOs, students, and the people of Pakistan.
+      </p>
 
-        </div>
+    </div>
+  </section>
 
-    </header>
 
+  <!-- ================= PROVINCE FORM ================= -->
+  <section id="provinceForm" class="form-section">
 
-    <!-- =========================
-         PAGE HERO
-    ========================== -->
-    <section class="page-hero">
+    <h2>Province Data Entry</h2>
 
-        <div class="container">
+    <div class="form-card">
 
-            <span class="section-badge">
-                Data Management
-            </span>
+      <form>
 
-            <h1>Pakistan Data Management</h1>
+        <label>Select Province</label>
 
-            <p>
-                Manage and organize province, district, tehsil and
-                national-level information in one structured system.
-            </p>
+        <select>
+          <option>Punjab</option>
+          <option>Sindh</option>
+          <option>KPK</option>
+          <option>Balochistan</option>
+        </select>
 
-            <a href="index.html" class="btn">
-                ← Back to Dashboard
-            </a>
 
-        </div>
+        <label>Districts Data</label>
 
-    </section>
+        <select>
+          <option>All Districts in Province</option>
+        </select>
 
 
-    <!-- =========================
-         INTRODUCTION
-    ========================== -->
-    <section class="common-section">
+        <label>Population</label>
 
-        <div class="container">
+        <input
+          type="number"
+          placeholder="Enter population"
+        >
 
-            <div class="section-heading">
 
-                <span class="section-badge">
-                    About Data Collection
-                </span>
+        <label>Education</label>
 
-                <h2>Why Structured Data Matters</h2>
+        <input
+          type="text"
+          placeholder="Enter education details"
+        >
 
-                <p>
-                    Collecting structured information from provinces,
-                    districts, tehsils and national-level sources helps
-                    researchers, organizations and decision-makers
-                    understand population, education, employment and
-                    development patterns across Pakistan.
-                </p>
 
-            </div>
+        <label>Employment</label>
 
-        </div>
+        <input
+          type="text"
+          placeholder="Enter employment details"
+        >
 
-    </section>
 
+        <button type="submit" class="btn">
+          Upload Data
+        </button>
 
-    <!-- =========================
-         PROVINCE DATA
-    ========================== -->
-    <section id="provinceForm" class="form-section">
+      </form>
 
-        <div class="container">
+    </div>
+  </section>
 
-            <div class="section-heading">
 
-                <span class="section-badge">
-                    Level 01
-                </span>
+  <!-- ================= DISTRICT FORM ================= -->
+  <section id="districtForm" class="form-section">
 
-                <h2>Province Data Management</h2>
+    <h2>District Data Entry</h2>
 
-                <p>
-                    Enter or organize information at provincial level.
-                </p>
+    <div class="form-card">
 
-            </div>
+      <form>
 
+        <label>Select Province</label>
 
-            <div class="form-card">
+        <select>
+          <option>Punjab</option>
+          <option>Sindh</option>
+          <option>KPK</option>
+          <option>Balochistan</option>
+        </select>
 
-                <form>
 
-                    <label for="provinceSelect">
-                        Select Province
-                    </label>
+        <label>District</label>
 
-                    <select id="provinceSelect" name="province">
+        <input
+          type="text"
+          placeholder="Enter District"
+        >
 
-                        <option value="">
-                            Select Province
-                        </option>
 
-                        <option>Punjab</option>
-                        <option>Sindh</option>
-                        <option>Khyber Pakhtunkhwa</option>
-                        <option>Balochistan</option>
-                        <option>Gilgit-Baltistan</option>
-                        <option>Islamabad Capital Territory</option>
-                        <option>Azad Jammu and Kashmir</option>
+        <label>Tehsils Data</label>
 
-                    </select>
+        <select>
+          <option>All Tehsils in District</option>
+        </select>
 
 
-                    <label for="provinceDistrict">
-                        District
-                    </label>
+        <label>Population</label>
 
-                    <select id="provinceDistrict">
+        <input type="number">
 
-                        <option value="">
-                            Select District
-                        </option>
 
-                        <option>All Districts</option>
+        <label>Education</label>
 
-                    </select>
+        <input type="text">
 
 
-                    <label for="provincePopulation">
-                        Population
-                    </label>
+        <label>Employment</label>
 
-                    <input
-                        type="number"
-                        id="provincePopulation"
-                        placeholder="Enter population"
-                    >
+        <input type="text">
 
 
-                    <label for="provinceEducation">
-                        Education
-                    </label>
+        <button type="submit" class="btn">
+          Upload Data
+        </button>
 
-                    <input
-                        type="text"
-                        id="provinceEducation"
-                        placeholder="Enter education information"
-                    >
+      </form>
 
+    </div>
+  </section>
 
-                    <label for="provinceEmployment">
-                        Employment
-                    </label>
 
-                    <input
-                        type="text"
-                        id="provinceEmployment"
-                        placeholder="Enter employment information"
-                    >
+  <!-- ================= TEHSIL FORM ================= -->
+  <section id="tehsilForm" class="form-section">
 
+    <h2>Tehsil Data Entry</h2>
 
-                    <button type="submit" class="btn">
-                        Save Province Data
-                    </button>
+    <div class="form-card">
 
-                </form>
+      <form>
 
-            </div>
+        <label>Select Province</label>
 
-        </div>
+        <select>
+          <option>Punjab</option>
+          <option>Sindh</option>
+          <option>KPK</option>
+          <option>Balochistan</option>
+        </select>
 
-    </section>
 
+        <label>Select District</label>
 
-    <!-- =========================
-         DISTRICT DATA
-    ========================== -->
-    <section id="districtForm" class="form-section">
+        <input
+          type="text"
+          placeholder="Enter District"
+        >
 
-        <div class="container">
 
-            <div class="section-heading">
+        <label>Select Tehsil</label>
 
-                <span class="section-badge">
-                    Level 02
-                </span>
+        <input
+          type="text"
+          placeholder="Enter Tehsil"
+        >
 
-                <h2>District Data Management</h2>
 
-                <p>
-                    Organize district-level population, education and
-                    employment information.
-                </p>
+        <label>Population</label>
 
-            </div>
+        <input type="number">
 
 
-            <div class="form-card">
+        <label>Education</label>
 
-                <form>
+        <input type="text">
 
-                    <label for="districtProvince">
-                        Select Province
-                    </label>
 
-                    <select id="districtProvince">
+        <label>Employment</label>
 
-                        <option value="">
-                            Select Province
-                        </option>
+        <input type="text">
 
-                        <option>Punjab</option>
-                        <option>Sindh</option>
-                        <option>Khyber Pakhtunkhwa</option>
-                        <option>Balochistan</option>
-                        <option>Gilgit-Baltistan</option>
-                        <option>Islamabad Capital Territory</option>
-                        <option>Azad Jammu and Kashmir</option>
 
-                    </select>
+        <button type="submit" class="btn">
+          Upload Data
+        </button>
 
+      </form>
 
-                    <label for="districtName">
-                        District
-                    </label>
+    </div>
+  </section>
 
-                    <input
-                        type="text"
-                        id="districtName"
-                        placeholder="Enter district name"
-                    >
 
+  <!-- ================= PAKISTAN FORM ================= -->
+  <section id="pakistanForm" class="form-section">
 
-                    <label for="districtTehsil">
-                        Tehsil
-                    </label>
+    <h2>Pakistan Main Data Entry</h2>
 
-                    <input
-                        type="text"
-                        id="districtTehsil"
-                        placeholder="Enter tehsil information"
-                    >
+    <div class="form-card">
 
+      <form>
 
-                    <label for="districtPopulation">
-                        Population
-                    </label>
+        <label>Select Option</label>
 
-                    <input
-                        type="number"
-                        id="districtPopulation"
-                        placeholder="Enter population"
-                    >
+        <select>
+          <option>All Provinces</option>
+        </select>
 
 
-                    <label for="districtEducation">
-                        Education
-                    </label>
+        <label>Population</label>
 
-                    <input
-                        type="text"
-                        id="districtEducation"
-                        placeholder="Enter education information"
-                    >
+        <input type="number">
 
 
-                    <label for="districtEmployment">
-                        Employment
-                    </label>
+        <label>Education</label>
 
-                    <input
-                        type="text"
-                        id="districtEmployment"
-                        placeholder="Enter employment information"
-                    >
+        <input type="text">
 
 
-                    <button type="submit" class="btn">
-                        Save District Data
-                    </button>
+        <label>Employment</label>
 
-                </form>
+        <input type="text">
 
-            </div>
 
-        </div>
+        <button type="submit" class="btn">
+          Upload Main Data
+        </button>
 
-    </section>
+      </form>
 
+    </div>
+  </section>
 
-    <!-- =========================
-         TEHSIL DATA
-    ========================== -->
-    <section id="tehsilForm" class="form-section">
 
-        <div class="container">
+  <!-- ================= QUICK NAVIGATION ================= -->
+  <section class="management-quick">
 
-            <div class="section-heading">
+    <h2>Quick Navigation</h2>
 
-                <span class="section-badge">
-                    Level 03
-                </span>
+    <div class="quick-grid">
 
-                <h2>Tehsil Data Management</h2>
+      <a href="index.html" class="quick-card">
+        🏠 Dashboard
+        <span>Return to the main statistics dashboard</span>
+      </a>
 
-                <p>
-                    Manage detailed information at tehsil level.
-                </p>
+      <a href="topic1.html" class="quick-card">
+        📚 Education
+        <span>Explore education-related data</span>
+      </a>
 
-            </div>
+      <a href="topic2.html" class="quick-card">
+        💼 Employment
+        <span>Explore employment-related data</span>
+      </a>
 
+      <a href="topic3.html" class="quick-card">
+        👥 Population
+        <span>Explore population statistics</span>
+      </a>
 
-            <div class="form-card">
+      <a href="index.html#pakistan-map" class="quick-card">
+        🗺️ Pakistan Map
+        <span>Explore provincial information</span>
+      </a>
 
-                <form>
+      <a href="index.html#sources" class="quick-card">
+        📊 Official Sources
+        <span>View available data sources</span>
+      </a>
 
-                    <label for="tehsilProvince">
-                        Select Province
-                    </label>
+    </div>
 
-                    <select id="tehsilProvince">
+  </section>
 
-                        <option value="">
-                            Select Province
-                        </option>
 
-                        <option>Punjab</option>
-                        <option>Sindh</option>
-                        <option>Khyber Pakhtunkhwa</option>
-                        <option>Balochistan</option>
-                        <option>Gilgit-Baltistan</option>
-                        <option>Islamabad Capital Territory</option>
-                        <option>Azad Jammu and Kashmir</option>
+  <!-- ================= FOOTER ================= -->
+  <footer class="management-footer">
 
-                    </select>
+    <p>
+      🇵🇰 Pakistan Data & Statistics
+    </p>
 
+    <p>
+      Structured data management for research, education and analysis.
+    </p>
 
-                    <label for="tehsilDistrict">
-                        Select District
-                    </label>
+    <p>
+      © 2026 Pakistan Data Entry Dashboard
+    </p>
 
-                    <input
-                        type="text"
-                        id="tehsilDistrict"
-                        placeholder="Enter district"
-                    >
+  </footer>
 
-
-                    <label for="tehsilName">
-                        Tehsil
-                    </label>
-
-                    <input
-                        type="text"
-                        id="tehsilName"
-                        placeholder="Enter tehsil"
-                    >
-
-
-                    <label for="tehsilPopulation">
-                        Population
-                    </label>
-
-                    <input
-                        type="number"
-                        id="tehsilPopulation"
-                        placeholder="Enter population"
-                    >
-
-
-                    <label for="tehsilEducation">
-                        Education
-                    </label>
-
-                    <input
-                        type="text"
-                        id="tehsilEducation"
-                        placeholder="Enter education information"
-                    >
-
-
-                    <label for="tehsilEmployment">
-                        Employment
-                    </label>
-
-                    <input
-                        type="text"
-                        id="tehsilEmployment"
-                        placeholder="Enter employment information"
-                    >
-
-
-                    <button type="submit" class="btn">
-                        Save Tehsil Data
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         NATIONAL DATA
-    ========================== -->
-    <section id="pakistanForm" class="form-section">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span class="section-badge">
-                    National Level
-                </span>
-
-                <h2>Pakistan National Data</h2>
-
-                <p>
-                    Manage nationwide statistical information and
-                    national-level indicators.
-                </p>
-
-            </div>
-
-
-            <div class="form-card">
-
-                <form>
-
-                    <label for="nationalYear">
-                        Data Year
-                    </label>
-
-                    <select id="nationalYear">
-
-                        <option value="">
-                            Select Year
-                        </option>
-
-                        <option>2025</option>
-                        <option>2024</option>
-                        <option>2023</option>
-                        <option>2022</option>
-
-                    </select>
-
-
-                    <label for="nationalPopulation">
-                        Population
-                    </label>
-
-                    <input
-                        type="number"
-                        id="nationalPopulation"
-                        placeholder="Enter population"
-                    >
-
-
-                    <label for="nationalEducation">
-                        Education
-                    </label>
-
-                    <input
-                        type="text"
-                        id="nationalEducation"
-                        placeholder="Enter education information"
-                    >
-
-
-                    <label for="nationalEmployment">
-                        Employment
-                    </label>
-
-                    <input
-                        type="text"
-                        id="nationalEmployment"
-                        placeholder="Enter employment information"
-                    >
-
-
-                    <button type="submit" class="btn">
-                        Save National Data
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         QUICK NAVIGATION
-    ========================== -->
-    <section class="common-section">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span class="section-badge">
-                    Quick Navigation
-                </span>
-
-                <h2>Explore Pakistan Data</h2>
-
-            </div>
-
-
-            <div class="topic-grid">
-
-                <a href="index.html" class="topic-card">
-                    <h3>📊 Dashboard</h3>
-                    <p>Return to the main statistics dashboard.</p>
-                </a>
-
-                <a href="topic1.html" class="topic-card">
-                    <h3>👥 Population</h3>
-                    <p>Explore population-related information.</p>
-                </a>
-
-                <a href="topic2.html" class="topic-card">
-                    <h3>🎓 Education</h3>
-                    <p>Explore education indicators.</p>
-                </a>
-
-                <a href="topic3.html" class="topic-card">
-                    <h3>💼 Employment</h3>
-                    <p>Explore employment and labour information.</p>
-                </a>
-
-                <a href="index.html#pakistan-map" class="topic-card">
-                    <h3>🗺️ Pakistan Map</h3>
-                    <p>Explore Pakistan through the interactive map.</p>
-                </a>
-
-                <a href="index.html#sources" class="topic-card">
-                    <h3>📚 Data Sources</h3>
-                    <p>View official statistical data sources.</p>
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-    <footer class="site-footer">
-
-        <div class="container">
-
-            <div class="footer-content">
-
-                <div>
-                    <h3>Pakistan Data & Statistics</h3>
-
-                    <p>
-                        A structured data platform for exploring
-                        demographic, education, employment and
-                        development information about Pakistan.
-                    </p>
-                </div>
-
-
-                <div class="footer-links">
-
-                    <a href="index.html">
-                        Dashboard
-                    </a>
-
-                    <a href="management.html">
-                        Management
-                    </a>
-
-                    <a href="index.html#topics">
-                        Topics
-                    </a>
-
-                    <a href="index.html#sources">
-                        Sources
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="footer-bottom">
-
-                <p>
-                    © 2026 Pakistan Data & Statistics Dashboard
-                </p>
-
-                <p>
-                    Data sources include official Pakistan Bureau
-                    of Statistics publications.
-                </p>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <!-- Main JavaScript -->
-    <script src="script.js"></script>
+</div>
 
 </body>
 </html>
