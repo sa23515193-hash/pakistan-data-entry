@@ -3,186 +3,680 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exports - Pakistan Insights 2025</title>
-<link rel="stylesheet" href="style.css">
+
+<title>Exports | Pakistan Data & Statistics</title>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f3f7f5;
+    color:#18352b;
+    line-height:1.6;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#064e3b,#087443);
+    color:white;
+    padding:16px 5%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 18px rgba(0,0,0,.15);
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:800;
+}
+
+nav{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:9px 14px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+nav a:hover{
+    background:rgba(255,255,255,.16);
+}
+
+.dashboard-btn{
+    background:white;
+    color:#075b3d!important;
+}
+
+/* HERO */
+.hero{
+    max-width:1200px;
+    margin:35px auto 25px;
+    padding:0 20px;
+}
+
+.hero-box{
+    background:linear-gradient(135deg,#075b3d,#0b8f54);
+    color:white;
+    border-radius:22px;
+    padding:45px 40px;
+    box-shadow:0 12px 30px rgba(6,78,59,.18);
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:6px 12px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.hero h1{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.hero p{
+    max-width:800px;
+    opacity:.94;
+}
+
+/* MAIN */
+.container{
+    max-width:1160px;
+    margin:auto;
+    padding:0 20px 50px;
+}
+
+.section-title{
+    color:#075b3d;
+    margin:35px 0 18px;
+    font-size:27px;
+}
+
+/* CHARTS */
+.chart-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.chart-card{
+    background:white;
+    border-radius:17px;
+    padding:25px;
+    box-shadow:0 7px 25px rgba(0,0,0,.07);
+    border:1px solid #e0ebe5;
+}
+
+.chart-card h3{
+    color:#075b3d;
+    margin-bottom:18px;
+}
+
+.chart-box{
+    position:relative;
+    height:340px;
+}
+
+/* INFO */
+.info-card{
+    background:white;
+    border-radius:17px;
+    padding:28px;
+    box-shadow:0 7px 25px rgba(0,0,0,.06);
+    border:1px solid #e0ebe5;
+    margin-bottom:25px;
+}
+
+.info-card h2,
+.info-card h3{
+    color:#075b3d;
+    margin-bottom:12px;
+}
+
+.info-card p{
+    color:#52665d;
+}
+
+.info-card ul{
+    padding-left:22px;
+}
+
+.info-card li{
+    margin:7px 0;
+}
+
+/* STAT CARDS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin:25px 0;
+}
+
+.stat{
+    background:white;
+    border-radius:15px;
+    padding:23px;
+    text-align:center;
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
+
+.stat-icon{
+    font-size:28px;
+}
+
+.stat strong{
+    display:block;
+    font-size:27px;
+    color:#075b3d;
+    margin:5px 0;
+}
+
+.stat span{
+    color:#708078;
+    font-size:13px;
+}
+
+/* INSIGHTS */
+.insights{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.insight{
+    background:white;
+    padding:22px;
+    border-radius:15px;
+    border-left:4px solid #0b8f54;
+    box-shadow:0 5px 18px rgba(0,0,0,.05);
+}
+
+.insight h3{
+    color:#075b3d;
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.insight p{
+    color:#66766f;
+    font-size:14px;
+}
+
+/* BUTTONS */
+.actions{
+    display:flex;
+    gap:12px;
+    margin:35px 0;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    padding:12px 20px;
+    border-radius:9px;
+    font-weight:700;
+    background:#075b3d;
+    color:white;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 7px 17px rgba(0,0,0,.15);
+}
+
+.btn-light{
+    background:white;
+    color:#075b3d;
+    border:1px solid #cfe0d7;
+}
+
+/* TOPICS */
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+}
+
+.topic-link{
+    background:white;
+    color:#075b3d;
+    text-decoration:none;
+    padding:14px 10px;
+    text-align:center;
+    border-radius:10px;
+    border:1px solid #dfebe4;
+    font-size:13px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.topic-link:hover{
+    background:#075b3d;
+    color:white;
+    transform:translateY(-2px);
+}
+
+/* FOOTER */
+footer{
+    background:#063c2d;
+    color:#dcebe4;
+    margin-top:30px;
+}
+
+.footer-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:38px 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.footer-col h3{
+    color:white;
+    margin-bottom:12px;
+}
+
+.footer-col a{
+    display:block;
+    color:#bdd4ca;
+    text-decoration:none;
+    font-size:13px;
+    margin:7px 0;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.copyright{
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.12);
+    padding-top:18px;
+    margin-top:25px;
+    font-size:13px;
+}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+    .chart-grid,
+    .insights{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .topic-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+}
+
+@media(max-width:600px){
+    .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    nav a{
+        font-size:12px;
+        padding:7px 9px;
+    }
+
+    .hero-box{
+        padding:30px 22px;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .topic-grid,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
+
 <body>
 
-<!-- Header -->
 <header>
-    <h1>Pakistan Insights 2025</h1>
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="index.html#home">Home</a>
-    </nav>
+    <div class="header-inner">
+        <div class="logo">🇵🇰 Pakistan Data & Statistics</div>
+
+        <nav>
+            <a href="index.html" class="dashboard-btn">← Dashboard</a>
+            <a href="index.html#topics">Topics</a>
+            <a href="index.html#statistics">Statistics</a>
+            <a href="management.html">Management</a>
+        </nav>
+    </div>
 </header>
 
-<!-- Exports Section -->
-<section class="topic-section">
-    <h2>Exports</h2>
-
-    <!-- Chart -->
-    <div class="chart-container">
-        <canvas id="exportsChart"></canvas>
+<section class="hero">
+    <div class="hero-box">
+        <span class="badge">ECONOMY & TRADE</span>
+        <h1>Pakistan Exports</h1>
+        <p>
+            Explore the project's export distribution, major destinations,
+            export products and related economic information.
+        </p>
     </div>
-
-    <!-- Optional Map Placeholder -->
-    <div class="map-placeholder">
-        <h3>Export Destinations</h3>
-        <p>Map placeholder for top export countries</p>
-    </div>
-<!-- Detailed Explanation -->
-    <div class="topic-details">
-        <h3>Overview</h3>
-        <p>Pakistan exports a variety of goods to different countries. Major exports include textiles, rice, leather goods, sports equipment, and chemicals.</p>
-        <h4>Top Export Countries:</h4>
-        <ul>
-            <li>United States: 25%</li>
-            <li>China: 20%</li>
-            <li>United Kingdom: 15%</li>
-            <li>Germany: 10%</li>
-            <li>UAE: 8%</li>
-            <li>Other Countries: 22%</li>
-        </ul>
-        <h4>Top Export Products:</h4>
-        <ul>
-            <li>Textiles & Garments: 35%</li>
-            <li>Rice: 20%</li>
-            <li>Leather: 10%</li>
-            <li>Sports Goods: 8%</li>
-            <li>Chemicals: 5%</li>
-            <li>Others: 22%</li>
-        </ul>
-    </div>
-    
-
-    <!-- Back Button -->
-    <button onclick="goBack()" class="back-btn">← Back</button>
 </section>
 
-<!-- Footer -->
+<main class="container">
+
+    <h2 class="section-title">Export Overview</h2>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-icon">🇺🇸</div>
+            <strong>25%</strong>
+            <span>United States</span>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🇨🇳</div>
+            <strong>20%</strong>
+            <span>China</span>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🌍</div>
+            <strong>55%</strong>
+            <span>Other listed destinations</span>
+        </div>
+    </div>
+
+    <div class="chart-grid">
+
+        <div class="chart-card">
+            <h3>Export Destinations</h3>
+            <div class="chart-box">
+                <canvas id="exportsChart"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h3>Major Export Products</h3>
+            <div class="chart-box">
+                <canvas id="productsChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="section-title">Overview</h2>
+
+    <div class="info-card">
+        <p>
+            Pakistan exports a variety of goods to international markets.
+            Major categories represented in this project include textiles,
+            rice, leather goods, sports equipment and chemicals.
+        </p>
+    </div>
+
+    <div class="chart-grid">
+
+        <div class="info-card">
+            <h3>Top Export Countries</h3>
+            <ul>
+                <li>United States — 25%</li>
+                <li>China — 20%</li>
+                <li>United Kingdom — 15%</li>
+                <li>Germany — 10%</li>
+                <li>UAE — 8%</li>
+                <li>Other Countries — 22%</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3>Top Export Products</h3>
+            <ul>
+                <li>Textiles & Garments — 35%</li>
+                <li>Rice — 20%</li>
+                <li>Leather — 10%</li>
+                <li>Sports Goods — 8%</li>
+                <li>Chemicals — 5%</li>
+                <li>Others — 22%</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <h2 class="section-title">Key Insights</h2>
+
+    <div class="insights">
+
+        <div class="insight">
+            <h3>Textile Sector</h3>
+            <p>
+                Textiles and garments represent a major category in the
+                project's export dataset.
+            </p>
+        </div>
+
+        <div class="insight">
+            <h3>International Markets</h3>
+            <p>
+                The dataset represents export activity across multiple
+                international destinations.
+            </p>
+        </div>
+
+        <div class="insight">
+            <h3>Product Diversity</h3>
+            <p>
+                Export categories extend beyond textiles to agricultural
+                and manufactured products.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="actions">
+        <a href="index.html" class="btn">← Back to Dashboard</a>
+        <a href="topic2.html" class="btn btn-light">Next: Education →</a>
+    </div>
+
+    <h2 class="section-title">Explore Topics</h2>
+
+    <div class="topic-grid">
+        <a class="topic-link" href="topic1.html">Exports</a>
+        <a class="topic-link" href="topic2.html">Education</a>
+        <a class="topic-link" href="topic3.html">Employment</a>
+        <a class="topic-link" href="topic4.html">Online Work</a>
+        <a class="topic-link" href="topic5.html">Agriculture</a>
+        <a class="topic-link" href="topic6.html">Health</a>
+        <a class="topic-link" href="topic7.html">Population</a>
+        <a class="topic-link" href="topic8.html">Industries</a>
+        <a class="topic-link" href="topic9.html">Energy</a>
+        <a class="topic-link" href="topic10.html">Technology</a>
+        <a class="topic-link" href="topic11.html">Gender</a>
+        <a class="topic-link" href="topic12.html">Youth</a>
+        <a class="topic-link" href="topic13.html">Infrastructure</a>
+        <a class="topic-link" href="topic14.html">Imports</a>
+        <a class="topic-link" href="topic15.html">Economy</a>
+    </div>
+
+</main>
+
 <footer>
-    <div class="footer-topics">
-        <!-- 15 Topics x 3 Links each -->
-        <div class="footer-topic">
-            <h4>Exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Export" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Trade Data 1</a></li>
-                <li><a href="#" target="_blank">Trade Data 2</a></li>
-                <li><a href="#defense">Defense & Security</a></li>
-                <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    <li><a href="https://www.ispr.gov.pk/">ISPR</a></li>
-            </ul>
+    <div class="footer-inner">
+
+        <div class="footer-grid">
+
+            <div class="footer-col">
+                <h3>Pakistan Data</h3>
+                <a href="index.html">Dashboard</a>
+                <a href="management.html">Data Management</a>
+                <a href="index.html#sources">Sources</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Trade</h3>
+                <a href="topic1.html">Exports</a>
+                <a href="topic14.html">Imports</a>
+                <a href="topic15.html">Economy</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>People</h3>
+                <a href="topic2.html">Education</a>
+                <a href="topic3.html">Employment</a>
+                <a href="topic7.html">Population</a>
+                <a href="topic12.html">Youth</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Official Sources</h3>
+                <a href="https://www.pbs.gov.pk/" target="_blank">Pakistan Bureau of Statistics</a>
+                <a href="https://www.sbp.org.pk/" target="_blank">State Bank of Pakistan</a>
+                <a href="https://www.fbr.gov.pk/" target="_blank">Federal Board of Revenue</a>
+            </div>
+
         </div>
-        <div class="footer-topic">
-            <h4>Education</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#" target="_blank">Education Report 1</a></li>
-                <li><a href="#" target="_blank">Education Report 2</a></li>
-                <li><a href="#mapSection">Pakistan Map</a></li>
-                 <li><a href="#imports">Imports & Exports Details</a></li>
-    <li><a href="https://www.fbr.gov.pk/">Federal Board of Revenue</a></li>
 
-   
-            </ul>
+        <div class="copyright">
+            © 2026 Pakistan Data & Statistics Dashboard
         </div>
-        <!-- Add remaining 13 topics similarly -->
-         <div class="footer-topic">
-            <h4>military</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Education_in_Pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#education">Education Statistics</a></li>
-    <li><a href="#employment">Employment Data</a></li>
-    <li><a href="#gender">Gender Stats</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/agriculture_in_pakistan" target="_blank">Wikipedia</a></li>
-            </ul>
-   
-    </div>
-    <div class="footer-topic">
-            <h4>exports</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/exports_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#youth">Youth Information</a></li>
-    <li><a href="#health">Healthcare & Diseases</a></li>
-    <li><a href="#agriculture">Agriculture</a></li>
-    <li><a href="https://www.sbp.org.pk/">State Bank of Pakistan</a></li>
 
-            </ul>
     </div>
-    
-    <div class="footer-topic">
-            <h4>industries</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/industries_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#industries">Industries & Exports</a></li>
-    <li><a href="#onlineBusiness">Online Business & Work</a></li>
-    <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="#technology">Technology & Innovation</a></li>
-    <li><a href="https://www.pta.gov.pk/">Pakistan Telecommunication Authority</a></li>
-    </ul>
-    </div>
-    
-    <div class="footer-topic">
-            <h4>energy_power</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/energy_power_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="#energy">Energy & Power Overview</a></li>
-    <li><a href="https://www.nea.gov.pk/">National Energy Authority</a></li>
-    <li><a href="#infrastructure">Infrastructure Projects</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/economy_in_pakistan" target="_blank">Wikipedia</a></li>
-</ul>
-    </div>
-    <div class="footer-topic">
-            <h4>more</h4>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/population_in_pakistan" target="_blank">Wikipedia</a></li>
-                <li><a href="https://www.nha.gov.pk/">National Highway Authority</a></li>
-    <li><a href="#demographics">Population & Demographics</a></li>
-    <li><a href="https://www.pbs.gov.pk/">Pakistan Bureau of Statistics</a></li>
-    <li><a href="#economy">Economy & Trade</a></li>
-    </ul>
-    </div>
-
-</div>
 </footer>
 
-<script src="script.js"></script>
 <script>
-// Chart.js Exports Pie Chart
-const ctx = document.getElementById('exportsChart').getContext('2d');
-const exportsChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: ['United States', 'China', 'UK', 'Germany', 'UAE', 'Other Countries'],
-        datasets: [{
-            label: 'Exports by Country (%)',
-            data: [25, 20, 15, 10, 8, 22],
-            backgroundColor: [
-                '#ff6384',
-                '#36a2eb',
-                '#ffcd56',
-                '#4bc0c0',
-                '#9966ff',
-                '#c9cbcf'
-            ]
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { position: 'bottom' },
-            title: { display: true, text: 'Pakistan Exports by Country' }
-        }
-    }
-});
+document.addEventListener("DOMContentLoaded", function(){
 
-// Back Button Function
-function goBack() {
-    window.history.back();
-}
+    const exportCanvas = document.getElementById("exportsChart");
+    const productCanvas = document.getElementById("productsChart");
+
+    new Chart(exportCanvas, {
+        type:"doughnut",
+        data:{
+            labels:[
+                "United States",
+                "China",
+                "United Kingdom",
+                "Germany",
+                "UAE",
+                "Other Countries"
+            ],
+            datasets:[{
+                data:[25,20,15,10,8,22],
+                backgroundColor:[
+                    "#075b3d",
+                    "#0b8f54",
+                    "#36a269",
+                    "#68b98a",
+                    "#a0d5b7",
+                    "#d4e8dc"
+                ],
+                borderWidth:2,
+                borderColor:"#ffffff"
+            }]
+        },
+        options:{
+            responsive:true,
+            maintainAspectRatio:false,
+            plugins:{
+                legend:{
+                    position:"bottom"
+                }
+            }
+        }
+    });
+
+    new Chart(productCanvas,{
+        type:"bar",
+        data:{
+            labels:[
+                "Textiles",
+                "Rice",
+                "Leather",
+                "Sports Goods",
+                "Chemicals",
+                "Others"
+            ],
+            datasets:[{
+                label:"Share (%)",
+                data:[35,20,10,8,5,22],
+                backgroundColor:"#0b8f54",
+                borderRadius:7
+            }]
+        },
+        options:{
+            responsive:true,
+            maintainAspectRatio:false,
+            scales:{
+                y:{
+                    beginAtZero:true,
+                    ticks:{
+                        callback:function(value){
+                            return value+"%";
+                        }
+                    }
+                }
+            },
+            plugins:{
+                legend:{
+                    display:false
+                }
+            }
+        }
+    });
+
+});
 </script>
+
 </body>
 </html>
